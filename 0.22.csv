@@ -1,0 +1,1042 @@
+Status,Status,Commit Hash,Message,Notes,Problem
+,,132e1d897f,build: Bump master version to 0.21.99,,FALSE
+,,4b24c3962f,Merge #19504: Bump minimum python version to 3.6,,FALSE
+,,4ae04090bb,Merge bitcoin-core/gui#118: Remove BDB version from the Information tab,,FALSE
+,,54532f46c4,Merge bitcoin-core/gui#109: wallet: Remove unused AskPassphraseDialog::Decrypt,,FALSE
+,,a64ff1c4d3,Merge #19905: Remove dead CheckForkWarningConditionsOnNewFork,,FALSE
+,,5bcae7967f,Merge #20408: CConnman: move initialization to declaration,,FALSE
+,,d020e8839f,Merge #20418: doc: clean out release notes post branch-off,,FALSE
+,,50e019a97a,Merge #20414: doc: Remove generated manual pages from master branch,,FALSE
+,K_Staged (merged to Kitty local repo),ea7926527c,Merge #20413: build: Require C++17 compiler,,FALSE
+,,cddcd22ab3,"Merge #20288: script, doc: contrib/seeds updates",,FALSE
+,K_Staged (merged to Kitty local repo),888c22e0dd,Merge #20359: depends: Various config.site.in improvements and linting,,FALSE
+,,47b6ad837c,Merge #20333: build: remove native_biplist dependency,,FALSE
+Done (Merged to dashpay),,e12ad7f383,Merge #19968: doc: clarify CRollingBloomFilter size estimate,,FALSE
+,P_Staged (merged to Pasta local repo),fbb2bee82d,Merge #20067: refactor: remove use of boost::algorithm::replace_first,,FALSE
+,,1cc5e693c1,Merge #20358: src/randomenv.cpp: fix build on uclibc,,FALSE
+,P_Staged (merged to Pasta local repo),d9180c50b6,Merge #20145: contrib: add getcoins.py script to get coins from (signet) faucet,,FALSE
+,,9ab9665c74,Merge #15710: wallet: Catch ios_base::failure specifically,,FALSE
+,,71d068db40,Merge #18531: rpc: remove deprecated CRPCCommand constructor,,FALSE
+Done (Merged to dashpay),,7aa94569ce,"Merge #20024: init: Fix incorrect warning ""Reducing -maxconnections from N to N-1, because of system limitations""",,FALSE
+,,c4d1e24f54,"Merge #20047: test: use wait_for_{block,header} helpers in p2p_fingerprint.py",,FALSE
+,,884bde510e,Merge #20291: [net] Consolidate logic around calling CAddrMan::Connected(),,FALSE
+,,848d66519c,"Merge #20054: Remove confusing and useless ""unexpected version"" warning",,FALSE
+,,04670ef81e,Merge #20385: test: run mempool_spend_coinbase.py even with wallet disabled,,FALSE
+,,db58b857f7,Merge #20329: docs/descriptors.md: Remove hardened marker in the path after xpub,,FALSE
+,,0a267f4eb8,Merge bitcoin-core/gui#46: refactor: Fix deprecation warnings when building against Qt 5.15,,FALSE
+,,2878167c18,"Merge #20000: test: fix creation of ""std::string""s with \0s",,FALSE
+,,46f0b2f976,Merge #19851: refactor: Extract ParseOpCode from ParseScript,,FALSE
+,,fdd068507d,Merge #20056: net: Use Span in ReceiveMsgBytes,,FALSE
+,,3d632c3f49,Merge #20428: tests: shrink feature_taproot transfer of funds tx,,FALSE
+Done (Merged to dashpay),,c45e1d9aa7,"Merge bitcoin-core/gui#21: Update pruning tooltip, original author BitcoinErrorLog",,FALSE
+,,094663842d,Merge bitcoin-core/gui#13: Hide peer detail view if multiple are selected,,FALSE
+,,4c2ee5c855,Merge #20424: build: Update univalue subtree,,FALSE
+,,ea460291f9,Merge #20430: sanitizers: Add suppression for unsigned-integer-overflow in libstdc++,,FALSE
+,,d4159984c3,Merge #20223: build: Drop the leading 0 from the version number,,FALSE
+,,816132e6eb,Merge #20426: wallet: allow zero-fee fundrawtransaction/walletcreatefundedpsbt and other fixes,,FALSE
+,,e9a1c9fbde,Merge #19867: build: document and cleanup Qt hacks,,FALSE
+,,1b75f2542d,Merge #20432: net: Treat raw message bytes as uint8_t,,FALSE
+,,86bf3ae3b5,Merge #20202: wallet: Make BDB support optional,,FALSE
+,,b0c9024a7c,Merge #20449: build: Fix Windows installer build,,FALSE
+,K_Staged (merged to Kitty local repo),555b5d1bf9,Merge #20419: build: set minimum supported macOS to 10.14,,FALSE
+,,2ee954daae,Merge #20458: test: add is_bdb_compiled helper,,FALSE
+,,cb89e18845,Merge #19179: ci: Run ci configs on cirrus,,FALSE
+,K_Staged (merged to Kitty local repo),7ebbee551d,Merge #19764: depends: Split boost into build/host packages + bump + cleanup,,FALSE
+,,6f9dac5ede,Merge #20473: doc: Document current boost dependency as 1.71.0,,FALSE
+,,3a32b62fa7,Merge #20462: RPC/Wallet: unloadwallet: Clarify docs/error when both the RPC request and wallet_name parameter specify a wallet,,FALSE
+,P_Staged (merged to Pasta local repo),9402159b9b,Merge #20472: test: Add testing of ParseInt/ParseUInt edge cases with leading +/-/0:s,,FALSE
+,,31c9987976,Merge #20447: depends: Patch qt_intersect_spans to avoid non-deterministic behavior in LLVM 8,,FALSE
+,,ca4a784942,Merge #20410: wallet: Do not treat default constructed types as None-type,,FALSE
+,,efd4cdb81f,Merge #20456: test: Fix intermittent issue in mempool_compatibility,,FALSE
+,,1e9e4b68f3,Merge #20469: build: Avoid secp256k1.h include from system,,FALSE
+,,afdfd3c8c1,"Merge #20403: wallet: upgradewallet fixes, improvements, test coverage",,FALSE
+,,5c0aebfcd4,Merge #19387: span: update constructors to match c++20 draft spec and add lifetimebound attribute,,FALSE
+,,19b8071eae,Merge #20489: CI msvc: only build vcpkg dependencies for release (not debug) to reduce build times,,FALSE
+,,50091592dd,Merge #19337: sync: detect double lock from the same thread,,FALSE
+,,e2ff5e7b35,Merge #20497: [Refactor] Add MAX_STANDARD_SCRIPTSIG_SIZE to policy,,FALSE
+,,1ae5758981,Merge #20448: RPC/Wallet: unloadwallet: Allow specifying wallet_name param matching RPC endpoint wallet,,FALSE
+,,854b36cfa2,"Merge bitcoin-core/gui#138: unlock encrypted wallet ""OK"" button bugfix",,FALSE
+,,7ae86b3c68,Merge #20522: [test] Fix sync issue in disconnect_p2ps,,FALSE
+,K_Staged (merged to Kitty local repo),2e1336dbfe,Merge #20471: build: use C++17 in depends,,FALSE
+,,817aeca57a,Merge #20491: refactor: Drop noop gcc version checks,,FALSE
+,,81d5af42f4,Merge #20499: Remove obsolete NODISCARD ifdef forest. Use [[nodiscard]] (C++17).,,FALSE
+,P_Staged (merged to Pasta local repo),ffd5e7a856,Merge #20519: Handle rename failure in DumpMempool(...) by using the RenameOver(...) return value. Add [[nodiscard]] to RenameOver(...).,,FALSE
+,,24e4857b29,Merge #20494: refactor: Move node and wallet code out of src/interfaces,,FALSE
+,,cd720337fe,Merge #20222: refactor: CTxMempool constructor clean up,,FALSE
+,,f2a673f15b,"Merge bitcoin-core/gui#137: refactor: Replace deprecated Qt::SystemLocale{Short,Long}Date",,FALSE
+,,335d27d081,Merge #20512: doc: Add bash as an OpenBSD dependency,,FALSE
+Done (Merged to dashpay),,dcb7518067,Merge #20496: build: Drop unneeded macOS framework dependencies,,FALSE
+,,277c225b84,Merge #20478: Don't set BDB flags when configuring without,,FALSE
+,,dfd0b70088,Merge #20425: fuzz: Make CAddrMan fuzzing harness deterministic,,FALSE
+,,f17e8ba3a1,Merge #20207: Follow-up extra comments on taproot code and tests,,FALSE
+,,80d4231e16,Merge #19980: refactor: Some wallet cleanups,,FALSE
+,,607c844f37,Merge #20540: test: Fix wallet_multiwallet issue on windows,,FALSE
+,,283f22cabb,Merge #20461: rpc: Validate -rpcauth arguments,,FALSE
+,,7f0f01f0ab,Merge #20507: sync: print proper lock order location when double lock is detected,,FALSE
+,,c33662a0ea,Merge #18948: qt: Call setParent() in the parent's context,,FALSE
+,,3693fccc3a,Merge #20543: ci: no-longer exclude feature_block in TSAN job,,FALSE
+,,0a13d15c14,"Merge #20530: lint, refactor: Update cppcheck linter to c++17 and improve explicit usage",,FALSE
+,,a35b948836,Merge #20545: ci: Adjust cirrus ci task names,,FALSE
+,,681ce59d0e,Merge #20466: test: Fix intermittent p2p_fingerprint issue,,FALSE
+,,a3186b6da6,Merge #20520: depends: Do not force Precompiled Headers (PCH) for building Qt on Linux,,FALSE
+,,3fa6a9fc8c,Merge #20506: ci: AppVeyor fixes for Visual Studio 2019 16.8.1 image,,FALSE
+,,a0489f3472,Merge #20221: net: compat.h related cleanup,,FALSE
+,,e2ae6a2bef,"Merge #20182: ci: Build with --enable-werror by default, and document exceptions",,FALSE
+,,257cf05f9b,Merge #20563: build: Check that Homebrew's berkeley-db4 package is actually installed,,FALSE
+,P_Staged (merged to Pasta local repo),ca759bc743,Merge #20200: doc: rename CODEOWNERS to REVIEWERS,,FALSE
+,,dca80ffb45,Merge #20255: util: Add Assume() identity function,,FALSE
+Done (Merged to dashpay),,9601c0d7aa,Merge #20565: Android : Ensure pic build for bdb,,FALSE
+,,c1604483d3,Merge #20566: refactor: Use C++17 std::array where possible,,FALSE
+,,751ffaabad,Merge #20562: tests: Test that a fully signed tx given to signrawtx is unchanged,,FALSE
+,,f35e4d906f,Merge #20572: ci: Adjust Cirrus CI task names (follow up),,FALSE
+,,9385549a31,"Merge #20581: Don't make ""in"" parameters look like ""out""/""in-out"" parameters: pass by ref to const instead of ref to non-const",,FALSE
+,,64156ad4d1,Merge #19893: test: Remove or explain syncwithvalidationinterfacequeue,,FALSE
+,,cef2efafce,"Merge #20577: doc: libconsensus: add missing error code description, fix NBitcoin link",,FALSE
+,,d0ca394596,Merge #20476: contrib: Add test for ELF symbol-check,,FALSE
+,,1a04f45fe9,Merge #19832: p2p: Put disconnecting logs into BCLog::NET category,,FALSE
+,,eab63b971d,"Merge #19847: rpc, refactor: Avoid duplicate set lookup in gettxoutproof",,FALSE
+Done (Merged to dashpay),,31438cc818,Merge #20482: Add depends qt fix for ARM macs,,FALSE
+,,f3e17686b3,Merge #20468: build: warn when generating man pages for binaries built from a dirty branch,,FALSE
+,,00f4dcd552,Merge #20138: net: Assume that SetCommonVersion is called at most once per peer,,FALSE
+,,03b1db6114,Merge #18766: Disable fee estimation in blocksonly mode (by removing the fee estimates global),,FALSE
+,,5c4911e7e7,Merge #20568: doc: Use FeeModes doc helper in estimatesmartfee,,FALSE
+,,d38feb6134,Merge #20535: test: Fix intermittent feature_taproot issue,,FALSE
+,,1a9fa4c5ba,Merge #20561: p2p: periodically clear m_addr_known,,FALSE
+,,16b31cc4c5,Merge #20422: build: mac deployment unification,,FALSE
+,,e98d1d6740,Merge #19425: refactor: Get rid of more redundant chain methods,,FALSE
+,,90ef622ab5,"Merge #20564: Don't send 'sendaddrv2' to pre-70016 software, and send before 'verack'",,FALSE
+,,a3586d5920,Merge #20323: tests: Create or use existing properly initialized NodeContexts,,FALSE
+,,795afe6e63,Merge #19910: net processing: Move peer_map to PeerManager,,FALSE
+,,42ed7f51fa,Merge #20606: Remove unused bits from service flags enum,,FALSE
+,,7212db4d2a,Merge #20602: util: Allow use of C++14 chrono literals,,FALSE
+,,0038ce9758,Merge #20603: build: Update crc32c subtree,,FALSE
+,,17918a987a,Merge #20046: depends: Set CMAKE_INSTALL_RPATH for native packages,,FALSE
+,,054710615c,Merge #20608: contrib: add symbol check test for PE binaries,,FALSE
+,,f5b2ea3e59,Merge #20217: net: Remove g_relay_txes,,FALSE
+,,22f13c1e08,"Merge #19776: net, rpc: expose high bandwidth mode state via getpeerinfo",,FALSE
+,,38176dc665,"Merge #20573: wallet, bugfix: allow send with string fee_rate amounts",,FALSE
+,,c8fdbb46bd,Merge #20609: configure: output notice that test binary is disabled by fuzzing,,FALSE
+,,eb53c03b36,Merge #20595: Improve heuristic hex transaction decoding,,FALSE
+,,dcff2ee1fb,Merge #20589: log: Clarify that failure to read/write fee_estimates.dat is non-fatal,,FALSE
+,,e20b488395,"Merge #20567: test: Add option to git-subtree-check to do full check, add help",,FALSE
+,,8e1f9d6273,Merge #20549: Support make src/bitcoin-node and src/bitcoin-gui,,FALSE
+,,86f2007193,Merge #20527: build: Do not ignore Homebrew's SQLite on macOS,,FALSE
+,,b76abae387,Merge #20587: [doc] Tidy up Tor doc (more stringent),,FALSE
+,,da957cd62e,Merge #20613: test: Use Popen.wait instead of RPC in assert_start_raises_init_error,,FALSE
+,,736eb4d808,Merge #19982: test: Fix inconsistent lock order in wallet_tests/CreateWallet,,FALSE
+,,6a48063671,Merge #19858: Periodically make block-relay connections and sync headers,,FALSE
+,,ffc4d04990,Merge #20275: wallet: List all wallets in non-SQLite and non-BDB builds,,FALSE
+,,b18978066d,Merge #20079: p2p: Treat handshake misbehavior like unknown message,,FALSE
+,,ade38b6ee8,Merge #20588: Remove unused and confusing CTransaction constructor,,FALSE
+,,25bc840e03,Merge #20617: p2p: Remove m_is_manual_connection from CNodeState,,FALSE
+,,096bd374da,Merge #20592: doc: update wtxidrelay documentation per BIP339,,FALSE
+,,eec9366f7d,Merge #20624: net processing: Remove nStartingHeight check from block relay,,FALSE
+,,b103fdcb3b,Merge #19763: net: don't try to relay to the address' originator,,FALSE
+,,fff7d056a9,Merge #20599: net processing: Tolerate sendheaders and sendcmpct messages before verack,,FALSE
+,,94a9cd25fd,Merge #20594: Fix getauxval calls in randomenv.cpp,,FALSE
+,,33d6337269,"Merge bitcoin-core/gui#115: Replace ""Hide tray icon"" option with positive ""Show tray icon"" one",,FALSE
+,,f1f2418433,Merge #20253: net: use std::chrono throughout maxOutbound logic,,FALSE
+,,70150824dc,"Merge #20437: fuzz: Avoid time-based ""non-determinism"" in fuzzing harnesses by using mocked GetTime()",,FALSE
+Done (Merged to dashpay),,ec6149c01e,Merge #20616: Check CJDNS address is valid,,FALSE
+,,a35a3466ef,Merge #20653: doc: Move addr relay comment in net to correct place,,FALSE
+,,8bb40d5f56,Merge #20560: fuzz: Link all targets once,,FALSE
+,,d9a4738c9d,Merge #20660: Move signet onion seed from v2 to v3,,FALSE
+,,c434e2cca9,Merge #20615: cirrus: Schedule one task with paid credits for faster CI feedback,,FALSE
+,,dff0f6f753,Merge #20611: Move TX_MAX_STANDARD_VERSION to policy,,FALSE
+,,b440c33179,Merge #20477: net: Add unit testing of node eviction logic,,FALSE
+Done (Merged to dashpay),,6af8a6232b,Merge #20650: depends: Drop workaround for a fixed bug in Qt build system,,FALSE
+,P_Staged (merged to Pasta local repo),a023094fc4,Merge #20276: test: run mempool_expiry.py even with wallet disabled,,FALSE
+,,2d4eeaf9c5,"Merge #20601: doc: Update for FreeBSD 12.2, add GUI Build Instructions",,FALSE
+,,9dbcd37105,Merge #20569: test: Fix intermittent wallet_multiwallet issue with got_loading_error,,FALSE
+,,3f205808a5,Merge #20605: init: Signal-safe instant shutdown,,FALSE
+,,69f1ee1922,Merge #20365: wallettool: add parameter to create descriptors wallet,,FALSE
+,,ad3d4b3929,Merge #20661: Only select from addrv2-capable peers for torv3 address relay,,FALSE
+,,5b6f970e3f,Merge #20171: Add functional test test_txid_inv_delay,,FALSE
+,,427f8c2cff,Merge #20248: test: fix length of R check in key_signature_tests,,FALSE
+,,ae9ee5bdb1,Merge #20651: net: Make p2p recv buffer timeout 20 minutes for all peers,,FALSE
+,,4acbcfa97d,Merge #20470: build: Replace genisoimage with xorriso,,FALSE
+,,1811e488d5,Merge #20575: Do not run functions with necessary side-effects in assert(),,FALSE
+,,6f2ca726ce,Merge #20658: ci: Move linter task to cirrus,,FALSE
+Done (Merged to dashpay),,8452f922d2,Merge #19050: doc: Add warning for rest interface limitation,,FALSE
+,,83abd6b126,Merge #20680: ci: Only use credits for pull requests to the main repo,,FALSE
+,,d0e76b5050,Merge bitcoin-core/gui#153: Define MAX_DIGITS_BTC for magic number in BitcoinUnits::format,,FALSE
+,,7ef6b1c51d,Merge #19961: doc: tor.md updates,,FALSE
+,,f0913f2f95,Merge #20677: doc: Remove shouty enums in net_processing comments,,FALSE
+,,cfbfd389f6,Merge #20668: doc: warn that incoming conns are unlikely when not using default ports,,FALSE
+,,af4ce674da,Merge #20635: fix misleading comment about call to non-existing function,,FALSE
+,,143bd108ed,Merge #19137: wallettool: Add dump and createfromdump commands,,FALSE
+,,190d3d8a75,Merge #20681: doc: Convert depends options list from html to markdown,,FALSE
+,,b7136c11ab,"Merge #20686: fuzz, refactor: replace CNode code with fuzz/util.h::ConsumeNode()",,FALSE
+,,816314ef0f,Merge #20644: Add patch to make codesign_allocate compatible with Apple's,,FALSE
+,,9b28bd73a3,"Merge #20691: ci, doc: Travis CI features and mentions cleanup",,FALSE
+,,b27104dc52,Merge #20687: wallet: Add missing check for -descriptors wallet tool option,,FALSE
+,,3dd3f7c0af,Merge bitcoin-core/gui#155: Fix checkbox layout in Create Wallet dialog,,FALSE
+,,20f4a9421b,Merge #20682: ci: Install missing lint packages,,FALSE
+,,83e4670fd7,Merge #20690: Clean up logging of outbound connection type,,FALSE
+,,f1dbf92ff0,Merge #20434: contrib: Parse ELF directly for symbol and security checks,,FALSE
+,,e9efb64a07,Merge #20733: inline non-member functions with body in fuzzing headers,,FALSE
+,,f061da2887,Merge #20697: ci: Fix COMMIT_RANGE variable value for PRs,,FALSE
+,,68c7acf6bb,Merge #20671: Replace boost::optional with std::optional,,FALSE
+,,1077c93a34,Merge #20692: test: run mempool_resurrect.py even with wallet disabled,,FALSE
+,,1d7243d307,Merge #20737: test: Add missing assignment in mempool_resurrect.py,,FALSE
+,,2556a973ed,Merge #20731: rpc: Add missing description of vout in getrawtransaction help text,,FALSE
+,,cc2a5ef9b2,Merge #20683: test: Fix restart node race,,FALSE
+,,f4ac48d30a,Merge #20735: script: Remove outdated extract-osx-sdk.sh,,FALSE
+,,209974d379,Merge #20740: fuzz: Update FuzzedDataProvider.h from upstream (LLVM),,FALSE
+,,df127ecede,Merge #19829: net processing: Move block inventory state to net_processing,,FALSE
+,,9286b1cbce,Merge #20745: qa: Correct epoll_ctl data race suppression,,FALSE
+,,98de9eb1aa,Merge #19983: Drop some TSan suppressions,,FALSE
+,,e669c3156f,Merge #20748: test: Add race:SendZmqMessage tsan suppression,,FALSE
+,,1be6f2dba9,Merge #20747: net processing: Remove dropmessagestest,,FALSE
+,,cc592a85ea,Merge #20189: test: Switch to BIP341's suggested scheme for outputs without script,,FALSE
+,,f656165e9c,Merge #18772: rpc: calculate fees in getblock using BlockUndo data,,FALSE
+Done (Merged to dashpay),,1b31695c74,Merge #20673: depends: Use more legible qmake commands in qt package,,FALSE
+,,443988d406,Merge #20761: fuzz: Check that NULL_DATA is unspendable,,FALSE
+,,22435f0cf6,Merge #20759: doc: [test] Remove outdated comment in fuzz runner,,FALSE
+,P_Staged (merged to Pasta local repo),762cbd287f,Merge #15451: [doc] clarify getdata limit after #14897,,FALSE
+,,43fc7a569c,Merge #19972: fuzz: Add fuzzing harness for node eviction logic,,FALSE
+,,02cf20b9f5,Merge #20756: [doc] Add missing field (permissions) to the getpeerinfo help,,FALSE
+,,31e511658a,Merge #20674: fuzz: Call SendMessages after ProcessMessage to increase coverage,,FALSE
+Done (Merged to dashpay),,0e1b57b4bb,Merge #20763: test: Fix comment typo in BitcoinTestFramework,,FALSE
+,,4a8f4ac4fc,Merge #20771: refactor: Enable -Wswitch for FeeEstimateHorizon,,FALSE
+,,ddbf7a6f50,Merge #20684: build: Define .INTERMEDIATE target once only,,FALSE
+,,7f9ae87011,Merge #20451: lint: run mypy over contrib/devtools,,FALSE
+,,e3dd0a56cf,Merge #20755: [rpc] Remove deprecated fields from getpeerinfo,,FALSE
+,,d875bcc8f9,Merge #162: Add network to peers window and peer details,,FALSE
+,,069f37c0fd,Merge #20791: p2p: remove unused legacyWhitelisted in AcceptConnection(),,FALSE
+,,f1f26b8d5b,Merge #20377: fuzz: Fill various small fuzzing gaps,,FALSE
+,,409afd7153,Merge #20812: fuzz: Bump FuzzedDataProvider.h,,FALSE
+,,4a540683ec,Merge #20813: scripted-diff: Bump copyright headers,,FALSE
+,,e75f91eae3,Merge #20805: doc: Update license year range to 2021,,FALSE
+,,ae8f797135,"Merge #20210: net: assert CNode::m_inbound_onion is inbound in ctor, add getter, unit tests",,FALSE
+,,6f97172b42,Merge #20649: refactor: Remove nMyStartingHeight from CNode/Connman,,FALSE
+,,9c3765ad7c,Merge #20830: doc: update developer notes with signet,,FALSE
+,P_Staged (merged to Pasta local repo),6e70674cda,Merge #20781: fuzz: remove no-longer-necessary packages from fuzzbuzz config,,FALSE
+,,2dab2d239a,Merge #20765: fuzz: check that certain script TxoutType are nonstandard,,FALSE
+,,9a2400b575,Merge #20760: test: Set correct nValue for multi-op-return policy check,,FALSE
+,,f52f427b8e,"Merge #20817: lint: update list of spelling linter false positives, bump to codespell 2.0.0",,FALSE
+,,bc8ada1c15,Merge #20736: rpc: Replace boost::variant with std::variant for RPCArg.m_fallback,,FALSE
+,,8b6acaca2f,Merge #20848: Add gitian PGP key for theStack,,FALSE
+,,8d6715666d,Merge #20846: Add benthecarman to keys.txt,,FALSE
+,,ff6adac5f4,Merge #20847: gitian-keys: add darosior's key,,FALSE
+,,b40254b232,"Merge #20855: Revert ""Add patch to make codesign_allocate compatible with Apple's""",,FALSE
+,,c37600777e,Merge #20854: [mempool] Remove unnecessary try-block,,FALSE
+,,34322b7f5c,Merge #20842: docs: consolidate typo & url fixing,,FALSE
+,,fafd725a7c,Merge #19846: build: enable unused member function diagnostic,,FALSE
+,,417f95fa45,"Merge #19915: p2p, refactor: Use Mutex type for some mutexes in CNode class",,FALSE
+,,4eada5d8b1,Merge #20816: net: Move RecordBytesSent() call out of cs_vSend lock,,FALSE
+,,e520e091db,Merge #20844: test: Add sanitizer suppressions for AMD EPYC CPUs,,FALSE
+,,68196a8910,Merge #20860: gitian-keys: add key for guggero,,FALSE
+,,3b6d1b61d3,Merge #20829: doc: add -netinfo help,,FALSE
+,,f13e03cda2,Merge #20584: Declare de facto const reference variables/member functions as const,,FALSE
+,,8a720ced5f,Merge bitcoin-core/gui#165: Save QSplitter state in QSettings,,FALSE
+,,efe03ceb58,Merge #20859: gitian-keys: add miketwenty1 key,,FALSE
+,,42675e7833,Merge #20864: net: Move SocketSendData lock annotation to header,,FALSE
+Done (Merged to dashpay),,4b8b71e630,Merge bitcoin-core/gui#173: Follow Qt docs when implementing rowCount and columnCount,,FALSE
+,,3a6acd1772,Merge #20789: fuzz: Rework strong and weak net enum fuzzing,,FALSE
+,,b6a71b80d2,Merge #19055: Add MuHash3072 implementation,,FALSE
+,,d7e2401c62,Merge #18077: net: Add NAT-PMP port forwarding support,,FALSE
+,,86a8b35f32,Merge #14501: Fix possible data race when committing block files,,FALSE
+,K_Staged (merged to Kitty local repo),76b45d5fd7,Merge #19683: depends: Pin clang search paths for darwin host,,FALSE
+,,5082324225,Merge #20688: test: run mempool_compatibility.py even with wallet disabled,,FALSE
+,,1e078f17b5,Merge #20882: fuzz: Add missing muhash registration,,FALSE
+,,9158d6f341,Merge #20786: net: [refactor] Prefer integral types in CNodeStats,,FALSE
+,P_Staged (merged to Pasta local repo),5574e48963,Merge #20741: doc: Update 'Secure string handling',,FALSE
+,,708ef4424a,Merge #20890: doc: Add explicit macdeployqtplus dependencies install step,,FALSE
+,,555fc0789d,Merge #20881: fuzz: net permission flags in net processing,,FALSE
+,,944024309,Merge bitcoin-core/gui#163: Peer details: replace Direction with Connection Type,,FALSE
+,,c4458cc3a1,Merge #18819: net: Replace cs_feeFilter with simple std::atomic,,FALSE
+,,bd6af53e1f,Merge #20480: Replace boost::variant with std::variant,,FALSE
+,,9c0b76c709,Merge #20876: test: Replace getmempoolentry with testmempoolaccept in MiniWallet,,FALSE
+,,616eace02a,Merge bitcoin-core/gui#161: Add PeerTableModel::StatsRole to prevent data layer violation,,FALSE
+,,675af2a515,Merge #20852: net: allow CSubNet of non-IP networks,,FALSE
+,,5cce607105,"Merge #20373: refactor, net: Increase CNode data member encapsulation",,FALSE
+,,6d81d7aa87,"Merge #20787: Use C++17 std::array deduction for OUTPUT_TYPES, ALL_FEE_ESTIMATE_HORIZONS",,FALSE
+,,6af013792f,Merge #19315: [tests] Allow outbound & block-relay-only connections in functional tests.,,FALSE
+,,7838db141b,Merge #20495: sync: Use decltype(auto) return type for WITH_LOCK,,FALSE
+,,18017152c2,Merge #20619: guix: Quality of life improvements,,FALSE
+,,7b975639ef,Merge #19937: signet mining utility,,FALSE
+,,8ffaf5c2f5,Merge #19935: Move SaltedHashers to separate file and add some new ones,,FALSE
+,,60427ee35f,Merge #20811: refactor: move net_processing implementation details out of header,,FALSE
+,,e7eb37128c,Merge #20913: doc: Add manual page generation for bitcoin-util,,FALSE
+,,22fa9673b0,"Merge #20917: doc, rpc: add missing signet mentions in network name lists",,FALSE
+,,cb2c578451,"Merge bitcoin-core/gui#148: Bugfix: GUI: Restore SendConfirmationDialog button default to ""Yes""",,FALSE
+,,ad571bd354,Merge #20931: doc: Add historic 0.21.0 release notes,,FALSE
+,,29d2aeb4a2,Merge #20828: fuzz: Introduce CallOneOf helper to replace switch-case,,FALSE
+,,f91587f050,Merge #20834: locks and docs in ATMP and CheckInputsFromMempoolAndCache,,FALSE
+,,0a1cf6c347,Merge #20908: fuzz: Use mocktime in process_message* fuzz targets,,FALSE
+,,32e59fc371,Merge #20916: rpc: Return wtxid from testmempoolaccept,,FALSE
+,,30e664dcce,Merge #20945: Fix 0.21.0 release note to specify correct option BIP 157 support,,FALSE
+,,7acda55c4f,Merge #20939: build: fix RELOC_SECTION security check for bitcoin-util,,FALSE
+,,c763cacb88,Merge #20938: build: fix linking against -latomic when building for riscv,,FALSE
+,,991e612c3b,Merge #20955: test: Fix get_previous_releases.py for aarch64,,FALSE
+,,ca8218301b,Merge #20884: script: Improve robustness of bitcoind.service on startup,,FALSE
+,,f7fd76bcc0,Merge #20880: gitian: Use custom MacOS code signing tool,,FALSE
+,,43f3ada27b,Merge #19866: eBPF Linux tracepoints,,FALSE
+,,dd545c53a5,Merge #20906: contrib: embed C++11 patch in install_db4.sh,,FALSE
+,,bc51b99bd5,Merge #20891: rpc: Remove deprecated bumpfee behavior,,FALSE
+,,977bec1d93,Merge #20937: guix: Make nsis reproducible by respecting SOURCE-DATE-EPOCH,,FALSE
+,,80486e7e2d,Merge #20952: wallet: Add BerkeleyDB version sanity check at init time,,FALSE
+,,3734adba39,"Merge #20953: test: dedup zmq test setup code (node restart, topics subscription)",,FALSE
+,,85fee49c39,Merge #20946: fuzz: Consolidate fuzzing TestingSetup initialization,,FALSE
+,,1f45e85509,Merge #20972: locks: Annotate CTxMemPool::check to require cs_main,,FALSE
+,,11cbd4bb54,Merge #17556: test: Change feature_config_args.py not to rely on strange regtest=0 behavior,,FALSE
+,,45952dab9d,Merge #20932: refactor: Replace fs::absolute calls with AbsPathJoin calls,,FALSE
+,,53bbbe5a20,Merge bitcoin-core/gui#171: Use layout manager for Create Wallet dialog,,FALSE
+,,7f653c3b22,Merge bitcoin-core/gui#176: Fix TxViewDelegate layout,,FALSE
+,,d6c3c43ef8,Merge #20983: Fix MSVC build after gui#176,,FALSE
+,,019aa248d9,Merge #17920: guix: Build support for macOS,,FALSE
+,,4bd586607d,Merge #20523: zmq: deduplicate 'sequence' publisher message creation/sending,,FALSE
+,,b7e12b350d,Merge #20985: doc: add xorriso to macOS depends packages,,FALSE
+,,32b191fb66,Merge #20927: [refactor] [net] Clean up InactivityCheck(),,FALSE
+,,e31af1065e,Merge #20989: gitian-keys: add CoinForensics key,,FALSE
+,,f707fcde9a,"Merge #20958: gitian-keys: Add signer aliases, some historical keys",,FALSE
+,,d0852f39a7,Merge #20998: test: Fix BlockToJsonVerbose benchmark,,FALSE
+,,b386d37360,Merge #18710: Add local thread pool to CCheckQueue,,FALSE
+,,52d84a45e2,Merge #20987: doc: add instructions for generating RPC docs,,FALSE
+,,4b15ffe991,Merge #20832: rpc: Better error messages for invalid addresses,,FALSE
+,,16ae3368f2,Merge #17350: doc: Add developer documentation to isminetype,,FALSE
+,,280d0bd0bd,Merge #21010: refactor: remove straggling boost::mutex usage,,FALSE
+Done (Merged to dashpay),,cbe439629e,Merge bitcoin-core/gui#167: raise helpMessageDialog,,FALSE
+,,ce75fc36ed,Merge #20971: test: Work around libFuzzer deadlock,,FALSE
+,,32d44d2b1c,Merge #21000: fuzz: Add UBSan suppressions needed for fuzz tests to not warn under -fsanitize=integer,,FALSE
+,,d38e2d9a19,"Merge bitcoin-core/gui#186: Add information to ""Confirm fee bump"" window",,FALSE
+,,5f65f13597,Merge bitcoin-core/gui#189: qt: drop workaround for QTBUG-42503 which was fixed in Qt 5.5.0,,FALSE
+,,e130ff38c9,Merge bitcoin-core/gui#183: Add include for std::bind.,,FALSE
+,,11d3b58336,Merge #20757: doc: tor.md and -onlynet help updates,,FALSE
+,,15a9df0706,"Merge #20964: rpc: Add specific error code for ""wallet already loaded""",,FALSE
+,,d1ddead09a,Merge #180: Peer details: connection type follow-ups,,FALSE
+,,9deba2de76,"Merge #20226: wallet, rpc: add listdescriptors command",,FALSE
+,,02b01651c5,"Merge bitcoin-core/gui#177: Use ""fusion"" style on macOS Big Sur with old Qt",,FALSE
+,,7595183543,Merge bitcoin-core/gui#72: util: Log static plugins meta data and used style,,FALSE
+,,68692d33c6,"Merge bitcoin-core/gui#85: Remove unused ""What's This"" button in dialogs on Windows OS",,FALSE
+,,4d5eaf7a90,Merge #20995: fuzz: Avoid initializing version to less than MIN_PEER_PROTO_VERSION,,FALSE
+,,6ba2ffd28b,Merge #21004: contrib: Fix docker args conditional in gitian-build,,FALSE
+,,80e16cadd5,Merge #20012: rpc: Remove duplicate name and argNames from CRPCCommand,,FALSE
+,,6a726cb534,Merge #20963: gitian-linux: Build binaries for 64-bit POWER (continued),,FALSE
+,,e213382920,"Merge #21029: bitcoin-cli: Correct docs (no ""generatenewaddress"" exists)",,FALSE
+,,bc5f26d4ee,Merge bitcoin-core/gui#139: doc: Improve gui/src/qt README.md,,FALSE
+,,40dd757bf6,Merge #21012: ci: Fuzz with integer sanitizer,,FALSE
+,,c8b83510f4,Merge #20724: Cleanup of -debug=net log messages,,FALSE
+,,16b784d953,Merge #20689: contrib: replace binary verification script verify.sh with python rewrite,,FALSE
+,,1f514332ed,Merge #21037: fuzz: Avoid designated initialization (C++20) in fuzz tests,,FALSE
+,,4c55f92c76,Merge #20954: test: Declare `nodes` type in test_framework.py.,,FALSE
+,,7dc4807691,Merge #20040: wallet: Refactor OutputGroups to handle fees and spending eligibility on grouping,,FALSE
+,,87394b6741,Merge #20868: validation: remove redundant check on pindex,,FALSE
+,,636e754a81,Merge #20941: rpc: document RPC_TRANSACTION_ALREADY_IN_CHAIN exception,,FALSE
+,,44f4bcd302,Merge #20749: [Bundle 1/n] Prune g_chainman usage related to ::LookupBlockIndex,,FALSE
+,,d0d256536c,Merge #21016: refactor: remove boost::thread_group usage,,FALSE
+,,56fcf93349,Merge #21026: doc: Document use of make-tag script to make tags,,FALSE
+,,2c0fc856a6,Merge #20464: refactor: Treat CDataStream bytes as uint8_t,,FALSE
+,,f72d80b07a,Merge #21051: Fix -Wmismatched-tags warnings,,FALSE
+,,1e69800d5e,Merge #21059: Drop boost/preprocessor dependencies,,FALSE
+,,384e090f93,Merge #19509: Per-Peer Message Capture,,FALSE
+,,ea96e17e1f,Merge #21060: doc: More precise -debug and -debugexclude doc,,FALSE
+Done (Merged to dashpay),,5f18080c29,Merge #21065: build: make macOS HOST in download-osx generic,,FALSE
+,,5a429d3d0f,Merge #21049: Add release notes for listdescriptors RPC,,FALSE
+,,4e946ebcf1,Merge #20715: util: Add ArgsManager::GetCommand() and use it in bitcoin-wallet,,FALSE
+,,f1239b70d1,Merge #21025: validation: Guard chainman chainstates with cs_main,,FALSE
+,,ea5a50f92a,"Merge #21042: doc, test: Improve setup_clean_chain documentation",,FALSE
+,,4013e44c74,Merge #21082: refactor: Treat ArgsManager::Flags as uint32_t explicitly,,FALSE
+,,01d2cf2674,Merge #21080: fuzz: Configure check for main function (take 2),,FALSE
+,,53730a78bc,Merge #21077: doc: clarify -timeout and -peertimeout config options,,FALSE
+,,3931732191,Merge #20646: doc: refer to BIPs 339/155 in feature negotiation,,FALSE
+,,a6b1bf6439,Merge #20267: Disable and fix tests for when BDB is not compiled,,FALSE
+,,b829894f84,Merge #20764: cli -netinfo peer connections dashboard updates 🎄 ✨,,FALSE
+,,173cf31299,"Merge #20839: fuzz: Avoid extraneous copy of input data, using Span<>",,FALSE
+,,6c6140846f,"Merge bitcoin-core/gui#203: Display plain ""Inbound"" in peer details",,FALSE
+,,1815847103,Merge #21105: docs: correctly identify script type,,FALSE
+,,cf26ca3911,Merge #21081: test: fix the unreachable code at feature_taproot,,FALSE
+,,8636288db1,Merge #20720: build: more robustly check for fcf-protection support,,FALSE
+,,e51f6c4dee,Merge #20936: build: build fuzz tests by default,,FALSE
+Done (Merged to dashpay),,c969ab43c3,Merge #21084: test: fix timeout decrease in feature_assumevalid,,FALSE
+,,ca85449f22,Merge #21036: gitian: Bump descriptors to Focal for 22.0,,FALSE
+,,b401b09355,Merge #21107: test: remove type: comments in favour of actual annotations,,FALSE
+,,b09ad737ee,Merge #20944: rpc: Return total fee in getmempoolinfo,,FALSE
+,,d864696649,Merge #21115: test: Fix Windows cross build,,FALSE
+,,a0077a80b0,Merge #21116: build: Disable --disable-fuzz-binary for gitian/guix builds,,FALSE
+,,c4214d0e0d,Merge #21117: test: remove assert_blockchain_height,,FALSE
+,,19b1ceddc7,Merge #21075: doc: Fix markdown formatting,,FALSE
+,,3641ec1aac,Merge #21112: ci: use Focal for macOS cross builds,,FALSE
+Done (Merged to dashpay),,b847f49717,Merge #20557: addrman: Fix new table bucketing during unserialization,,FALSE
+,,d48f9e8ebb,Merge #21124: test: remove unnecessary assignment in bdb,,FALSE
+,,d202054675,Merge #21052: refactor: Replace fs::unique_path with GetUniquePath(path) calls,,FALSE
+,,09530b0255,Merge #21126: ci: Properly bump to focal for win cross build,,FALSE
+,,f61c3a1090,Merge #21125: test: Change BOOST_CHECK to BOOST_CHECK_EQUAL for paths,,FALSE
+,,cda914228a,Merge #21138: ci: Re-run wine tests once if they fail,,FALSE
+Done (Merged to dashpay),,b3dda0af0e,Merge #21123: code style: Add EditorConfig file,,FALSE
+,,3c514cfe62,Merge #21114: Deduplicate some block-to-JSON code,,FALSE
+,,deb185d2fd,Merge #21130: script: Make LXC container size suitable for gitian builds,,FALSE
+,,b69eab9025,Merge #20663: fuzz: Hide script_assets_test_minimizer,,FALSE
+,,dd0521b640,Merge #21023: fuzz: Disable shuffle when merge=1,,FALSE
+,,a59e7ed0bc,Merge #20915: fuzz: Fail if message type is not fuzzed,,FALSE
+,,e498aeffbe,Merge #20211: Use -Wswitch for TxoutType where possible,,FALSE
+,,685c16fcb2,Merge #21043: net: Avoid UBSan warning in ProcessMessage(...),,FALSE
+,,a1be08405d,Merge #20788: net: add RAII socket and use it instead of bare SOCKET,,FALSE
+,,8e1913ae02,Merge #21062: refactor: return MempoolAcceptResult from ATMP,,FALSE
+,,0ad4656790,Merge #20370: fuzz: version handshake,,FALSE
+,,937dfa8398,"Merge #21041: log: Move ""Pre-allocating up to position 0x[…] in […].dat"" log message to debug category",,FALSE
+,,8d82eddee6,Merge #19145: Add hash_type MUHASH for gettxoutsetinfo,,FALSE
+,,54b66a6e5f,Merge #19522: build: fix building libconsensus with reduced exports for Darwin targets,,FALSE
+,K_Staged (merged to Kitty local repo),9996b1806a,Merge #21064: refactor: use std::shared_mutex & remove Boost Thread,,FALSE
+,,e9c037ba64,Merge #19884: p2p: No delay in adding fixed seeds if -dnsseed=0 and peers.dat is empty,,FALSE
+,,bf3189eda6,Merge #21165: test: Use mocktime in test_seed_peers,,FALSE
+,,b08cbd09b8,"Merge #21028: doc/bips: Add BIPs 43, 44, 49, and 84",,FALSE
+,,43981ee2c8,Merge #21127: wallet: load flags before everything else,,FALSE
+,,e4f0c4cd73,Merge #21163: doc: Guix is shipped in Debian and Ubuntu,,FALSE
+Done (Merged to dashpay),,df8892dc9f,Merge #20986: docs: update developer notes to discourage very long lines,,FALSE
+,,51397c0ff7,Merge #20629: depends: Improve id string robustness,,FALSE
+,,45ea103f8f,Merge #20942: [refactor] Move some net_processing globals into PeerManagerImpl,,FALSE
+,,8d6994f93d,Merge #21100: test: remove unused function xor_bytes,,FALSE
+,,d19639d2b6,Merge #21096: Re-add dead code detection,,FALSE
+,,cb073bed00,"Merge #21167: net: make CNode::m_inbound_onion public, initialize explicitly",,FALSE
+,,489030f2a8,"Merge #20965: net, rpc:  return NET_UNROUTABLE as not_publicly_routable, automate helps",,FALSE
+,,b55dc3ad84,Merge #21185: fuzz: Remove expensive and redundant muhash from crypto fuzz target,,FALSE
+,,9bbf08bf98,Merge #20721: Net: Move ping data to net_processing,,FALSE
+,,3c9d9d21e1,"Merge #21008: test: fix zmq test flakiness, improve speed",,FALSE
+,,92fee79dab,Merge #19806: validation: UTXO snapshot activation,,FALSE
+,,7c8e605bf4,Merge #21159: test: fix sign comparison warning in socket tests,,FALSE
+,,36be9b821a,Merge #21087: guix: Passthrough BASE_CACHE into container,,FALSE
+,,69f7f50aa5,Merge #20993: test: store subversion (user agent) as string in msg_version,,FALSE
+,,7f831346cb,Merge #20380: doc: Add instructions on how to fuzz the P2P layer using Honggfuzz NetDriver,,FALSE
+,,8639c446d8,Merge #21188: scripted-diff: Remove redundant lock annotations in net processing,,FALSE
+,,569b5ba1dc,"Merge #21121: [test] Small unit test improvements, including helper to make mempool transaction",,FALSE
+,,4dc1ff809a,Merge #21192: cli: Treat high detail levels as maximum in -netinfo,,FALSE
+,,04336086d3,Merge #21182: build: remove mostly pointless BOOST_PROCESS macro,,FALSE
+,,372dd8da24,Merge #21110: util: remove Boost posix_time usage from GetTime*,,FALSE
+,,cd66d8b1d8,Merge #20429: refactor: replace (sizeof(a)/sizeof(a[0])) with C++17 std::size,,FALSE
+,,9017d55e7c,Merge #15946: Allow maintaining the blockfilterindex when using prune,,FALSE
+,,db656db2ed,Merge #19136: wallet: add parent_desc to getaddressinfo,,FALSE
+,,860f916803,Merge #20524: test: Move MIN_VERSION_SUPPORTED to p2p.py,,FALSE
+,,b805dbb0b9,Merge #19809: log: Prefix log messages with function name and source code location if -logsourcelocations is set,,FALSE
+,,3a2d5bfeb3,Merge #21201: rpc: Disallow sendtoaddress and sendmany when private keys disabled,,FALSE
+,,9f3ffa2938,Merge #21230: test: Fix NODE_NETWORK_LIMITED_MIN_BLOCKS disconnection,,FALSE
+,,04e01606e3,Merge #21205: build: actually fail when Boost is missing,,FALSE
+,,56fe4bb3c5,Merge #21210: doc: Rework internal and external links,,FALSE
+,,f093310b2e,Merge #21228: test: Avoid comparision of integers with different signs,,FALSE
+,,f1c2f619a6,Merge #21221: [tools] Allow argument/parameter bin packing in clang-format,,FALSE
+,,6a680a6236,Merge #21226: build: Fix fuzz binary compilation under windows,,FALSE
+,,09eb46c943,Merge #21187: Net processing: Only call PushAddress() from net_processing,,FALSE
+,,f1c339d452,Merge #21211: test: Move P2WSH_OP_TRUE to shared test library,,FALSE
+,,c46fe4d107,Merge #21088: guix: Jump forwards in time-machine and adapt,,FALSE
+,,828bb776d2,Merge #20750: [Bundle 2/n] Prune g_chainman usage in mempool-related validation functions,,FALSE
+,,5bb64acd9d,Merge #21243: ci: Avoid invoking curl on the host,,FALSE
+,,02fda8267a,"Merge bitcoin-core/gui#179: Add `Type` column to peers window, update peer details name/tooltip",,FALSE
+,,8d7d5f257b,Merge bitcoin-core/gui#202: peers-tab: bug fix right panel toggle,,FALSE
+,,fd725c2d79,Merge bitcoin-core/gui#204: Drop buggy TableViewLastColumnResizingFixer class,,FALSE
+,,0e9596c860,Merge bitcoin-core/gui#205: Save/restore TransactionView and recentRequestsView tables column sizes,,FALSE
+,,08eec6907a,"Merge bitcoin-core/gui#206: Display fRelayTxes and bip152_highbandwidth_{to, from} in peer details",,FALSE
+,,5e4a3ca2f4,Merge bitcoin-core/gui#211: qt: Remove Transactionview Edit Label Action,,FALSE
+,,4b6ca4a35a,Merge #20845: net: Log to net debug in MaybeDiscourageAndDisconnect except for noban and manual peers,,FALSE
+,,34d7030063,Merge #21202: [validation] Two small clang lock annotation improvements,,FALSE
+,,84af29337c,Merge #21255: contrib: run test-symbol-check for RISC-V,,FALSE
+,,7fca189a2a,Merge #79: Embed monospaced font,,FALSE
+,,64343a6110,"Merge #21089: guix: Add support for powerpc64{,le}",,FALSE
+,,3371758af4,Merge #21078: guix: only download sources for hosts being built,,FALSE
+Done (Merged to dashpay),,1e7dd584a5,Merge #21263: doc: Clarify that squashing should happen before review,,FALSE
+,,d386b54239,Merge bitcoin-core/gui#213: qt: Add Copy Address Action to Payment Requests,,FALSE
+,,c263c3d7d2,Merge #19698: test: apply strict verification flags for transaction tests and assert backwards compatibility,,FALSE
+,,84f6c695c6,Merge #21274: assumptions:  Assume C++17,,FALSE
+,,78effb37f3,Merge #21222: log: Clarify log message when file does not exist,,FALSE
+,,a9335e4f12,Merge #16546: External signer support - Wallet Box edition,,FALSE
+,,1b045b5eef,"Merge #21053: rpc, test: document {previous,next}blockhash as optional",,FALSE
+,,2e8116149c,Merge #21250: build: make HAVE_O_CLOEXEC available outside LevelDB (bugfix),,FALSE
+,,587c986ccf,Merge #21285: wallet: fix doc typo in signer option,,FALSE
+,,b59f2787e5,Merge #18017: txmempool: split epoch logic into class,,FALSE
+,,9307c588d0,Merge #21293: test: Replace accidentally placed bit-OR with logical-OR,,FALSE
+,,b54a10e777,"Merge #21292: build, doc: Fix configure script output indentation and typos",,FALSE
+,,56f06a9863,Merge #21271: guix: Explicitly set umask in build container,,FALSE
+,,434065a483,Merge bitcoin-core/gui#219: qt: Prevent the main window popup menu,,FALSE
+,,09bc7bfed1,Merge bitcoin-core/gui#214: qt: Disable requests context menu actions when appropriate,,FALSE
+,,8ca6bd0dac,"Merge bitcoin-core/gui#223: qt: Re-add and rename transaction ""Edit Label"" action",,FALSE
+,,2059d32edb,Merge #21200: test: Speed up rpc_blockchain.py by removing miniwallet.generate(),,FALSE
+,,1b1d8bde1c,Merge #21252: test: Add missing wait for sync to feature_blockfilterindex_prune,,FALSE
+,,cac10e66d2,Merge #21264: fuzz: Two scripted diff renames,,FALSE
+,,c0e44ee8e4,Merge #21254: test: Avoid connecting to real network when running tests,,FALSE
+,,e49117470b,"Merge bitcoin-core/gui#226: Add ""Last Block"" and ""Last Tx"" rows to peer details area",,FALSE
+,,8d37841cdf,Merge #21277: wallet: listdescriptors uses normalized descriptor form,,FALSE
+,,5ba5becbb5,Merge #21272: guix: Passthrough SDK_PATH into container,,FALSE
+,,fb67caebe2,Merge #21297: test: feature_blockfilterindex_prune.py improvements,,FALSE
+,,e52ce9f2b3,Merge #21286: build: Bump minimum Qt version to 5.9.5,,FALSE
+,,362e901a17,"Merge #18466: rpc: fix invalid parameter error codes for {sign,verify}message RPCs",,FALSE
+,,ad89812c70,Merge #21321: guix: Add curl to required tool list,,FALSE
+,,05e821ee19,Merge #21170: bench: Add benchmark to write JSON into a string,,FALSE
+,,d1abe54fce,"Merge #21323: guix, doc: Update default HOSTS value",,FALSE
+,,a28c053c88,"Merge #21298: guix: Bump time-machine, glibc, and linux-headers",,FALSE
+,,72e6979b31,Merge #21325: lint: Fix spelling errors in comments,,FALSE
+,,cfce346508,Merge #21310: zmq test: fix sync-up by matching notification to generated block,,FALSE
+,,b9f41df1ea,Merge #20685: Add I2P support using I2P SAM,,FALSE
+,,0b294c0ba8,Merge #21342: doc: Remove outdated comment,,FALSE
+,,0459e7abba,Merge #21336: Make .gitignore ignore src/test/fuzz/fuzz.exe,,FALSE
+,,3a8fc51a56,Merge #21333: build: set Unicode true for NSIS installer,,FALSE
+,,4f223e93e9,Merge #21339: build: Make AM_CONDITIONAL([ENABLE_EXTERNAL_SIGNER]) unconditional,,FALSE
+,,fca3e98f64,Merge #18298: build: Fix Qt processing of configure script for depends with DEBUG=1,,FALSE
+,,9212e67463,Merge #21346: doc: install qt5 when building on macOS,,FALSE
+,,dd8f474d52,Merge #19288: fuzz: Add fuzzing harness for TorController,,FALSE
+,,b1a457ab1d,Merge #21324: doc: Update build instructions for Fedora,,FALSE
+,,97a35f3ae5,Merge #21320: build: fix libnatpmp macos cross compile,,FALSE
+,,ebd8d66454,Merge #19203: net: Add regression fuzz harness for CVE-2017-18350. Add FuzzedSocket.,,FALSE
+,,cabe63759c,Merge #20877: netinfo: user help and argument parsing improvements,,FALSE
+,,47b99ab1a9,Merge #20406: util: Avoid invalid integer negation in FormatMoney and ValueFromAmount,,FALSE
+,,d099894ec1,Merge #20969: test: check that getblockfilter RPC fails without block filter index,,FALSE
+,,92b7efcf54,Merge #21148: Split orphan handling from net_processing into txorphanage,,FALSE
+,,33921379b6,Merge #21015: Make all of net_processing (and some of net) use std::chrono types,,FALSE
+,,7450a01691,Merge #21358: fuzz: Add missing include (test/util/setup_common.h),,FALSE
+,,83bdbbd300,"Merge #21003: test: Move MakeNoLogFileContext to libtest_util, and use it in bench",,FALSE
+,,702cfc8c53,Merge #21055: [Bundle 3/n] Prune remaining g_chainman usage in validation functions,,FALSE
+,,b4d22654fe,Merge #21337: guix: Update darwin native packages dependencies,,FALSE
+,,2620ac4ec3,"Merge #21354: build, doc: Drop no longer required packages from macOS cross-compiling dependencies",,FALSE
+,,fbf5d16238,Merge #21246: doc: Correction for VerifyTaprootCommitment comments,,FALSE
+,,da8c7edffe,Merge #21364: fuzz: Avoid -Wreturn-type warnings,,FALSE
+,,f7653eb5ae,Merge #21345: test: bring p2p_leak.py up to date,,FALSE
+,,ed25cb58f6,Merge bitcoin-core/gui#217: qt: Make warning label look clickable,,FALSE
+,,48725e64fb,Merge #21209: build: use newer source for libnatpmp,,FALSE
+,,1020b04c39,Merge #21334: test: Additional (refactored) BIP9 tests,,FALSE
+,,8c21562180,Merge bitcoin-core/gui#166: refactor: Use enum type as switch argument in *TableModel,,FALSE
+,,8c049fe9af,Merge #19771: net: Replace enum CConnMan::NumConnections with enum class ConnectionDirection,,FALSE
+,,1a4a9305c2,"Merge bitcoin-core/gui#221: qt, refactor: rpcconsole translatable string fixes and improvements",,FALSE
+,,e797388f8b,Merge #21384: doc: add signet to bitcoin.conf documentation,,FALSE
+,,a22653a636,Merge #21371: fuzz: fix gcc Woverloaded-virtual build warnings,,FALSE
+,,2067f9e5e8,Merge bitcoin-core/gui#233: qt test: Don't bind to regtest port,,FALSE
+,,a8b0892b74,"Merge #20536: wallet: Error with ""Transaction too large"" if the funded tx will end up being too large after signing",,FALSE
+,,6c156e49cb,Merge #18842: wallet: Mark replaced tx to not be in the mempool anymore,,FALSE
+,,738fc4a595,"Merge #21363: build, qt: Improve Qt static plugins/libs check code",,FALSE
+,,461f0c781e,Merge #21382: build: Clean remnants of QTBUG-34748 fix,,FALSE
+,,e175ca9c65,Merge #21370: Use C++11 member initializer in CNodeState,,FALSE
+,,ee0dc02c6f,Merge #21397: fuzz: Bump FuzzedDataProvider.h,,FALSE
+,,bca5ee6f38,Merge #21400: build: Fix regression introduced in #21363,,FALSE
+,,ceb6df391f,Merge #21388: doc: Rename fuzz seed_dir to corpus_dir,,FALSE
+,,eea6196c3d,Merge #21331: rpc: replace wallet raw pointers with references (#18592 rebased),,FALSE
+,,7cdadf91d5,Merge #21395: Net processing: Remove unused CNode.address member,,FALSE
+,,63314b8211,Merge bitcoin-core/gui#229: Fix regression with initial sorting after pr205,,FALSE
+,,767bb7d5c5,Merge #21270: [Bundle 4/n] Prune g_chainman usage in validation-adjacent modules,,FALSE
+,,e828fc8f52,Merge #21376: depends: Qt 5.12.10,,FALSE
+,,92cf3a22e3,Merge #21007: bitcoind: Add -daemonwait option to wait for initialization,,FALSE
+,,e9b6400a1e,"Merge #21411: test: add logging, reduce blocks, move sync_all in wallet_ groups",,FALSE
+,,b972913c33,Merge bitcoin-core/gui#188: Write PSBTs to file with binary mode,,FALSE
+,,a13a8cd8e3,Merge #21394: [doc] Improve comment about protected peers,,FALSE
+,,e0bc27a14c,Merge #21404: refactor: Remove MakeUnique<T>(),,FALSE
+Done (Merged to dashpay),,3c631917f3,Merge #21111: Improve OpenRC initscript,,FALSE
+,,d42078e93b,"Merge #21437: gitian, ci: Drop unneeded python3-dev package for macOS builds",,FALSE
+,,16209b1b19,"Merge #20556: rpc: Properly document return values (submitblock, gettxout, getblocktemplate, scantxoutset)",,FALSE
+,,6bc51af5c2,Merge bitcoin-core/gui#250: scripted-diff: Drop redundant QString calls,,FALSE
+,,1e57d14d96,Merge #21035: Remove pointer cast in CRPCTable::dumpArgMap,,FALSE
+,,c47979778d,Merge #21426: rpc: remove scantxoutset EXPERIMENTAL warning,,FALSE
+,,eceb3f7707,"Merge #19415: net: Make DNS lookup mockable, add fuzzing harness",,FALSE
+,,9a5e097435,Merge #21443: fuzz: Implement fuzzed_dns_lookup_function as a lambda,,FALSE
+,,c771fc0dc1,Merge #21424: Net processing: Tidy up CNodeState ctor,,FALSE
+,,3ba195aa48,Merge #21398: doc: Update fuzzing docs for afl-clang-lto,,FALSE
+,,67ec26cacf,Merge #19259: fuzz: Add fuzzing harness for LoadMempool(...) and DumpMempool(...),,FALSE
+,,b650c9140e,Merge #21141: wallet: Add new format string placeholders for walletnotify,,FALSE
+,,4ba1bab443,Merge #21446: Update vcpkg checkout commit,,FALSE
+,,8e6532053f,"Merge bitcoin-core/gui#246: Revert ""qt: Use ""fusion"" style on macOS Big Sur with old Qt""",,FALSE
+,,cb0aafbd21,"Merge #21444: net, doc: Doxygen updates and fixes in netbase.{h,cpp}",,FALSE
+,,af6ee17545,Merge #21405: compat: remove memcpy -> memmove backwards compatibility alias,,FALSE
+,,3b408d21e0,Merge #21438: test: add ParseUInt8() test coverage,,FALSE
+,,7723479300,Merge #220: Do not translate file extensions,,FALSE
+,,1b6c463e03,Merge #21407: i2p: limit the size of incoming messages,,FALSE
+,,01bb3afb51,Merge #21447: Always add -daemonwait to known command line arguments,,FALSE
+,,5ef16038a1,Merge #21410: test: increase rpc_timeout for fundrawtx test_transaction_too_large,,FALSE
+,,d25e28c20b,Merge #21083: wallet: Avoid requesting fee rates multiple times during coin selection,,FALSE
+,,993ecafa5e,Merge #21417: Misc external signer improvement and HWI 2 support,,FALSE
+,,a9d1b40d53,Merge #21415: refactor: remove Optional & nullopt,,FALSE
+,,d6e3ac89d4,Merge #21343: doc: revamp macOS build doc,,FALSE
+,,bf7c22f7ff,Merge #21435: doc: Update dependencies.md,,FALSE
+,,e057e01b7b,Merge #21162: Net Processing: Move RelayTransaction() into PeerManager,,FALSE
+,,6834e02c89,Merge #21425: refactor: Pass PeerManagerImpl members only once,,FALSE
+,,a65e772fec,"Merge #21428: test: Cleanup in test-{security,symbol}-check.py",,FALSE
+,,8ec881d3b6,Merge #20861: BIP 350: Implement Bech32m and use it for v1+ segwit addresses,,FALSE
+,,47d79c941a,Merge #21471: bugfix: fix bech32_encode calls in gen_key_io_test_vectors.py,,FALSE
+,,05757aa860,Merge #21423: build: Cleanups and follow ups after bumping Qt to 5.12.10,,FALSE
+,,c970c1477d,Merge #21380: tests: Add fuzzing harness for versionbits,,FALSE
+,,3a12fdba51,"Merge #21235: p2p: Clarify disconnect log message in ProcessGetBlockData, remove send bool",,FALSE
+Done (Merged to dashpay),,7f3fd34117,Merge #21481: doc: Tell howto install clang-format on Debian/Ubuntu,,FALSE
+,,18cd0888ef,"Merge #21328: net, refactor: pass uint16 CService::port as uint16",,FALSE
+,,3530d5d2d8,Merge #18335: bitcoin-cli: print useful error if bitcoind rpc work queue exceeded,,FALSE
+,,63952f73b3,Merge #20921: validation: don't try to invalidate genesis block in CChainState::InvalidateBlock,,FALSE
+,,4132193617,Merge #21040: wallet: Fix already-loading message grammar,,FALSE
+,,9dbec05600,Merge #21349: build: Fix fuzz-cuckoocache cross-compiling with DEBUG=1,,FALSE
+,,d2a78ee928,Merge #21488: test: add ParseUInt16() unit test and fuzz coverage,,FALSE
+,,80cb51cc6b,Merge #21491: test: remove duplicate assertions in util_tests,,FALSE
+,,786654aa5e,Merge #21498: refactor: return std::nullopt instead of {},,FALSE
+,,1e4a3c057a,Merge #21317: util: Make Assume() usable as unary expression,,FALSE
+,,c46f1ce751,Merge #21418: contrib: Make systemd invoke dependencies only when ready,,FALSE
+,,1c3a8579c0,Merge #21421: build: don't try and use -fstack-clash-protection on Windows,,FALSE
+,,d400e672a0,Merge #21487: fuzz: Use ConsumeWeakEnum in addrman for service flags,,FALSE
+,,fd2b22bf24,Merge #21142: fuzz: Add tx_pool fuzz target,,FALSE
+Done (Merged to dashpay),,55ceaeb8c4,Merge #18030: doc: Coin::IsSpent() can also mean never existed,,FALSE
+,,3c87dbe95c,Merge #21497: build: Do not opt-in unused CoreWLAN stuff in depends for macOS,,FALSE
+,,837e59eff6,"Merge bitcoin-core/gui#248: Fix: For values of ""Bytes transferred"" and ""Bytes/s"" with 1000-based prefix names use 1000-based divisor instead",of 1024-based,FALSE
+,,681c21be9a,Merge #21512: fuzz: Fix tx_pool target to properly fuzz immature outpoints,,FALSE
+,,fa2a5b8f3a,Merge #20421: build: miniupnpc 2.2.2,,FALSE
+,,f95071a3f5,Merge #21489: fuzz: cleanups for versionbits fuzzer,,FALSE
+,P_Staged (merged to Pasta local repo),7ce7ce5716,Merge #21338: test: add functional test for anchors.dat,,FALSE
+Done (Merged to dashpay),,f67b5dca57,Merge #20734: build: Make platform-specific targets available for proper platform builds only,,FALSE
+,,b1281b5d8f,Merge #21516: remove unnecessary newline from initWarning() argument,,FALSE
+,,23b15601df,Merge #17227: Qt: Add Android packaging support,,FALSE
+,,ed49203daa,Merge #21357: test: Unconditionally check for fRelay field in test framework,,FALSE
+,,8f94c70625,"Merge #21495: build, qt: Fix static builds on macOS Big Sur",,FALSE
+,,9217f9fe73,Merge #21522: fuzz: [refactor] Use PickValue where possible,,FALSE
+,,9b48b3ac42,Merge #21390: test: Test improvements for UTXO set hash tests,,FALSE
+,,19e3e65429,Merge bitcoin-core/gui#243: fix issue when disabling the auto-enabled blank wallet checkbox,,FALSE
+,,e658b0e49b,Merge #21505: build: Remove unused header from the build system,,FALSE
+Done (Merged to dashpay),,c00852653f,Merge bitcoin-core/gui#254: refactor: Drop redundant setEditTriggers(NoEditTriggers) calls,,FALSE
+,,de4d3ba437,Merge #21541: ci: Build depends only once for Android build,,FALSE
+,,ea3c9a92c6,Merge bitcoin-core/gui#251: Improve URI/file handling message,,FALSE
+,,97e6a7f98c,Merge #21477: test: Add test for CNetAddr::ToString IPv6 address formatting (RFC 5952),,FALSE
+,,11840509fb,Merge #21484: doc: Add release notes for #18335,,FALSE
+,,3bcd278aa6,Merge bitcoin-core/gui#154: qt: Support macOS Dark mode,,FALSE
+,,cf11f9c22f,Merge #21531: test: remove qt byteswap compattests,,FALSE
+,,4399dc8142,Merge #21509: p2p: Don't send FEEFILTER in blocksonly mode.,,FALSE
+,,1c7be9ab90,Merge #20286: rpc: deprecate `addresses` and `reqSigs` from rpc outputs,,FALSE
+,,3ececa76b7,Merge #21543: build: Enable safe warnings for msvc builds,,FALSE
+,,1999baac30,Merge #20228: addrman: Make addrman a top-level component,,FALSE
+,,dede9eb924,"Merge #20197: p2p: protect onions in AttemptToEvictConnection(), add eviction protection test coverage",,FALSE
+,,f9e86d8966,Merge #21387: p2p: Refactor sock to add I2P fuzz and unit tests,,FALSE
+,,267b60f800,Merge #21553: fuzz: Misc refactor,,FALSE
+,,1a0d1452a0,Merge #21457: build: split libtapi and clang out of native_cctools,,FALSE
+,,e4a2918238,Merge #21542: ci: Bump macOS VM image to the latest version,,FALSE
+,,b14462083f,Merge #21486: build: link against -lsocket if required for *ifaddrs,,FALSE
+,,602b038d43,Merge #21366: refactor: replace util::Ref with std::any (C++17),,FALSE
+,,539e4eec63,Merge #21236: net processing: Extract `addr` send functionality into MaybeSendAddr(),,FALSE
+,,2b2ab9ab78,Merge #21544: rpc: Missing doc updates for bumpfee psbt update,,FALSE
+,,c2caa0fc4d,Merge #21311: rpc: document optional fields for getchaintxstats result,,FALSE
+,,80a699fda9,Merge #21525: [Bundle 4.5/n] Followup fixups to bundle 4,,FALSE
+Done (Merged to dashpay),,ee35532409,Merge #21300: script: Add explanatory comment to tc.sh,,FALSE
+,,6e22b522f9,"Merge #21373: test: generate fewer blocks in feature_nulldummy to fix timeouts, speed up",,FALSE
+,,086226d98a,Merge #21198: net: Address outstanding review comments from PR20721,,FALSE
+,,66daf4cb3b,Merge #21567: docs: fix various misleading comments,,FALSE
+,,7aa0d8adf8,"Merge #21063: wallet, rpc: update listdescriptors response format",,FALSE
+,,e08f3193b5,Merge bitcoin-core/gui#266: Doc: Copyright: Fix embedded font file location,,FALSE
+,,9565dafed5,Merge #21403: build: set --build when configuring packages in depends,,FALSE
+,,ad4bf8a945,Merge #20459: rpc: Fail to return undocumented return values,,FALSE
+,,590e49ccf2,Merge #21586: test: Add missing suppression for signed-integer-overflow:txmempool.cpp,,FALSE
+,,824eea5643,Merge #21599: test: Replace file level integer overflow suppression with function level suppression,,FALSE
+,,5c9b06db81,Merge #21302: wallet: createwallet examples for descriptor wallets,,FALSE
+,,1ea5c7ec78,Merge #21604: test: Document why no symbol names can be used for suppressions,,FALSE
+,,0102f80b51,Merge #21375: guix: Misc feedback-based fixes + hier restructuring,,FALSE
+,,511e58223b,Merge #21565: build: make bitcoin_qt.m4 more generic,,FALSE
+,,e2777b5328,Merge #21611: Fix a typo in guix-build output,,FALSE
+,,328aaac80d,Merge #21597: test: Document race:validation_chainstatemanager_tests suppression,,FALSE
+,,9ac8f6d7dd,Merge #21598: refactor: Remove negative lock annotations from globals,,FALSE
+,,b2ec7d398f,Merge #21609: ci: increase CPU count of sanitizer job to increase memory limit,,FALSE
+,,7b4934e550,Merge #21557: test: small cleanup in RPCNestedTests tests,,FALSE
+,P_Staged (merged to Pasta local repo),02fb5bdc21,Merge #21610: build: remove -Wdeprecated-register from NOWARN flags,,FALSE
+,,1a7dec77f6,Merge #21571: test: make sure non-IP peers get discouraged and disconnected (vasild),,FALSE
+,,9be7fe4849,Merge #21560: net: Add Tor v3 hardcoded seeds,,FALSE
+,,245a5cd560,Merge #21166: Introduce DeferredSignatureChecker and have SignatureExtractorClass subclass it,,FALSE
+,,41a8d2b96f,Merge #21582: Fix assumeutxo crash due to missing base_blockhash,,FALSE
+,,c0160ea52e,Merge #21540: wallet: refactor: dedup sqlite statement preparations/deletions,,FALSE
+,,6154291cf9,Merge #21617: fuzz: Fix uninitialized read in i2p test,,FALSE
+,,2b3e5bf4c0,Merge #21613: build: enable -Wdocumentation,,FALSE
+,,aa69471ecd,Merge #21572: Fix wrong wallet RPC context set after #21366,,FALSE
+,,cb79cabdd9,Merge #21594: rpc: add network field to getnodeaddresses,,FALSE
+,,2e9031f95d,Merge #21626: doc: Fix typos from codespell,,FALSE
+,,6664211be2,Merge #21574: Drop JSONRPCRequest constructors after #21366,,FALSE
+,,0c9597ce7d,Merge #21304: guix: Add guix-clean script + establish gc-root for container profiles,,FALSE
+,,265a3a774b,Merge #21445: cirrus: Use SSD cluster for speedup,,FALSE
+,,4ad83a9597,Merge #21592: test: Remove option to make TestChain100Setup non-deterministic,,FALSE
+,,f0fa32450e,Merge #21606: fuzz: Extend psbt fuzz target a bit,,FALSE
+,,dd01dc6a1d,Merge #21643: Ignore guix builds,,FALSE
+,,1e3db6807d,Merge #21619: ci: Run self-hosted ci,,FALSE
+,,f6c44e999b,Merge #21602: rpc: add additional ban time fields to listbanned,,FALSE
+,,708517b2dd,Merge #21663: ci: Fix macOS brew install command,,FALSE
+,,89b72ce045,Merge #21661: doc: Fix name of script guix-build,,FALSE
+,,bd65a76b9d,Merge #21330: Deal with missing data in signature hashes more consistently,,FALSE
+,,1f50f0bb38,Merge #21631: i2p: always check the return value of Sock::Wait(),,FALSE
+,,f0b457212f,Merge #21467: Move external signer out of wallet module,,FALSE
+,,c1f480fb23,Merge #21653: ci: Fix previous releases cache order,,FALSE
+,,3aa4935db7,Merge #17934: doc: Use CONFIG_SITE variable instead of --prefix option,,FALSE
+Done (Merged to dashpay),,88331aa8a7,Merge #21633: refactor: add [[noreturn]] attribute where applicable,,FALSE
+,,1f14130cb0,Merge #21575: refactor: Create blockstorage module,,FALSE
+,,a1f0b8b62e,Merge #21634: tests: Skip SQLite fsyncs while testing,,FALSE
+,,e7af2f35af,Merge #21666: Miscellaneous external signer changes,,FALSE
+,,b8e5bbdf93,Merge #21669: test: Remove spurious double lock tsan suppressions by bumping to clang-12,,FALSE
+,,03ecceedf6,Merge #260: Handle exceptions instead of crash,,FALSE
+,,a12962ca89,Merge #21585: Fix assumeutxo crash due to truncated file,,FALSE
+,,8c867ed4ec,Merge #21675: ci: Only cache depends/sdk-sources for macos/apk task in cirrus,,FALSE
+,,773f8c1a7d,Merge #21678: test: Fix TestPotentialDeadLockDetected suppression,,FALSE
+,,7fcf53f7b4,Merge #21672: doc: remove boostrap info from GUIX_COMMON_FLAGS doc,,FALSE
+,,2cd834e6c0,Merge #21377: Speedy trial support for versionbits,,FALSE
+,,9712f75746,Merge #21677: fuzz: Avoid use of low file descriptor ids (which may be in use) in FuzzedSock,,FALSE
+,,a5e756b74e,Merge #21676: test: Use mocktime to avoid intermittent failure in rpc_tests,,FALSE
+,,7cb0bcb681,Merge #21686: Speedy trial activation parameters for Taproot,,FALSE
+,,c6b30ccb2e,Merge #21630: fuzz: split FuzzedSock interface and implementation,,FALSE
+,,585cbe2257,Merge #21695: Remove no longer used contrib/bitcoin-qt.pro from the repo,,FALSE
+,,8e69370b15,Merge #21712: qa: Test default include_mempool value of gettxout,,FALSE
+,,f5e8bcf985,Merge #21689: test: Remove intermittently failing and not very meaningful `BOOST_CHECK` in `cnetaddr_basic`,,FALSE
+,,4a1751a929,Merge bitcoin-core/gui#277: Do not use QClipboard::Selection on Windows and macOS.,,FALSE
+,,0dd7b23489,Merge #21391: [Bundle 5/n] Prune g_chainman usage in RPC modules,,FALSE
+,,a47ae618a0,Merge #21718: rpc: Improve error message for getblock invalid datatype.,,FALSE
+Done (Merged to dashpay),,ed133fe005,Merge #21615: script: Add trusted key for hebasto,,FALSE
+,,17b51cd5cb,Merge #21713: Refactor ProcessNewBlock to reduce code duplication,,FALSE
+,,d4300a10dd,Merge #21679: rpc: Keep default argument value in correct type,,FALSE
+,,83c715415a,Merge #20857: test: update documentation in feature_csv_activation.py,,FALSE
+,,cfec4a1dad,Merge #21280: test: bug fix in transaction_tests,,FALSE
+,,13d27b452d,Merge bitcoin-core/gui#276: Elide long strings in their middle in the Peers tab,,FALSE
+,,67a359313f,Merge #21728: remove executable flag for src/net_processing.cpp,,FALSE
+,,a839303edc,Merge #21244: Move GetDataDir to ArgsManager,,FALSE
+,,de77cbc9d8,Merge #21691: test: Check that no versionbits are re-used,,FALSE
+,,906ecb87c8,Merge #21238: A few descriptor improvements to prepare for Taproot support,,FALSE
+,,572b36d4ff,Merge #21736: doc: Fix doxygen comment silent merge conflict in descriptor.cpp,,FALSE
+,,30a86bb814,Merge #21733: build: Re-add command to install vcpkg,,FALSE
+,,180453471,Merge #21595: cli: create -addrinfo,,FALSE
+,,90e0faaa44,Merge #21694: build: Use XLIFF file to provide more context to Transifex translators,,FALSE
+,,bca00942ed,Merge #21731: Update msvc build to use Qt5.12.10 binaries.,,FALSE
+,,f385ad7651,Merge bitcoin-core/gui#263: Revamp context menus,,FALSE
+,,2bce9329e8,Merge #21719: refactor: Add and use EnsureConnman in rpc code,,FALSE
+Done (Merged to dashpay),,e507acb118,Merge #20353: configure: Support -fdebug-prefix-map and -fmacro-prefix-map,,FALSE
+,,e16f8720dc,"Merge #21655: build, qt: No longer need to set QT_RCC_TEST=1 for determinism",,FALSE
+,,e7776e20ed,Merge bitcoin-core/gui#286: qt: Bump transifex slug for 22.x,,FALSE
+Done (Merged to dashpay),,aaf66413e1,Merge #21564: net: Avoid calling getnameinfo when formatting IPv4 addresses in CNetAddr::ToStringIP,,FALSE
+,,4b5659c6b1,Merge #19801: test: check for all possible OP_CLTV fail reasons in feature_cltv.py (BIP 65),,FALSE
+,,66fd3b28e8,Merge #21732: MOVEONLY: Move common init code to init/common,,FALSE
+,,8f80092d78,Merge #21563: net: Restrict period when cs_vNodes mutex is locked,,FALSE
+,,c4571a0c39,Merge bitcoin-core/gui#284: refactor: Simplify SendCoinsDialog::updateCoinControlState,,FALSE
+,,0a0a95b9d6,Merge #21707: test: Extend functional tests for addr relay,,FALSE
+,,74a960a220,Merge #21714: refactor: Drop CCoinControl::SetNull,,FALSE
+,,683dda2a70,Merge #21777: test: Fix feature_notifications.py intermittent issue,,FALSE
+,,f8f55522c4,Merge #21746: refactor: init: mark fReset const,,FALSE
+,,19a56d1519,Merge #21009: Remove RewindBlockIndex logic,,FALSE
+,,ac219dcbcc,Merge #19160: multiprocess: Add basic spawn and IPC support,,FALSE
+,,c6d6bc8abb,Merge #21523: validation: run VerifyDB on all chainstates,,FALSE
+,,bce09da122,Merge #21773: fuzz: Ensure prevout is consensus-valid,,FALSE
+,,edf679503c,Merge #21783: refactor: Make MempoolAcceptResult members const,,FALSE
+,,e45863166f,Merge #21169: fuzz: Add RPC interface fuzzing. Increase fuzzing coverage from 65% to 70%.,,FALSE
+,,549d20a31b,Merge #20772: fuzz: bolster ExtractDestination(s) checks,,FALSE
+,,328da33557,Merge bitcoin-core/gui#18: Add peertablesortproxy module,,FALSE
+,,4cfe6c37d9,Merge #18847: compressor: use a prevector in CompressScript serialization [ZAP1],,FALSE
+,,2cbb4ab7a9,Merge #21658: build: fix make deploy for arm64-darwin,,FALSE
+,,7f37a1d560,Merge #21785: test: Fix intermittent issue in p2p_addr_relay.py,,FALSE
+,,fb66dbe786,Merge #21762: test: Speed up mempool_spend_coinbase.py,,FALSE
+,,1daca9f9a9,"Merge #21738: test: Use clang-12 for ASAN, Add missing suppression",,FALSE
+,,a7a193789e,Merge #21804: [tests] Speed up p2p_segwit.py,,FALSE
+,,16d0051c6a,Merge #21688: doc: note on SDK for macOS depends cross-compile,,FALSE
+,,d9ae6ec892,Merge #21759: wallet: document coin selection code,,FALSE
+,,40310f5e8c,Merge #21792: test: Fix intermittent issue in p2p_segwit.py,,FALSE
+,,298fd02e4a,Merge #21045: build: adds switch to enable/disable randomized base address in MSVC builds,,FALSE
+,,e1e1e708fa,Merge bitcoin-core/gui#125: Enable changing the autoprune block space size in intro dialog,,FALSE
+,,480bf01c29,Merge bitcoin-core/gui#300: Remove progress bar on modal overlay,,FALSE
+,,2b45cf0bcd,Merge #19521: Coinstats Index,,FALSE
+,,13f24d135b,Merge bitcoin-core/gui#298: Peertableview alternating row colors,,FALSE
+,K_Staged (merged to Kitty local repo),bb11a988fa,Merge #21793: build: use `-isysroot` over `--sysroot` on macOS,,FALSE
+,,d22e7ee933,Merge #21822: test: resolve bug in interface_bitcoin_cli.py,,FALSE
+,,f2865b7394,Merge #21811: doc: Remove Visual Studio 2017 reference from readme,,FALSE
+,,59869704c0,"Merge #21818: doc:  fixup -coinstatsindex help, update bitcoin.conf and files.md",,FALSE
+,,2448457cca,Merge #21830: doc: Add doc/release-notes/release-notes-0.21.1.md,,FALSE
+,,60132382a7,Merge #20867: Support up to 20 keys for multisig under Segwit context,,FALSE
+,,77d569ccb5,Merge #19817: build: macOS toolchain bump,,FALSE
+,,320e518b90,Merge #21750: net: remove unnecessary check of CNode::cs_vSend,,FALSE
+,,b8593616dc,Merge #21775: p2p: Limit m_block_inv_mutex,,FALSE
+,P_Staged (merged to Pasta local repo),3692097d92,Merge #21823: script: update REVIEWERS,,FALSE
+,,ea71726a54,Merge #21810: fuzz: Various RPC fuzzer follow-ups,,FALSE
+,,8e1c06846e,Merge #21662: build: update Boost download URL,,FALSE
+,,bf5e6a7771,Merge #21846: fuzz: Add `-fsanitize=integer` suppression needed for RPC fuzzer (`generateblock`),,FALSE
+,,e2d4e67a8f,Merge #21840: test: Misc refactor to get rid of &foo[0] raw pointers,,FALSE
+,,ab9a566ab3,Merge #21825: net: add I2P hardcoded seeds,,FALSE
+,,0ca8b7e7ec,Merge #21812: ci: Enable D_GLIBCXX_DEBUG for multiprocess task,,FALSE
+,,a1c6434e19,Merge #21852: ci: Add msan fuzz config,,FALSE
+,,3f8f238deb,Merge #21849: fuzz: Limit toxic test globals to their respective scope,,FALSE
+,,dc8da2a685,Merge #21824: refactor: [index] Replace deprecated char with uint8_t in serialization,,FALSE
+,,779aaa7f03,Merge #21754: test: Run feature_cltv with MiniWallet,,FALSE
+,,00a9b0647e,Merge #21799: guix: Use `gcc-8` across the board,,FALSE
+,,b7c2625703,Merge #21664: contrib: use LIEF for macOS and Windows symbol & security checks,,FALSE
+,,cdcf82622d,Merge #21629: build: fix configuring when building depends with NO_BDB=1,,FALSE
+,,df21e500d6,Merge #21427: depends: Fix id_string invocations,,FALSE
+,,fb43d7cb1e,Merge #21787: test: fix off-by-ones in rpc_fundrawtransaction assertions,,FALSE
+,,75b3a32f03,Merge #21821: test: Add missing test for empty P2WSH redeem,,FALSE
+,,23109cc548,Merge #21753: doc: add -addrinfo to tor docs,,FALSE
+,,3275c6e578,Merge #21727: refactor: Move more stuff to blockstorage,,FALSE
+,,54617fad99,Merge #21709: doc: update reduce-memory.md and bitcoin.conf -maxconnections info,,FALSE
+,,576300afb0,Merge #21856: doc: add OSS-Fuzz section to fuzzing.md doc,,FALSE
+,,a0f46028fc,Merge #21814: test: Fix feature_config_args.py intermittent issue,,FALSE
+,,b8b6801412,Merge #21710: doc: update helps for addnode rpc and -addnode/-maxconnections config options,,FALSE
+,,1b9a5236e9,Merge #21740: test: add new python linter to check file names and permissions,,FALSE
+,,32f1f021bf,Merge #21817: refactor: Replace &foo[0] with foo.data(),,FALSE
+,,128b98fce3,Merge #21681: validation: fix ActivateSnapshot to use hardcoded nChainTx,,FALSE
+,,f8575bce31,Merge #21864: fix permissions on 00_setup_env_native_fuzz_with_msan.sh,,FALSE
+,,9c05da4a5c,Merge #21865: ci: Properly pass msan cflags,,FALSE
+,,1fcf66af68,Merge #21798: fuzz: Create a block template in tx_pool targets,,FALSE
+,,06d573f053,Merge #21867: test: use MiniWallet for p2p_blocksonly.py,,FALSE
+,,a0d1d487e9,Merge #21845: net processing: Don't require locking cs_main before calling RelayTransactions(),,FALSE
+,,a33f360fcd,Merge #21873: test: minor fixes & improvements for files linter test,,FALSE
+,,eb9a1fe037,Merge #21802: refactor: Avoid UB in util/asmap (advance a dereferenceable iterator outside its valid range),,FALSE
+,,9313c4e6aa,Merge #21874: fuzz: Add WRITE_ALL_FUZZ_TARGETS_AND_ABORT,,FALSE
+,,21d6fed815,Merge #21884: fuzz: Remove unused --enable-danger-fuzz-link-all option,,FALSE
+Done (Merged to dashpay),,8d5a0583c4,Merge #21869: depends: Add missing -D_LIBCPP_DEBUG=1 to debug flags,,FALSE
+,,5925f1e652,Merge #21872: net: Sanitize message type for logging,,FALSE
+,,86e04741dd,Merge #21890: fuzz: Limit ParseISO8601DateTime fuzzing to 32-bit,,FALSE
+Done (Merged to dashpay),,3028a1e384,Merge #21581: streams: Accept URef obj for VectorReader unserialize,,FALSE
+,,2a22d903f3,Merge #21897: rpc: adjust incorrect RPCHelpMan types,,FALSE
+,,adf7843410,Merge #21786: wallet: ensure sat/vB feerates are in range (mantissa of 3),,FALSE
+,,1591e35049,Merge #21708: build: Drop pointless sed commands,,FALSE
+,,1a60c547fd,Merge #21749: test: Bump shellcheck version,,FALSE
+,,f8176b768a,Merge #21836: scripted-diff: Replace three dots with ellipsis in the UI strings,,FALSE
+,,c49d246647,Merge #21745: refactor: Add missing includes in pubkey.cpp/pubkey.h,,FALSE
+,,c9b051b58f,Merge #21891: fuzz: Remove strprintf test cases that are known to fail,,FALSE
+,,8bed1706ea,Merge bitcoin-core/gui#296: Do not use QObject::tr plural syntax for numbers with a unit symbol,,FALSE
+,,32692d2681,Merge #21359: rpc: include_unsafe option for fundrawtransaction,,FALSE
+,,d8ae29ec8f,Merge #21900: test: use MiniWallet for feature_csv_activation.py,,FALSE
+,,8d7125f80e,Merge bitcoin-core/gui#257: refactor: Use template function qOverload in signal-slot connections,,FALSE
+,,a2bdbdb358,Merge bitcoin-core/gui#194: Save/restore RPCConsole geometry only for window,,FALSE
+,,b49fe0a75a,Merge bitcoin-core/gui#280: Remove user input from URI error message,,FALSE
+,,4bc3b16349,Merge bitcoin-core/gui#293: Enable wordWrap for Services,,FALSE
+,,4a26705761,Merge #21902: refactor: Remove useless extern keyword,,FALSE
+Done (Merged to dashpay),,d2f6d2976f,Merge #21895: refactor: Add TSA annotations to the WorkQueue class members,,FALSE
+,,39e306009b,Merge bitcoin-core/gui#271: Don't clear console prompt when font resizing,,FALSE
+,,94f83534e4,Merge #21752: doc: Clarify that feerates are per virtual size,,FALSE
+,,e175a20769,"Merge #21644: p2p, bugfix: use NetPermissions::HasFlag() in CConnman::Bind()",,FALSE
+,,88dc09d759,Merge #21909: fuzz: Limit max insertions in timedata fuzz test,,FALSE
+,,f0a76b3dbc,Merge #21892: fuzz: Avoid excessively large min fee rate in tx_pool,,FALSE
+,,6754e1928b,Merge #21922: fuzz: Avoid timeout in EncodeBase58,,FALSE
+,,03e16cb027,"Merge #21593: build, qt, refactor: Get rid of some sed command instances",,FALSE
+,,2e30e328a7,Merge #19064: refactor: Cleanup thread ctor calls,,FALSE
+,,01624a7db3,"Merge #21462: guix: Add guix-{attest,verify} scripts",,FALSE
+,,176842daa8,Merge #21912: doc: Remove mention of priority estimation,,FALSE
+,,91db985bc9,Merge #21927: fuzz: Run const CScript member functions only once,,FALSE
+,,d2ec37221a,Merge #21796: index: Avoid async shutdown on init error,,FALSE
+,,6b49d88a5d,Merge #21905: net: initialize nMessageSize to uint32_t max,,FALSE
+Done (Merged to dashpay),,79da18a9eb,Merge #21911: build: add configure~ to .gitignore,,FALSE
+,,ee9befe8b4,Merge #21584: Fix assumeutxo crash due to invalid base_blockhash,,FALSE
+,,0ab6ff5e37,Merge #21931: ci: Bump cirrus fuzz CPUs to avoid timeout,,FALSE
+,,db2990d01f,Merge #21925: doc: Update bips.md for 0.21.1,,FALSE
+,,386ba92e83,Merge #21910: refactor: remove redundant fOnlySafe argument,,FALSE
+,,a31a1ceec7,Merge #21907: wallet: Do not iterate a directory if having an error while accessing it,,FALSE
+,,4741aec1dd,Merge #21914: net: use stronger AddLocal() for our I2P address,,FALSE
+,,b34bf2b42c,Merge #21939: refactor: Replace memset calls with array initialization,,FALSE
+,,61fea52171,Merge #21942: docs: improve make with parallel jobs description.,,FALSE
+,,b82c3a0075,Merge #21929: fuzz: Remove incorrect float round-trip serialization test,,FALSE
+,,ecf5f2c1a0,Merge #21889: macho: check for control flow instrumentation,,FALSE
+,,c857148636,Merge #21948: test: Fix off-by-one in mockscheduler test RPC,,FALSE
+,,1ef34ee25e,Merge #21947: doc: Fix OSS-Fuzz links,,FALSE
+,,7b87fca930,Merge #21756: Avoid calling `getnameinfo` when formatting IPv6 addresses in `CNetAddr::ToStringIP`,,FALSE
+,,6d1d33d334,Merge bitcoin-core/gui#323: English translations update,,FALSE
+,,741749a615,Merge #21920: build: improve macro for testing -latomic requirement,,FALSE
+,,1da36b49ab,"Merge #21983: build: Silence lupdate ""unknown namespace/class"" warnings",,FALSE
+,,2fa3f30050,Merge #21988: doc: note that brew installed qt is not supported,,FALSE
+,,2fc111b6e3,Merge #21985: net: Return IPv6 scope id in `CNetAddr::ToStringIP()`,,FALSE
+Done (Merged to dashpay),,1ed859e90e,Merge #21173: util: faster HexStr => 13% faster blockToJSON,,FALSE
+,,4da26fb85d,"Merge #21506: p2p, refactor: make NetPermissionFlags an enum class",,FALSE
+,,087812864b,Merge #21962: wallet: refactor: dedup sqlite PRAGMA access,,FALSE
+,,39d597d362,Merge #21659: net: flag relevant Sock methods with [[nodiscard]],,FALSE
+,,d4c409cf09,Merge #20773: refactor: split CWallet::Create,,FALSE
+,,ff438a1966,Merge #21996: p2p: pass strings to NetPermissions::TryParse functions by const ref,,FALSE
+,,7d19c85f4a,Merge #21970: fuzz: Add missing CheckTransaction before CheckTxInputs,,FALSE
+,,ea8b2e8e12,Merge #21913: rpc: RPCHelpMan fixes,,FALSE
+,,37e9f07996,"Merge #21843: p2p, rpc: enable GetAddr, GetAddresses, and getnodeaddresses by network",,FALSE
+,,710c8ba829,Merge bitcoin-core/gui#281: set shortcuts for console's resize buttons,,FALSE
+,,e2b55cd201,Merge bitcoin-core/gui#335: test: Use QSignalSpy instead of QEventLoop,,FALSE
+,,18cf1c5165,Merge #21991: build: libevent 2.1.12-stable,,FALSE
+,,1cc38d3e01,Merge #22003: txmempool: add thread safety annotations,,FALSE
+,,ac5f7f47c1,Merge #21936: fuzz: Terminate immediately if a fuzzing harness tries to create a TCP socket (belt and suspenders),,FALSE
+,,eb4df9a628,Merge #22004: fuzz: Speed up transaction fuzz target,,FALSE
+,,be4171679b,Merge #21953: fuzz: Add utxo_snapshot target,,FALSE
+,,3f3c4d2e2e,Merge #22002: Fix crash when parsing command line with -noincludeconf=0,,FALSE
+,,778b920179,Merge #21945: test: add P2PK support to MiniWallet,,FALSE
+,,599000903e,Merge #21850: Remove `GetDataDir(net_specific)` function,,FALSE
+,,ce4a852475,Merge #21848: refactor: Make CFeeRate constructor architecture-independent,,FALSE
+,,d3fa42c795,Merge #21186: net/net processing: Move addr data into net_processing,,FALSE
+,,2968417948,Merge #22013: net: ignore block-relay-only peers when skipping DNS seed,,FALSE
+,,b295395664,Merge #21239: guix: Add codesignature attachment support for osx+win,,FALSE
+,,0a909073dc,Merge #22048: test: MiniWallet: introduce enum type for output mode,,FALSE
+,,aeecb1c2eb,Merge #21992: p2p: Remove -feefilter option,,FALSE
+,,db1aca01d5,Merge #22021: rpc: bumpfee/psbtbumpfee fixes and updates,,FALSE
+,,40f7a2891f,"Merge #22043: rpc, test: addpeeraddress test coverage, code simplify/constness",,FALSE
+,,7041d256e3,Merge #21788: build: Silence [-Wunused-command-line-argument] warnings,,FALSE
+,,6b254814c0,Merge #17331: Use effective values throughout coin selection,,FALSE
+,,8600934018,Merge #22057: test: use MiniWallet (P2PK mode) for feature_dersig.py,,FALSE
+,,3ad1b8899b,Merge bitcoin-core/gui#297: Avoid unnecessary translations,,FALSE
+,,2e7c3461c0,Merge #22061: ci: Bump multiprocess memory,,FALSE
+,,35b83e6e43,Merge #22056: doc: describe in fuzzing.md how to reproduce a CI crash,,FALSE
+,,48c86eca02,Merge #22069: fuzz: don't try and use fopencookie() when building for Android,,FALSE
+,,7aa41fc581,Merge #22042: Replace size/weight estimate tuple with struct for named fields,,FALSE
+,,707ba8692b,Merge #21966: Remove double serialization; use software encoder for fee estimation,,FALSE
+,,3ec033ed32,Merge bitcoin-core/gui#121: Early subscribe core signals in transaction table model,,FALSE
+,,ecddd12482,Merge #18418: wallet: Increase OUTPUT_GROUP_MAX_ENTRIES to 100,,FALSE
+,,456c8d6cd8,Merge bitcoin-core/gui#313: qt: Optimize string concatenation by default,,FALSE
+,,5c041cb348,Merge bitcoin-core/gui#311: Peers Window rename 'Peer id' to 'Peer',,FALSE
+,,811aa24c71,"Merge #22060: contrib: add torv3 seed nodes for testnet, drop v2 ones",,FALSE
+,,b789914f17,Merge bitcoin-core/gui#332: Replace disambiguation strings with translator comments,,FALSE
+,,22b845291c,Merge #22063: build: Use Qt archive of the same version as the compiled binaries,,FALSE
+,,7076bba841,Merge bitcoin-core/gui#346: English translations update,,FALSE
+,,e20745c1bd,Merge #22029: [fuzz] Improve transport deserialization fuzz test coverage,,FALSE
+,,ea1e5c2c71,Merge #22025: refactor: Group and re-order CAddrMan members by access type,,FALSE
+,,2e8f3928f1,Merge #22017: Update Windows code signing certificate,,FALSE
+,,7257e50dba,Merge #20833: rpc/validation: enable packages through testmempoolaccept,,FALSE
+,,a6d984c08c,Merge #22071: depends: latest config.guess and config.sub,,FALSE
+Done (Merged to dashpay),,8115c2ad7d,Merge #22078: Add src/qt/android/.gitignore,,FALSE
+,,123b401e0a,Merge bitcoin-core/gui#275: Support runtime appearance adjustment on macOS,,FALSE
+,,be1c512437,Merge bitcoin-core/gui#343: Improve the GUI responsiveness when progress dialogs are used,,FALSE
+,,55a156fca0,Merge #21207: MOVEONLY: CWallet transaction code out of wallet.cpp/.h,,FALSE
+,,619e930aa1,Merge #22070: build: don't use cf-protection when targeting arm-apple-darwin,,FALSE
+Done (Merged to dashpay),,d7a6bba949,Merge #22103: test: Fix IPv6 check on BSD systems,,FALSE
+,,c5ee0cc11a,Merge #21989: test: Use COINBASE_MATURITY in functional tests,,FALSE
+,,8c6df2b4ca,Merge #22095: test: Additional BIP32 test vector for hardened derivation with leading zeros,,FALSE
+Done (Merged to dashpay),,8462cd5601,Merge #22080: doc: add maxuploadtarget to bitcoin.conf example,,FALSE
+,,11225905b7,Merge bitcoin-core/gui#309: Add access to the Peers tab from the network icon,,FALSE
+,,933c6466c2,"Merge #22109: doc: Fix external links (IRC, ...)",,FALSE
+,,aedf71dcc5,Merge bitcoin-core/gui#331: Make RPC console welcome message translation-friendly,,FALSE
+,,684e687d42,Merge bitcoin-core/gui#123: rpc: Do not accept command while executing another one,,FALSE
+,,62d9ff9e6e,Merge #22107: scripted-diff: rename GetSystemTimeInSeconds to GetTimeSeconds,,FALSE
+,,5cf92c32d1,Merge #21969: refactor: Switch serialize to uint8_t (Bundle 1/2),,FALSE
+,,c91589dc2d,Merge #22005: fuzz: Speed up banman fuzz target,,FALSE
+,,f63fc53c2a,Merge #21767: [Bundle 6/n] Prune g_chainman usage in auxiliary modules,,FALSE
+,,0b9ed3f6e7,Merge #22113: test: minor cleanups in feature_cltv.py,,FALSE
+,,7e83e74e7f,Merge #21178: test: run mempool_reorg.py even with wallet disabled,,FALSE
+,,0a3b8ea11a,Merge #22106: refactor: address ProcessNewBlock comments from #21713,,FALSE
+,,a83bbf02c7,Merge #22054: depends: Bump Qt version to 5.12.11,,FALSE
+,,2fccd9cf30,Merge #22082: test: update nanobench from release 4.0.0 to 4.3.4,,FALSE
+,,e3d644a127,Merge bitcoin-core/gui#351: Translations update,,FALSE
+,,a7d17daa5c,Merge #22086: test: remove BasicTestingSetup from unit tests that don't need it,,FALSE
+,,1186910b6b,Merge #22088: doc: improve note on choosing posix mingw32,,FALSE
+Done (Merged to dashpay),,2aab8a6dd0,Merge #21231: Add /opt/homebrew to path to look for boost libraries,,FALSE
+,,fd7a770d32,Merge #22122: ci: Bump macOS image to big-sur-xcode-12.5,,FALSE
+,,0011167191,Merge #22135: CRegTestParams: Use `args` instead of `gArgs`.,,FALSE
+,,a9435e3445,Merge #22065: Mark `CheckTxInputs` `[[nodiscard]]`. Avoid UUM in fuzzing harness `coins_view`.,,FALSE
+,,d331e262f5,"Merge #22138: script: fix spelling linter raising spuriously on ""invokable""",,FALSE
+,,6fe012c6bd,"Merge #22133: build, qt: Make QWindowsVistaStylePlugin available again (regression)",,FALSE
+,P_Staged (merged to Pasta local repo),fcfd37f3f9,Merge #22123: depends: Fix qt.mk for mac arm64,,FALSE
+,,8837f1ebde,"Merge #21654: build, qt: Make Qt rcc output always deterministic",,FALSE
+,,907d636e5e,Merge #21353: interfaces: Stop exposing wallet destdata to gui,,FALSE
+,,07ededa30c,Merge #22050: p2p: remove tor v2 support,,FALSE
+,,c7dd9ff71b,Merge #22051: Basic Taproot derivation support for descriptors,,FALSE
+,,a748782a11,Merge #15545: [doc] explain why CheckBlock() is called before AcceptBlock,,FALSE
+,,3ac5209662,Merge #18795: Test: wallet issue with orphaned rewards,,FALSE
+,,346e52afd6,Merge #22121: doc: Various validation doc fixups,,FALSE
+,,8f5c9a7fd4,Merge #22153: test: Fix p2p_leak.py intermittent failure,,FALSE
+,,898dd9e262,Merge #22150: test: Remove unused node from feature_nulldummy,,FALSE
+,,38ab7d0765,"Merge bitcoin-core/gui#325: Align numbers in the ""Peer Id"" column to the right",,FALSE
+,,916f45eba5,Merge bitcoin-core/gui#329: Make console buttons look clickable,,FALSE
+,,21d87bbdfd,Merge bitcoin-core/gui#256: Save/restore column sizes of the tables in the Peers tab,,FALSE
+,,e033ca1379,Merge bitcoin-core/gui#29: refactor: Optimize signal-slot connections logic,,FALSE
+,,1cc123f405,"Merge #22169: p2p, rpc, fuzz: various tiny follow-ups",,FALSE
+,,260b1d74fe,Merge #22092: test: convert documentation into type annotations,,FALSE
+,,791f985a60,Merge #22137: util: Properly handle -noincludeconf on command line (take 2),,FALSE
+,,912cb59490,Merge #21795: fuzz: Terminate immediately if a fuzzing harness tries to perform a DNS lookup (belt and suspenders),,FALSE
+,,3c393ef9e1,Merge #22149: test: Add temporary logging to debug #20975,,FALSE
+,,359f72105b,Merge #21573: Update libsecp256k1 subtree to latest master,,FALSE
+,,e638acf697,Merge bitcoin-core/gui#164: Handle peer addition/removal in a right way,,FALSE
+,,76d4018aa5,Merge #22180: fuzz: Increase branch coverage of the float fuzz target,,FALSE
+,,45a8b01fad,Merge #22187: test: Add sync_blocks in wallet_orphanedreward.py,,FALSE
+,,82bc7faec8,Merge #21946: Document and test lack of inherited signaling in RBF policy,,FALSE
+,,7cac26246a,Merge #22075: guix: Misc leftover usability improvements,,FALSE
+,,68a89d7a46,Merge bitcoin-core/gui#4: UI external signer support (e.g. hardware wallet),,FALSE
+,,fe511454e1,"Merge #22174: build, qt: Fix libraries linking order for Linux hosts",,FALSE
+,,58f8b156ed,Merge #22008: wallet: Cleanup and refactor CreateTransactionInternal,,FALSE
+,,69577a27ab,Merge #21944: wallet: Fix issues when `walletdir` is root directory,,FALSE
+,,93e38d5c06,Merge #22173: wallet: Do not load external signers wallets when unsupported,,FALSE
+,,ca424e242a,Merge #22200: zmq: use std::string in zmqError(),,FALSE
+,,46424e943c,Merge #22202: test: Add temporary coinstats suppressions,,FALSE
+,,92584d29ce,"Merge #22186: build, qt: Fix compiling qt package in depends with GCC 11",,FALSE
+Done (Merged to dashpay),,356f421fb0,Merge #22204: doc: remove obsolete `okSafeMode` RPC guideline from developer notes,,FALSE
+,,e87fbee402,Merge #22208: doc: Update `REVIEWERS`,,FALSE
+,,ef8f2966ac,Merge #22084: package testmempoolaccept followups,,FALSE
+,,1704bbf226,Merge #22141: net processing: Remove hash and fValidatedHeaders from QueuedBlock,,FALSE
+,,551933f9ec,Merge #22203: test: Use ConnmanTestMsg from test lib in denialofservice_tests,,FALSE
+,,ce8276b531,Merge #22190: Use latest signapple commit,,FALSE
+,P_Staged (merged to Pasta local repo),6985038046,Merge #22118: test: check anchors.dat when node starts for the first time,,FALSE
+,,f66eceaecf,Merge #22216: refactor: Make SetupServerArgs callable without NodeContext,,FALSE
+,,a8c8dbc98f,Merge bitcoin-core/gui#361: Fix gui segfault caused by #22216,,FALSE
+,,a55904a80c,"Merge #21866: [Bundle 7/7] validation: Farewell, global Chainstate!",,FALSE
+,,9795e8ec8c,Merge #22214: refactor: Rearrange fillPSBT arguments,,FALSE
+,,1a369f006f,Merge #18722: addrman: improve performance by using more suitable containers,,FALSE
+,,96f828ba4d,Merge #22221: refactor: Pass block reference instead of pointer to PeerManagerImpl::BlockRequested,,FALSE
+,,4bff49bbb1,"Merge #22172: doc: update tor.md, release notes with removal of tor v2 support",,FALSE
+,,6f3fbc062f,Merge bitcoin-core/gui#333: refactor: Signal-slot connections cleanup,,FALSE
+,,b0e5fbf6fa,Merge #22156: Allow tr() import only when Taproot is active,,FALSE
+,,9c1ec689f3,Merge #22102: Remove `Warning:` from warning message printed for unknown new rules,,FALSE
+,,964d91b193,Merge #22130: test: refactor: dedup utility function chain_transaction(),,FALSE
+,,d75a1df617,Merge #21941: fuzz: Call const member functions in addrman fuzz test only once,,FALSE
+,,ad2ab88ccc,Merge #22224: Update msvc and appveyor builds to use Qt5.12.11 binaries,,FALSE
+,,de5512e28d,Merge #22230: build: Fix MSVC linker /SubSystem option for bitcoin-qt.exe,,FALSE
+,,5c4f0c4d46,"Merge #21261: p2p: update inbound eviction protection for multiple networks, add I2P peers",,FALSE
+,,3a2c84a6b5,Merge #19238: refactor: Make CAddrMan::cs non-recursive,,FALSE
+,,3f68f02db9,Merge bitcoin-core/gui#362: Add keyboard shortcuts to context menus,,FALSE
+,,eb63b1db2c,Merge #22247: Switch Appveyor CI to VS2019 stable image,,FALSE
+,,6bc1eca01b,Merge #22144: Randomize message processing peer order,,FALSE
+,P_Staged (merged to Pasta local repo),65c4a36e57,Merge #22258: build: Disable deprecated-copy warning only when external warnings are enabled,,FALSE
+,,7c561bea52,"Merge #21935: Enable external signer support by default, reduce #ifdef",,FALSE
+,,d50302625e,"Merge #22182: guix: Overhaul how guix-{attest,verify} works and hierarchy",,FALSE
+,,dd24567a24,Merge #22120: test: p2p_invalid_block: Check that a block rejected due to too-new tim…,,FALSE
+,,6eafa81b32,Merge #22267: fuzz: Speed up crypto fuzz target,,FALSE
+,,922abe8ca3,Merge #22268: fuzz: Add temporary debug assert for oss-fuzz issue,,FALSE
+,,7b45c5e875,"Merge #20516: Well-defined CAddress disk serialization, and addrv2 anchors.dat",,FALSE
+,,8cb43077b3,Merge #22271: fuzz: Assert roundtrip equality for `CPubKey`,,FALSE
+,,5c2e2afe99,Merge #21365: Basic Taproot signing support for descriptor wallets,,FALSE
+,,ad0c8f356e,Merge #22238: build: improve detection of eBPF support,,FALSE
+,,da69d9965a,Merge #21871: scripts: add checks for minimum required OS versions,,FALSE
+,,0844084c13,Merge #22249: test: kill process group to avoid dangling processes when using `--failfast`,,FALSE
+,,da1e6d5911,Merge #14604: tests: Add test and refactor feature_block.py,,FALSE
+,,0f47e01d7d,Merge #20923: signet miner followups,,FALSE
+,,e172ea8804,Merge #22210: test: Use MiniWallet in test_no_inherited_signaling RBF test,,FALSE
+,,965e937434,Merge #22279: fuzz: add missing ECCVerifyHandle to base_encode_decode,,FALSE
+,,a305a687e7,Merge #22244: devtools: Correctly extract symbol versions in symbol-check,,FALSE
+,,f6a25bea82,Merge #22147: p2p: Protect last outbound HB compact block peer,,FALSE
+Done (Merged to dashpay),,6a67366fdc,Merge #19033: http: Release work queue after event base finish,,FALSE
+,,6556da77d7,Merge #21056: rpc: Add a `-rpcwaittimeout` parameter to limit time spent waiting,,FALSE
+,,74013641e0,Merge #22089: test: MiniWallet: fix fee calculation for P2PK and check tx vsize,,FALSE
+,,398dd67833,"Merge #22296: doc: Final merge of release notes snippets, mv to wiki",,FALSE
+,,672870ab7b,Merge #22201: test: Fix TestShell to allow running in Jupyter Notebook,,FALSE
+,,327e2691f6,Merge #22309: blockstorage: Add missing atomic include,,FALSE
+,,c93e123dc7,Merge #22308: wallet: Add missing BlockUntilSyncedToCurrentChain,,FALSE
+,,03aa59a4e5,Merge #22313: test: Add missing sync_all to feature_coinstatsindex,,FALSE
+,,d6e0d78c31,Merge #20966: banman: save the banlist in a JSON format on disk,,FALSE
+,,567670bec5,Merge #22166: Add support for inferring tr() descriptors,,FALSE
+,,c0e30933e0,Merge #22323: doc: spelling update,,FALSE
+,,7317e14a44,Merge #22263: refactor: wrap CCoinsViewCursor in unique_ptr,,FALSE
+,,a196c89317,Merge #22270: test: Add bitcoin-util tests (+refactors),,FALSE
+,,bfa885898a,Merge #22306: [test] Improvements to p2p_addr_relay.py,,FALSE
+,,c31161f4f7,Merge #22320: build: set minimum required Boost to 1.64.0,,FALSE
+,,d6a59166a1,Merge #22257: test: refactor: various (de)serialization helpers cleanups/improvements,,FALSE
+,,e59ea87954,Merge #22311: test: Add missing syncwithvalidationinterfacequeue in p2p_blockfilters,,FALSE
+,P_Staged (merged to Pasta local repo),b7565c708d,Merge #22250: doc: add basic I2P documentation,,FALSE
+,,0553d75268,Merge #22154: Add OutputType::BECH32M and related wallet support for fetching bech32m addresses,,FALSE
+,,b2f5c38333,Merge #22327: cli: Avoid truncating -rpcwaittimeout,,FALSE
+,,246daf1f53,Merge #22322: fuzz: Check banman roundtrip,,FALSE
+,,3e306ee1d5,Merge #19362: rpc/blockchain: Reset scantxoutset progress before inferring descriptors,,FALSE
+,,9c3751a0c9,Merge #22342: Avoid the use of P0083R3 std::set::merge,,FALSE
+,,ac238f76bf,Merge #22339: doc: Document minimum required libc++ version,,FALSE
+,,8cdf91735f,Merge #22349: doc: repository IRC updates,,FALSE
+,,3f56ef7bef,Merge #22146: Reject invalid coin height and output index when loading assumeutxo,,FALSE
+,,8071ec179d,Merge #21789: refactor: Remove ::Params() global from CChainState,,FALSE
+,,e0face9235,Merge #22358: Remove unused wallet pointer from wallet signals,,FALSE
+,,a000cb013c,Merge #22361: refactor: Make httpserver work queue a unique_ptr,,FALSE
+,,bfd910cae4,Merge #18568: doc: Clarify developer notes about constant naming,,FALSE
+,,e1a13f12e1,Merge #18096: doc: IsFinalTx comment about nSequence & OP_CLTV,,FALSE
+,,3fc20abab0,Merge #22353: ci: Upgrading pip version in macos environment,,FALSE
+,,722776c0fd,Merge #21329: descriptor wallet: Cache last hardened xpub and use in normalized descriptors,,FALSE
+,,045bb06ebd,Merge #19651: wallet: importdescriptors update existing,,FALSE
+,,5a95c5179c,"Merge #20191: wallet, refactor: make DescriptorScriptPubKeyMan agnostic of internal flag",,FALSE
+,,34f554dbd3,Merge bitcoin-core/gui#366: Dark Mode fixes/portability,,FALSE
+,,333ec8be82,Merge bitcoin-core/gui#330: Allow prompt icon to be colorized,,FALSE
+,,3ef2d400fa,Merge #22376: ci: Do not clone `bitcoin-core/qa-assets` git repository if not necessary,,FALSE
+,,fa46e48982,Merge #22379: wallet: erase spkmans rather than setting to nullptr,,FALSE
+,,185acdb5e8,Merge #22334: wallet: do not spam about non-existent spk managers,,FALSE
+,,2749613020,Merge #22348: build: Fix cross build for Windows with Boost Process,,FALSE
+,,091d35c70e,Merge bitcoin-core/gui#377: Translations update,,FALSE
+,,a926d6dfd2,Merge #22310: test: Add functional test for replacement relay fee check,,FALSE
+,,ddc6979b8b,Merge #19438: Introduce deploymentstatus,,FALSE
+,,7a49fdc581,Merge #22388: ci: use Ubuntu 20.04 as the default Docker container,,FALSE
+,,c609e10545,"Merge #22292: bench, doc: benchmarking updates and fixups",,FALSE
+,,2711559845,Merge #22365: guix: Avoid relying on newer symbols by rebasing our cross toolchains on older glibcs,,FALSE
+,,484d4ee226,"Merge bitcoin-core/gui#365: Draw ""eye"" sign at the beginning of watch-only addresses",,FALSE
+,,a62fc35a15,Merge bitcoin-core/gui#375: Emit dataChanged signal to dynamically re-sort Peers table,,FALSE
+,,088b348dbe,Merge #22406: build: remove --enable-determinism configure option,,FALSE
+,,692b78793b,Merge #22360: doc: Remove unused section from release process,,FALSE
+,,914c0cad97,Merge #22399: fuzz: Rework CTxDestination fuzzing,,FALSE
+,,137f3b9ba3,Merge #22405: build: remove --enable-glibc-back-compat from Guix build,,FALSE
+,,4129134e84,Merge #22402: doc: Install Rosetta on M1-macOS for qt in depends,,FALSE
+,,d968616422,Merge #22179: Torv2 removal followups,,FALSE
+,,df2b5dadfb,Merge #22408: test: add tests for `bad-txns-prevout-null` reject reason,,FALSE
+,,34d1d6a112,Merge #22381: guix: Test security-check sanity before performing them (with macOS),,FALSE
+,,efff9c3494,Merge #22176: test: Correct outstanding -Werror=sign-compare errors,,FALSE
+,,d1e4c56309,"Merge #22363: test: refactor: use `script_util` helpers for creating P2{PKH,SH,WPKH,WSH} scripts",,FALSE
+,,8ab0c77299,Merge #22253: validation: distinguish between same tx and same-nonwitness-data tx in mempool,,FALSE
+,,e0fe658b86,Merge #22335: doc: recommend `--disable-external-signer` in OpenBSD build guide,,FALSE
+,,842e2a9c54,Merge #20234: net: don't bind on 0.0.0.0 if binds are restricted to Tor,,FALSE
+,,839f5d06d6,Merge #22432: doc: fix incorrect testmempoolaccept doc,,FALSE
+,,7e1ba37b5d,Merge #22433: init: remove straggling boost thread_group related code,,FALSE
+,,d8f1e1327f,Merge #22112: Force port 0 in I2P,,FALSE
+,,,NOT FINAL!!! NEED TO PULL IN UPDATED ONE. UPDATED ON JULY 13 2021,,FALSE
+,,,,,FALSE
+,,,,,FALSE

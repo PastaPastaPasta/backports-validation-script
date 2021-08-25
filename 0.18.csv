@@ -1,0 +1,735 @@
+Status,Status,Commit Hash,Message,Notes,Problem
+DNM (Did Not Merge),,58efc49b9,build: bump version to 0.17.99,,FALSE
+Done (Merged to dashpay),,f083ec13c,Merge #13938: refactoring: Cleanup StartRest(),,FALSE
+DNM (Did Not Merge),,62d40f198,Merge #13955: gitian: bump descriptors for (0.)18,,FALSE
+Done (Merged to dashpay),,6edda062d,Merge #13953: fix deprecation in bitcoin-util-test.py,,FALSE
+Done (Merged to dashpay),,3bd25c010,Merge #13899: build: Enable -Wredundant-decls where available. Remove redundant redeclarations.,partial,FALSE
+,,afa960002,Merge #11526: Visual Studio build configuration for Bitcoin Core,NOT TRIVIAL,FALSE
+Done (Merged to dashpay),,f87d0a9d7,Merge #13534: Don't assert(foo()) where foo() has side effects,,FALSE
+Done (Merged to dashpay),,ddc3ec92b,Merge #13634: ui: Compile boost::signals2 only once,,FALSE
+Done (Merged to dashpay),,7ef60ce88,Merge #13963: tests: Replace usage of tostring() with tobytes(),,FALSE
+Done (Merged to dashpay),,2be8206a6,Merge #13962: Remove unused dummy_tx variable from FillPSBT,,FALSE
+Done (Merged to dashpay),,db3cb5c5a,Merge #13948: trivial: Removes unsed `CBloomFilter` constructor.,,FALSE
+Done (Merged to dashpay),,dabfcb030,Merge #13965: tests: Fix extended functional tests fail,,FALSE
+Done (Merged to dashpay),,3e5424faf,Merge #13960: Fix PSBT deserialization of 0-input transactions,,FALSE
+,,63f8b0128,Merge #13917: Additional safety checks in PSBT signer,,FALSE
+,,e393a18b5,Merge #13964: ci: Add Appveyor CI,,FALSE
+Done (Merged to dashpay),,80127f074,Merge #13974: [trivial] Fix typo in CDiskBlockPos struct's ToString,,FALSE
+Done (Merged to dashpay),,dc9d50668,Merge #13982: refactor: use fs:: over boost::filesystem::,,FALSE
+Done (Merged to dashpay),,ef98e122c,Merge #13891: [RPC] Remove getinfo deprecation warning,,FALSE
+Done (Merged to dashpay),,b5591ca0b,Merge #13399: rpc: Add submitheader,,FALSE
+Done (Merged to dashpay),,885a45e32,Merge #13985: [trivial] Fix slightly confusing mispelling in feature_blocksdir.py log message,,FALSE
+,,3c8d1ae15,Merge #13665: [build] Add risc-v support to gitian,,FALSE
+,,1f470a891,Merge #13997: appveyor: fetch the latest port data,,FALSE
+Done (Merged to dashpay),,df660aa77,Merge #14000: depends: fix qt determinism,,FALSE
+,,2a583406c,Merge #13248: [gui] Make proxy icon from statusbar clickable,,FALSE
+DNM (Did Not Merge),,4732fa133,Merge #12818: [qt] TransactionView: highlight replacement tx after fee bump,,FALSE
+,,8aa9badf5,Merge #13968: [wallet] couple of walletcreatefundedpsbt fixes,,FALSE
+Done (Merged to dashpay),,af4fa72fa,Merge #13529: Use new Qt5 connect syntax,,FALSE
+Done (Merged to dashpay),,df29abf67,Merge #14006: Add const modifier to HTTPRequest methods,,FALSE
+Done (Merged to dashpay),,2df11322f,Merge #13941: Add PSBT documentation,,FALSE
+Done (Merged to dashpay),,0738b88fe,Merge #13967: [walletdb] don't report minversion wallet entry as unknown,,FALSE
+Done (Merged to dashpay),,17d644901,Merge #13988: Add checks for settxfee reasonableness,,FALSE
+Done (Merged to dashpay),,a5fc1aa04,Merge #13765: contrib: add gitian build support for github pull request,,FALSE
+Done (Merged to dashpay),,271b379e6,Merge #14018: Bugfix: NSIS: Exclude Makefile* from docs,,FALSE
+Done (Merged to dashpay),,5b52aa685,Merge #14025: p2p: Remove dead code for nVersion=10300,,FALSE
+,P_Staged (merged to Pasta local repo),540bf8aac,Merge #12559: Avoid locking cs_main in some wallet RPC,,FALSE
+Done (Merged to dashpay),,55c18a453,Merge #14024: qa: Add TestNode::assert_debug_log,,FALSE
+Done (Merged to dashpay),,776fa60c4,Merge #13631: Add CMerkleTx::IsImmatureCoinBase method,,FALSE
+,,4cef8e059,Merge #13429: Return the script type from Solver,,FALSE
+Done (Merged to dashpay),,021dce935,Merge #13946: p2p: Clarify control flow in ProcessMessage,,FALSE
+Done (Merged to dashpay),,6f5372a17,Merge #13961: util: Replace boost::signals2 with std::function,,FALSE
+Done (Merged to dashpay),,f6eb85d17,Merge #13707: tests: Add usage note to check-rpc-mappings.py,,FALSE
+DNM (Did Not Merge),,6516b3673,"Merge #12676: Show ""bip125-replaceable"" flag, when retrieving mempool entries",,FALSE
+Done (Merged to dashpay),,91186e598,Merge #13083: Add compile time checking for cs_main runtime locking assertions,,FALSE
+Done (Merged to dashpay),,683838b7e,Merge #14063: Move cs_main locking annotations from .cpp to .h,,FALSE
+Done (Merged to dashpay),,111728354,Merge #14069: qa: Use assert not BOOST_CHECK_* from multithreaded tests,,FALSE
+Done (Merged to dashpay),,c775dc4a9,Merge #12254: BIP 158: Compact Block Filters for Light Clients,,FALSE
+,,427253cf7,Merge #14062: build: generate MSVC project files via python script,,FALSE
+Done (Merged to dashpay),,e8061831e,Merge #14071: qa: Stop txindex thread before calling destructor,,FALSE
+Done (Merged to dashpay),,deed63f6f,Merge #14056: Docs: Fix help message typo optiona -> optional,,FALSE
+Done (Merged to dashpay),,0ae15bd05,Merge #14036: travis: Run unit tests --with-sanitizers=undefined,,FALSE
+Done (Merged to dashpay),,cb98effc5,"Merge #14031: Make IS_TRIVIALLY_CONSTRUCTIBLE consistent on GCC < 5, don't patch clang",,FALSE
+Done (Merged to dashpay),,4a1a2148f,Merge #14030: Remove ambiguity in construction of prevector,,FALSE
+Done (Merged to dashpay),,e13a820f9,Merge #13861: test: Add testing of value_ret for SelectCoinsBnB,,FALSE
+,P_Staged (merged to Pasta local repo),666749046,Merge #13987: Report minfeefilter value in getpeerinfo rpc,,FALSE
+Done (Merged to dashpay),,51a73c986,Merge #13935: contrib: Adjust output to current test format,,FALSE
+Done (Merged to dashpay),,ca4510c15,Merge #13863: travis: move script sections to files in `.travis/` subject to shellcheck,,FALSE
+DNM (Did Not Merge),,794e55be1,Merge #14081: travis: fix missing differentiation between UNIT and FUNCTIONAL tests,changes unused travis script,FALSE
+,B_Staged (merged to Pravin local repo),f180e81d5,Merge #14023: Remove accounts rpcs,,FALSE
+Done (Merged to dashpay),,dd3420461,"Merge #13769: Mark single-argument constructors ""explicit""",,FALSE
+Done (Merged to dashpay),,fea4e9eca,Merge #13767: Remove redundant assignments (dead stores),,FALSE
+,,0df9b0aed,Merge #14042: travis: add CXXFLAGS=-Wno-psabi at ARM job,,FALSE
+Done (Merged to dashpay),,ee9e6e7c5,Merge #14051: [Tests] Make combine_logs.py handle multi-line logs,,FALSE
+Done (Merged to dashpay),,aa39ca764,Merge #13723: PSBT key path cleanups,,FALSE
+DNM (Did Not Merge),,8e9f85141,Merge #14052: qa: Add some actual witness in rpc_rawtransaction,,FALSE
+,,5de338ec7,"Merge #14055: fix walletcreatefundedpsbt deriv paths, add test",,FALSE
+Done (Merged to dashpay),,13887f41f,Merge #14093: tests: Fix accidental trunction from int to bool,,FALSE
+Done (Merged to dashpay),,2ddce35ab,Merge #13862: utils: drop boost::interprocess::file_lock,,FALSE
+Done (Merged to dashpay),,5924dadc2,Merge #13671: Remove the boost/algorithm/string/case_conv.hpp dependency,,FALSE
+Done (Merged to dashpay),,b0eb8f7ed,Merge #14028: Explicitly initialize prevector _union,,FALSE
+Done (Merged to dashpay),,1361f8bab,Merge #14020: Add tests for RPC help,,FALSE
+Done (Merged to dashpay),,888acefa5,Merge #13792: tx pool: Avoid passing redundant hash into addUnchecked (scripted-diff),,FALSE
+Done (Merged to dashpay),,4e9a6f87b,Merge #14097: validation: Log FormatStateMessage on ConnectBlock error in ConnectTip,,FALSE
+Done (Merged to dashpay),,be301a577,Merge #14103: docs: Fix broken Doxygen comments,,FALSE
+Done (Merged to dashpay),,6c7cfc8da,Merge #13126: util: Add Clang thread safety annotations for variables guarded by cs_args,,FALSE
+,,07033a8f9,Merge #13825: [wallet] Kill accounts,,FALSE
+Done (Merged to dashpay),,48ed386fa,Merge #13724: [contrib] Support ARM and RISC-V symbol check,,FALSE
+Done (Merged to dashpay),,0c9bea5a0,Merge #14037: Add README.md to linux release tarballs,,FALSE
+Done (Merged to dashpay),,104aad156,Merge #14101: qa: Use named args in validation acceptance tests,,FALSE
+Done (Merged to dashpay),,bb0277819,Merge #13159: Don't close old debug log file handle prematurely when trying to re-open (on SIGHUP),,FALSE
+Done (Merged to dashpay),,3f9690844,Merge #14073: blockfilter: Avoid out-of-bounds script access.,,FALSE
+Done (Merged to dashpay),,bdbd654df,Merge #14108: tests: Add missing locking annotations and locks (g_cs_orphans),,FALSE
+Done (Merged to dashpay),,709a15b0a,Merge #14088: tests: Don't assert(...) with side effects,,FALSE
+Done (Merged to dashpay),,b012bbe35,Merge #10605: Add AssertLockHeld assertions in CWallet::ListCoins,,FALSE
+Done (Merged to dashpay),,385ad1104,"Merge #11640: Make LOCK, LOCK2, TRY_LOCK work with CWaitableCriticalSection",,FALSE
+Done (Merged to dashpay),,59ecacfc8,Merge #11599: scripted-diff: Small locking rename,,FALSE
+Done (Merged to dashpay),,2070a545e,Merge #14122: Test rpc_help.py failed: Check whether ZMQ is enabled or not.,,FALSE
+Done (Merged to dashpay),,68f3c7eb0,Merge #14120: Notes about control port and read access to cookie,,FALSE
+Done (Merged to dashpay),,e1b776eb1,Merge #14140: [Net] Switch nPrevNodeCount to vNodesSize,,FALSE
+Done (Merged to dashpay),,788b8a290,Merge #14135: doc: correct GetDifficulty doc after #13288,,FALSE
+Done (Merged to dashpay),,281feee7c,Merge #14129: Trivial: update clang thread-safety docs url,,FALSE
+Done (Merged to dashpay),,fa616275b,Merge #14128: lint: Make sure we read the command line inputs using utf-8 decoding in python,,FALSE
+Done (Merged to dashpay),,564385f4b,Merge #14094: refactoring: Remove unreferenced local variables,,FALSE
+,,0f34dac67,Merge #14013: [doc] Add new regtest ports in man following #10825 ports reattributions,,FALSE
+,,bdfeb5dfa,Merge #14133: gui: Favor macOS show / hide action in dock menu,,FALSE
+Done (Merged to dashpay),,5c24d3b98,Merge #13249: Make objects in range declarations immutable by default. Avoid unnecessary copying of objects in range declarations.,,FALSE
+,,c39fa34bf,Merge #14086: appveyor: Use clcache to speed up build,,FALSE
+Done (Merged to dashpay),,97ccd2b84,Merge #14115: lint: Make all linters work under the default macOS dev environment (build-osx.md),,FALSE
+Done (Merged to dashpay),,95d731d9b,Merge #14100: doc: Change documentation for =0 for non-boolean options,,FALSE
+Done (Merged to dashpay),,adf27b531,Merge #13954: Warn (don't fail!) on spelling errors. Fix typos reported by codespell.,,FALSE
+Done (Merged to dashpay),,a6aca8dc2,Merge #14105: util: Report parse errors in configuration file,,FALSE
+,,35d7d9471,Merge #14096: Add reference documentation for descriptors language,,FALSE
+Done (Merged to dashpay),,2f7ae35ce,Merge #14149: doc: Remove misleading checkpoints comment in CMainParams,,FALSE
+,,4799b0932,Merge #12490: [Wallet] [RPC] Remove deprecated wallet rpc features from bitcoin_server,,FALSE
+Done (Merged to dashpay),,b8cf492e8,"Merge #14153: Docs: Add disable-wallet section to OSX build instructions, update line in Unix instructions",,FALSE
+Done (Merged to dashpay),,fb06eb4ef,Merge #13662: Explain when reindex-chainstate can be used instead of reindex,,FALSE
+,,eea87ef53,Merge #12775: Integration of property based testing into Bitcoin Core,,FALSE
+,,cb25cd6aa,"Merge #14119: qa: Read reject reasons from debug log, not p2p messages",,FALSE
+Done (Merged to dashpay),,ae251fa2a,Merge #14186: bitcoin-cli: don't translate command line options,,FALSE
+Done (Merged to dashpay),,fbfa2e46f,"Merge #14057: [Logging] Only log ""Using config file PATH_TO_bitcoin.conf"" message on startup if conf file exists",,FALSE
+Done (Merged to dashpay),,793d2b743,Merge #14164: Update univalue subtree,,FALSE
+Done (Merged to dashpay),,e5eb8ba56,Merge #14183: depends: Remove unused Qt 4 dependencies,,FALSE
+DNM (Did Not Merge),,321075609,Merge #14054: p2p: Disable BIP 61 by default,,FALSE
+Done (Merged to dashpay),,6eeac2e62,Merge #14138: wallet: Set encrypted_batch to nullptr after delete. Avoid double free in the case of NDEBUG.,,FALSE
+Done (Merged to dashpay),,7c7bb6e77,Merge #14127: build: avoid getifaddrs when unavailable,,FALSE
+,,838b85e12,Merge #14008: Preserve a format of RPC command definitions,,FALSE
+Done (Merged to dashpay),,e0a4f9de7,Merge #13793: tx pool: Use class methods to hide raw map iterator impl details,,FALSE
+Done (Merged to dashpay),,13c842e02,Merge #9332: Let wallet importmulti RPC accept labels for standard scriptPubKeys,,FALSE
+Done (Merged to dashpay),,eb2f1bd27,Merge #14189: qa: Fix silent merge conflict in wallet_importmulti,,FALSE
+Done (Merged to dashpay),,7ab2837b6,Merge #14162: gui: Also log and print messages or questions like bitcoind,,FALSE
+Done (Merged to dashpay),,3783b139e,Merge #13866: utils: Use _wfopen and _wfreopen on Windows,,FALSE
+,,bcffd8743,Merge #13558: Drop unused GetType() from CSizeComputer,,FALSE
+Done (Merged to dashpay),,e3fec3cfa,Merge #13419: [tests] Speed up knapsack_solver_test by not recreating wallet 100 times.,,FALSE
+Done (Merged to dashpay),,0de0abc85,Merge #14184: Scripts and tools: increased timeout downloading,,FALSE
+Done (Merged to dashpay),,362518791,Merge #13734: gui: Drop boost::scoped_array and use wchar_t API explicitly on Windows,,FALSE
+Done (Merged to dashpay),,4103cc316,Merge #14168: Remove ENABLE_WALLET from libbitcoin_server.a,,FALSE
+Done (Merged to dashpay),,1c12cf607,Merge #13886: utils: run commands using utf-8 string on Windows,,FALSE
+Done (Merged to dashpay),,8f464549c,Merge #14204: build: Move interfaces/* to libbitcoin_server,,FALSE
+Done (Merged to dashpay),,1bfcc0696,Merge #14209: logging: Replace LogPrint macros with regular functions,,FALSE
+Done (Merged to dashpay),,81b3f3c7a,Merge #14195: Pass privkey export DER compression flag correctly,,FALSE
+Done (Merged to dashpay),,477f25875,Merge #14207: doc: `-help-debug` implies `-help`,,FALSE
+Done (Merged to dashpay),,37b836ad0,Merge #13888: Call unicode API on Windows,,FALSE
+,,288ddf4ff,Merge #14180: qa: Run all tests even if wallet is not compiled,Needs PSBT,FALSE
+Done (Merged to dashpay),,ef425f69a,Merge #14199: [psbt]Remove redundant BIP174 test from rpc_psbt.json,,FALSE
+Done (Merged to dashpay),,b9ed2fd02,Merge #13310: Report progress in ReplayBlocks while rolling forward,,FALSE
+Done (Merged to dashpay),,962c30271,Merge #13983: rpc: Return more specific reject reason for submitblock,,FALSE
+Done (Merged to dashpay),,49fd485bb,Merge #14208: [build] Actually remove ENABLE_WALLET,,FALSE
+Done (Merged to dashpay),,d73205ef3,Merge #14192: utils: Convert fs::filesystem_error messages from local multibyte to utf-8 on Windows,,FALSE
+Done (Merged to dashpay),,f0a6a922f,Merge #14213: Docs: Fix reference to lint-locale-dependence.sh,,FALSE
+Done (Merged to dashpay),,efb11d7c0,"Merge #14179: qa: Fixups to ""Run all tests even if wallet is not compiled""",,FALSE
+Done (Merged to dashpay),,a098245ec,Merge #14215: [qa] Use correct python index slices in example test,,FALSE
+Done (Merged to dashpay),,f09bc7ec9,Merge #12493: [wallet] Reopen CDBEnv after encryption instead of shutting down,,FALSE
+Done (Merged to dashpay),,de89eec25,Merge #14206: doc: Document -checklevel levels,,FALSE
+,,c53e083a4,Merge #14212: build: Remove libssl from LDADD unless gui,Need to revisit,FALSE
+Done (Merged to dashpay),,3832c25f1,Merge #14225: tests: Reorder tests and move most of extended tests up to normal tests,,FALSE
+Done (Merged to dashpay),,72e358dca,Merge #14227: integer division instead of implicit double conversion,,FALSE
+,,2d4749b36,"Merge #13578: [depends, zmq, doc] upgrade zeromq to 4.2.5 and avoid deprecated zeromq api functions",,FALSE
+,,4901c0079,Merge #14236: qa: generate --> generatetoaddress change to allow tests run without wallet,,FALSE
+Done (Merged to dashpay),,d926a87fd,Merge #14247: Fix crash bug with duplicate inputs within a transaction,,FALSE
+DNM (Did Not Merge),,24f095df4,Merge #14251: doc: Add historical release notes for 0.16.3,Not Needed,FALSE
+,P_Staged (merged to Pasta local repo),d26278988,Merge #13152: [rpc] Add getnodeaddresses RPC command,,FALSE
+DNM (Did Not Merge),,1e5b9254a,Merge #14276: doc: Add autogen.sh in ARM Cross-compilation,Not Needed,FALSE
+,Staged (merged to local repo),9a3a984bb,Merge #14272: init: Remove deprecated args from hidden args,,FALSE
+Done (Merged to dashpay),,2796c6e5e,Merge #14214: convert C-style (void) parameter lists to C++ style (),,FALSE
+Done (Merged to dashpay),,920c090f6,Merge #14287: tests: Use MakeUnique to construct objects owned by unique_ptrs,,FALSE
+,B_Staged (merged to Pravin local repo),e798ae41e,Merge #13546: wallet: Fix use of uninitialized value bnb_used in CWallet::CreateTransaction(...),,FALSE
+Done (Merged to dashpay),,f5035f9d0,Merge #14298: [REST] improve performance for JSON calls,,FALSE
+Done (Merged to dashpay),,985d28cc9,Merge #14297: [RPC] Remove warning for removed estimatefee RPC,,FALSE
+,B_Staged (merged to Pravin local repo),37612099e,Merge #13424: Consistently validate txid / blockhash length and encoding in rpc calls,,FALSE
+,,990fc0de1,Merge #14007: tests: Run functional test on Windows and enable it on Appveyor,,FALSE
+,Staged (merged to local repo),4dac24db2,Merge #13311: Don't edit Chainparams after initialization,,FALSE
+Done (Merged to dashpay),,bb8c9b3f7,Merge #14275: tests: Write the notification message to different files to avoid race condition in feature_notifications.py,,FALSE
+,,9f94483b7,Merge #14306: AppVeyor: Move AppVeyor YAML to dot-file-style YAML,,FALSE
+Done (Merged to dashpay),,8efd87455,Merge #14281: lcov: filter /usr/lib/ from coverage reports,,FALSE
+Done (Merged to dashpay),,cc7258bdf,Merge #13877: utils: Make fs::path::string() always return utf-8 string on Windows,,FALSE
+Done (Merged to dashpay),,d799efe21,Merge #14310: [wallet] Ensure wallet is unlocked before signing,,FALSE
+,,ae1cc010b,Merge #14282: [wallet] Remove -usehd,,FALSE
+Done (Merged to dashpay),,edcf29c9d,"Merge #14305: Tests: enforce critical class instance attributes in functional tests, fix segwit test specificity",,FALSE
+,,b88dd7c2d,Merge #12246: Bugfix: Only run bitcoin-tx tests when bitcoin-tx is enabled,,FALSE
+Done (Merged to dashpay),,423cb3765,Merge #14027: Skip stale tip checking if outbound connections are off or if reindexing.,,FALSE
+Done (Merged to dashpay),,01211cea7,Merge #14307: Consolidate redundant implementations of ParseHashStr,,FALSE
+Done (Merged to dashpay),,134b42a40,Merge #14244: amount: Move CAmount CENT to unit test header,,FALSE
+,,9b8bb5f14,Merge #14316: tests: exclude all tests with difference parameters in `--exclude` list,,FALSE
+Done (Merged to dashpay),,af4b8a327,Merge #14217: doc: Add GitHub pr template,,FALSE
+DNM (Did Not Merge),,0809e68a9,doc: Add historical release notes for 0.14.3 and 0.15.2,,FALSE
+Done (Merged to dashpay),,c9327306b,Merge #14348: depends: fix bitcoin-qt back-compat with older freetype versions at runtime,,FALSE
+,P_Staged (merged to Pasta local repo),011c39c29,Merge #14331: doxygen: Fix member comments,,FALSE
+,,1e8f88e07,Merge #14325: [gitian] use versioned unsigned tarballs instead of generically named ones,,FALSE
+DNM (Did Not Merge),,5aaf1a047,doc: Add historical release notes for 0.17.0,,FALSE
+DNM (Did Not Merge),,1f59c6f3e,"doc: Remove ""temporary file"" notice from 0.17.0 release notes",,FALSE
+,,bfaeb84f0,Merge #14381: test: Add missing call to skip_if_no_cli(),,FALSE
+,,69a29b5a8,Merge #14264: doc: Split depends installation instructions per arch,,FALSE
+Done (Merged to dashpay),,4b4e9486a,Merge #14389: travis: set codespell version to avoid breakage,,FALSE
+,,4ad560dba,Merge #14393: doc: add missing apt-get install,,FALSE
+Done (Merged to dashpay),,f504a1402,Merge #14395: Fix typos and cleanup,,FALSE
+,,60a61611f,Merge #13883: utils: Convert Windows args to utf-8 string,,FALSE
+DNM (Did Not Merge),,53f26cd11,Merge #14421: Fix path to doc/descriptors.md in 0.17 release notes,,FALSE
+Done (Merged to dashpay),,2a747337a,Merge #14398: tests: Don't access out of bounds array index: array[sizeof(array)],,FALSE
+Done (Merged to dashpay),,02a024245,Merge #14419: [tests] Remove rpc_zmq.py,,FALSE
+,,d9acd8648,Merge #14241: appveyor: script improvement,,FALSE
+Done (Merged to dashpay),,ab660c8e5,Merge #14413: tests: Allow closed rpc handler in assert_start_raises_init_error,,FALSE
+,,d12e3d9ac,Merge #14324: qa: Run more tests with wallet disabled,,FALSE
+Done (Merged to dashpay),,35e12e336,Merge #14428: docs: Fix macOS files description in qt/README.md,,FALSE
+DNM (Did Not Merge),,d6189ff20,Merge #14390: docs: release process: RPC documentation,,FALSE
+Done (Merged to dashpay),,da32bd80b,"Merge #14253: Build: during 'make clean', remove some files that are currently missed.",,FALSE
+,,a89896fad,Merge #13649: test: allow arguments to be forwarded to flake8 in lint-python.sh,,FALSE
+Done (Merged to dashpay),,4de0b5f39,Merge #14385: depends: qt: avoid system harfbuzz and bz2,,FALSE
+Done (Merged to dashpay),,1d1417430,Merge #13115: addrman: Add Clang thread safety annotations for variables guarded by CAddrMan.cs,,FALSE
+Done (Merged to dashpay),,dc8e6d04e,Merge #14455: build: unbreak `make clean`,,FALSE
+Done (Merged to dashpay),,be992701b,Merge #14373: Consistency fixes for RPC descriptions,,FALSE
+,,2a2cac787,Merge #14424: Stop requiring imported pubkey to sign non-PKH schemes,Breaks PSBT test,FALSE
+Done (Merged to dashpay),,9bd3ff430,Merge #14383: qt: Clean system tray icon menu for '-disablewallet' mode,,FALSE
+DNM (Did Not Merge),,2468471e1,"Merge #14403: qt: Revert ""Force TLS1.0+ for SSL connections""",No Changes Present,FALSE
+Done (Merged to dashpay),,23419e4c4,Merge #14335: net: refactor: cleanup ThreadSocketHandler,,FALSE
+Done (Merged to dashpay),,27bf14f6f,Merge #14495: build: Warn (don't fail!) on spelling errors,,FALSE
+Done (Merged to dashpay),,3036faf51,Merge #14496: build: Pin to specific versions of Python packages we install from PyPI in Travis,,FALSE
+Done (Merged to dashpay),,816fab9cc,Merge #14450: qt: Fix QCompleter popup regression,,FALSE
+DNM (Did Not Merge),,041224a75,Merge #14472: [doc] getblocktemplate: use SegWit in example,,FALSE
+Done (Merged to dashpay),,9c5f0d542,Merge #13878: utils: Add fstream wrapper to allow to pass unicode filename on Windows,,FALSE
+,K_Staged (merged to Kitty local repo),d98777f30,Merge #14146: wallet: Remove trailing separators from -walletdir arg,,FALSE
+Done (Merged to dashpay),,32c5f188d,Merge #14177: qt: Set C locale for amountWidget,,FALSE
+Done (Merged to dashpay),,fe23553ed,"Merge #14374: qt: Add ""Blocksdir"" to Debug window",,FALSE
+Done (Merged to dashpay),,3715b2489,Merge #14510: Avoid triggering undefined behaviour in base_uint<BITS>::bits(),,FALSE
+Done (Merged to dashpay),,8eb2cd1dd,Merge #14291: wallet: Add ListWalletDir utility function,,FALSE
+Done (Merged to dashpay),,d387507ae,Merge #14465: tests: Stop node before removing the notification file,,FALSE
+Done (Merged to dashpay),,8010ded6d,Merge #14524: Trivial: fix typo,,FALSE
+Done (Merged to dashpay),,b14db5aba,Merge #14513: Avoid 1 << 31 (UB) in calculation of SEQUENCE_LOCKTIME_DISABLE_FLAG,,FALSE
+,P_Staged (merged to Pasta local repo),b2863c068,Merge #14426: utils: Fix broken Windows filelock,,FALSE
+Done (Merged to dashpay),,dc1e54206,Merge #14474: bitcoin-tx: Use constant for n pubkeys check,,FALSE
+Done (Merged to dashpay),,e754c6e33,Merge #14011: Disable wallet and address book Qt tests on macOS minimal platform,,FALSE
+Done (Merged to dashpay),,91482e5bf,Merge #14460: tests: Improve 'CAmount' tests,,FALSE
+DNM (Did Not Merge),,544f32343,Merge #14512: docs: Textual improvements in README.md,Not Necessary,FALSE
+,,d433239a8,Merge #14456: test: forward timeouts properly in send_blocks_and_test,,FALSE
+Done (Merged to dashpay),,6746a8951,Merge #14497: docs: Add doc/bitcoin-conf.md,,FALSE
+,,96c409c91,"Merge #14527: qa: Revert ""Make qt wallet test compatible with qt4""",,FALSE
+,,75795603d,Merge #13909: validation: Pass chainparams in AcceptToMemoryPoolWorker(...),,FALSE
+Done (Merged to dashpay),,73cddb36a,Merge #14526: docs: Document lint tests,,FALSE
+DNM (Did Not Merge),,5c25409d6,Merge #14161: doc/descriptors.md tweaks,Not Necessary,FALSE
+,,0a8f519a0,Merge #14150: Add key origin support to descriptors,,FALSE
+DNM (Did Not Merge),,b3f377daa,Merge #14511: doc: Remove explicit storage requirement from README.md,,FALSE
+DNM (Did Not Merge),,3668bb335,Merge #14468: [wallet] Deprecate generate RPC method,we have equivalent ,FALSE
+,P_Staged (merged to Pasta local repo),94cf1ec94,Merge #14417: Fix listreceivedbyaddress not taking address as a string,,FALSE
+Done (Merged to dashpay),,5473e255f,Merge #14444: Add compile time checking for cs_main locks which we assert at run time,,FALSE
+Done (Merged to dashpay),,e895fdc9f,Merge #11634: wallet: Add missing cs_wallet/cs_KeyStore locks to wallet,,FALSE
+DNM (Did Not Merge),,9dda5fdf6,Merge #14296: [wallet] Remove addwitnessaddress,,FALSE
+Done (Merged to dashpay),,2e15fa16c,Merge #12842: Prevent concurrent savemempool,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),988659011,Merge #14451: Add BIP70 deprecation warning and allow building GUI without BIP70 support,,FALSE
+Done (Merged to dashpay),,a74ed3a05,Merge #14453: rpc: Fix wallet unload during walletpassphrase timeout,,FALSE
+Done (Merged to dashpay),,6241eb322,Merge #14504: tests: show the progress of functional tests,,FALSE
+,,2b88f67e0,Merge #14320: [bugfix] wallet: Fix duplicate fileid detection,,FALSE
+Done (Merged to dashpay),,613fc95ee,Merge #14559: appveyor: Enable multiwallet tests,,FALSE
+DNM (Did Not Merge),,754a00d55,Merge #14416: Fix OSX dmg issue (10.12 to 10.14),No Changes Present,FALSE
+Done (Merged to dashpay),,9d4541508,Merge #14518: rpc: Always throw in getblockstats if -txindex is required,,FALSE
+Done (Merged to dashpay),,d50c996a1,Merge #14561: Remove fs::relative call and fix listwalletdir tests,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),ae85c8d28,Merge #14568: build: Fix Qt link order for Windows build,,FALSE
+Done (Merged to dashpay),,f4e4ea1ce,Merge #13515: travis: Enable qt for all jobs,,FALSE
+Done (Merged to dashpay),,c70f9c0cf,Merge #14571: [tests] Test that nodes respond to getdata with notfound,,FALSE
+Done (Merged to dashpay),,efaf2d85e,Merge #13783: validation: Pass tx pool reference into CheckSequenceLocks,,FALSE
+,,643b25d09,Merge #14583: docs: Textual improvements in build docs,,FALSE
+,P_Staged (merged to Pasta local repo),f1e2f2a85,Merge #14585: refactor: remove usage of locale dependent std::isspace,,FALSE
+DNM (Did Not Merge),,29f429dc7,No Changes,,FALSE
+,,b312579c6,Merge #14454: Add SegWit support to importmulti,Segwit,FALSE
+Done (Merged to dashpay),,d38a5092f,Merge #14600: docs: Clarify commit message guidelines,,FALSE
+DNM (Did Not Merge),,08a57d51e,"Merge #14593: gui: explicitly disable ""Dark Mode"" appearance on macOS",Same logic has already been implemented,FALSE
+Done (Merged to dashpay),,6a095bc5f,Merge #14569: tests: Print dots by default in functional tests,,FALSE
+,,9899e65d8,Merge #14617: FreeBSD: Document Python 3 requirement for 'gmake check',,FALSE
+DNM (Did Not Merge),,f6df98984,Merge #14197: [psbt] Convert non-witness UTXOs to witness if witness sig created,,FALSE
+Done (Merged to dashpay),,f69d92299,Merge #14592: doc: Add external interface consistency guarantees,,FALSE
+Done (Merged to dashpay),,5049f7f7a,Merge #14625: Make clear function argument case in dev notes,,FALSE
+Done (Merged to dashpay),,51e5ef397,"Merge #14377: check that a separator is found for psbt inputs, outputs, and global map",Possibly breaks PSBT,FALSE
+,,c34c821e4,Merge #14631: [tests] Move deterministic address import to setup_nodes,,FALSE
+Done (Merged to dashpay),,750415701,Merge #14630: test_runner: Remove travis specific code,,FALSE
+Done (Merged to dashpay),,742ee2134,Merge #14528: travis: Compile once on xenial,,FALSE
+Done (Merged to dashpay),,b74078868,Merge #14410: rpcwallet: 'ischange' field for 'getaddressinfo' RPC,,FALSE
+Done (Merged to dashpay),,bccb4d29a,Merge #14555: Move util files to directory,,FALSE
+Done (Merged to dashpay),,13d98ea0d,Merge #14647: build: Remove illegal spacing in darwin.mk,,FALSE
+Done (Merged to dashpay),,69d574ac6,Merge #14554: qt: Remove unused `adjustedTime` parameter,,FALSE
+Done (Merged to dashpay),,46eb2755d,Merge #14350: Add WalletLocation class,,FALSE
+Done (Merged to dashpay),,15a219ff8,Merge #14628: Trivial: Rename misleading 'defaultPort' to 'rpc_port',,FALSE
+DNM (Did Not Merge),,76ae7a1ac,Merge #14515: doc: Update OpenBSD build guide for 6.4,Seems unncessary,FALSE
+Done (Merged to dashpay),,45f50063a,Merge #14618: rpc: Make HTTP RPC debug logging more informative,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),dac2caa37,"Merge #14060: ZMQ: add options to configure outbound message high water mark, aka SNDHWM",,FALSE
+,,73a8408bc,"Merge #14092: tests: Dry run bench_bitcoin as part ""make check"" to allow for quick identification of assertion/sanitizer failures in benchmarking code",CI does not like that,FALSE
+Done (Merged to dashpay),,6b8d0a216,Merge #14632: Tests: Fix a comment,,FALSE
+Done (Merged to dashpay),,dbc1a64bc,Merge #14660: trivial: Don't translate help texts,,FALSE
+Done (Merged to dashpay),,9c3f6c5fa,"Merge #14664: example_test.py: fixup coinbase height argument, derive number clearly",,FALSE
+,P_Staged (merged to Pasta local repo),1ba558364,Merge #14252: build: Run functional tests and benchmarks under the undefined behaviour sanitizer (UBSan),,FALSE
+DNM (Did Not Merge),,825f779dc,doc: Add historical release notes for 0.17.0.1,,FALSE
+,Q_Staged (merged to knstqq local repo),024816d6c,Merge #14522: tests: add invalid P2P message tests,,FALSE
+,,cdddd1778,Merge #14658: qa: Add test to ensure node can generate all rpc help texts at runtime,,FALSE
+Done (Merged to dashpay),,880bc728b,Merge #14074: Use std::unordered_set instead of set in blockfilter interface,,FALSE
+Done (Merged to dashpay),,6af27b815,Merge #14619: tests: Fix value display name in test_runner help text,,FALSE
+,Q_Staged (merged to knstqq local repo),976583e10,Merge #14672: tests: Send fewer spam messages in p2p_invalid_messages,,FALSE
+,P_Staged (merged to Pasta local repo),d864e4573,Merge #14673: travis: Fail the UBSan Travis build in case of newly introduced UBSan errors,,FALSE
+,,4e6dc7a0e,Merge #14665: appveyor: Script improvement part II,,FALSE
+DNM (Did Not Merge),,66c70249f,Merge #14611: docs: align items in contrib init,,FALSE
+Done (Merged to dashpay),,e8d490f27,Merge #14636: Avoid using numeric_limits for sequence numbers and lock times,,FALSE
+Done (Merged to dashpay),,d26d15c6c,Merge #14365: tests: Add Python dead code linter (vulture) to Travis,,FALSE
+Done (Merged to dashpay),,11e1ac3ae,Merge #14436: doc: add comment explaining recentRejects-DoS behavior,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),e52781067,Merge #14686: build: Fix windows build error if `--disable-bip70`,,FALSE
+Done (Merged to dashpay),,e70a19e71,"Merge #14684: [doc] conf: Remove deprecated options from docs, Other cleanup",,FALSE
+,K_Staged (merged to Kitty local repo),cbf00939b,Merge #14437: Refactor: Start to separate wallet from node,,FALSE
+,,b30c62d4b,Merge #14588: Refactor PSBT signing logic to enforce invariant and fix signing bug,,FALSE
+,,16e3b1757,Merge #14689: Require a public key to be retrieved when signing a P2PKH input,,FALSE
+,,edc715240,Merge #12783: macOS: disable AppNap during sync,,FALSE
+Done (Merged to dashpay),,ae32806ea,Merge #14651: Refactor: Fix compiler warning in prevector.h,,FALSE
+,,48223256c,Merge #14123: gui: Add GUIUtil::bringToFront,,FALSE
+DNM (Did Not Merge),,af3c8a7e9,Merge #14693: test_node: get_mem_rss fixups,No Changes ,FALSE
+Done (Merged to dashpay),,5cdfd72b1,Merge #14228: Qt: Enable system tray icon by default if available,,FALSE
+,Q_Staged (merged to knstqq local repo),90c0b6aca,Merge #14494: Error if # is used in rpcpassword in conf,,FALSE
+Done (Merged to dashpay),,47ed24cf8,"Merge #14356: fix converttopsbt permitsigdata arg, add basic test",,FALSE
+,,b60f4e3f0,Merge #13381: RPC: creates possibility to preserve labels on importprivkey,,FALSE
+,,083f53547,"Merge #14608: qt: Remove the ""Pay only required fee..."" checkbox",,FALSE
+,Q_Staged (merged to knstqq local repo),ce7fcc356,Merge #14690: Throw error if CPubKey is invalid during PSBT keypath serialization,,FALSE
+Done (Merged to dashpay),,c51e1516a,Merge #14714: util.h: explicitly include required QString header,,FALSE
+,Q_Staged (merged to knstqq local repo),5d605b274,Merge #14700: qa: Avoid race in p2p_invalid_block by waiting for the block request,,FALSE
+,Q_Staged (merged to knstqq local repo),e0c6bb782,Merge #14705: travis: Avoid timeout on verify-commits check,,FALSE
+Done (Merged to dashpay),,c651265c9,Merge #14530: Use RPCHelpMan to generate RPC doc strings,,FALSE
+,,f617e05c3,Merge #14679: importmulti: Don't add internal addresses to address book,,FALSE
+Done (Merged to dashpay),,8c59bb85f,Merge #14720: rpc: Correctly name arguments,,FALSE
+Done (Merged to dashpay),,33cd94279,Merge #14698: build: Add bitcoin-tx.exe into Windows installer,,FALSE
+Done (Merged to dashpay),,74213fa4d,Merge #14725: qt: Bump the minimum Qt version to 5.2,,FALSE
+DNM (Did Not Merge),,99a3e6f0b,Merge #14688: Doc: update release notes for changes since 0.17.0 branch,,FALSE
+DNM (Did Not Merge),,2e8f9dc2b,Merge #14704: doc: add detached release notes for #14060,Honestly don't believe we need this,FALSE
+,Q_Staged (merged to knstqq local repo),c7366d239,Merge #14478: Show error to user when corrupt wallet unlock fails,,FALSE
+,Q_Staged (merged to knstqq local repo),e74649e95,Merge #14411: [wallet] Restore ability to list incoming transactions by label,may need to revert 14441,FALSE
+Done (Merged to dashpay),,384967f31,"Merge #13815: util: Add [[nodiscard]] to all {Decode,Parse}[...](...) functions returning bool",partial,FALSE
+Done (Merged to dashpay),,35739976c,Merge #14731: doc: Improve scripted-diff developer docs,,FALSE
+Done (Merged to dashpay),,6d58a5c3b,Merge #14685: fix a deserialization overflow edge case,,FALSE
+Done (Merged to dashpay),,09f1d7fe7,Merge #14718: Remove unreferenced boost headers,,FALSE
+Done (Merged to dashpay),,1b99d153d,Merge #14768: revert removal of fstream.hpp header in fs.h,,FALSE
+,,afa506f6e,Merge #14552: wallet: detecting duplicate wallet by comparing the db filename.,,FALSE
+Done (Merged to dashpay),,6b90a2a0e,Merge #14770: travis: Do not specify sudo in .travis,,FALSE
+Done (Merged to dashpay),,267793af8,Merge #14742: Properly generate salt in rpcauth.py,,FALSE
+,,164988605,Merge #14719: qa: Check specific reject reasons in feature_block,,FALSE
+,,d7b0258ff,Merge #14708: Warn unrecognised sections in the config file,,FALSE
+,,e736b6746,Merge #14715: Drop defunct prevector compat handling,,FALSE
+Done (Merged to dashpay),,e77a2258e,"Merge #14532: Never bind INADDR_ANY by default, and warn when doing so explicitly",,FALSE
+Done (Merged to dashpay),,708cbb172,Merge #14756: Improve rpcauth.py by using argparse and getpass modules,,FALSE
+Done (Merged to dashpay),,2a97f192e,Merge #14771: test: Add BOOST_REQUIRE to getters returning optional,,FALSE
+Done (Merged to dashpay),,3dda4c5f0,Merge #14777: tests: Add regtest for JSON-RPC batch calls,,FALSE
+DNM (Did Not Merge),,d7fbe7d92,Merge #14778: A few minor formatting fixes and clarifications to descriptors.md,Unnecessary,FALSE
+,,a0d86815c,Merge #14726: Use RPCHelpMan for all RPCs,,FALSE
+Done (Merged to dashpay),,2479b779a,Merge #14728: fix uninitialized read when stringifying an addrLocal,,FALSE
+Done (Merged to dashpay),,e3a1b74cd,Merge #14448: doc: Clarify rpcwallet flag url change,,FALSE
+Done (Merged to dashpay),,1d3af69fd,Merge #14612: Include full version number in released file names,,FALSE
+Done (Merged to dashpay),,0595164db,"Merge #14678: [wallet] remove redundant KeyOriginInfo access, already done in CreateSig",,FALSE
+Done (Merged to dashpay),,59f05d116,"Merge #14521: qt, docs: Fix `bitcoin-qt -version` output formatting",,FALSE
+,P_Staged (merged to Pasta local repo),2607c38fc,Merge #14764: travis: Run thread sanitizer on unit tests,,FALSE
+Done (Merged to dashpay),,a7dc03223,Merge #14785: Scripts: Fix detection of copyright holders,,FALSE
+,,327129f7a,Merge #14400: Add Benchmark to test input de-duplication worst case,,FALSE
+,,b5c3d7aff,Merge #14808: doc: clarify RPC rawtransaction documentation,,FALSE
+,Q_Staged (merged to knstqq local repo),a4eaaa6ac,Merge #14812: qa: fix p2p_invalid_messages on macOS,,FALSE
+,,d49103007,Merge #14772: refactor: Convert comments to thread safety annotations,,FALSE
+,,8c119b275,Merge #14813: qa: Add wallet_encryption error tests,,FALSE
+Done (Merged to dashpay),,0fa3703c1,Merge #14820: test: Fix descriptor_tests not checking ToString output of public descriptors,,FALSE
+,,fdf146f32,Merge #14477: Add ability to convert solvability info to descriptor,,FALSE
+,K_Staged (merged to Kitty local repo),600b85bb4,Merge #14794: tests: Add AddressSanitizer (ASan) Travis build,,FALSE
+Done (Merged to dashpay),,9ebfe0e92,Merge #14819: Bugfix: test/functional/mempool_accept: Ensure oversize transaction is actually oversize,,FALSE
+Done (Merged to dashpay),,0a452d02c,Merge #13123: net: Add Clang thread safety annotations for guarded variables in the networking code,,FALSE
+,,60b20c869,Merge #14822: bench: Destroy wallet txs instead of leaking their memory,,FALSE
+,,74254fea1,Merge #14683: tests: better combine_logs.py behavior,,FALSE
+,,13a7454fb,Merge #14380: fix assert crash when specified change output spend size is unknown,psbt,FALSE
+,,81bd349c9,Merge #14845: [tests] Add wallet_balance.py,14852 as well,FALSE
+,,011c42c5b,Merge #13258: uint256: Remove unnecessary crypto/common.h dependency,,FALSE
+,,5ab5341d1,Merge #14841: consensus: Move CheckBlock() call to critical section,,FALSE
+,,ed12fd83c,"Merge #13966: gui: When private key is disabled, only show watch-only balance",,FALSE
+,,c62b15118,Merge #14231: travis: Save cache even when build or test fail,,FALSE
+Done (Merged to dashpay),,64fc7c0c1,Merge #14828: qt: Remove hidden columns in coin control dialog,,FALSE
+Done (Merged to dashpay),,0257062e5,Merge #14816: Add CScriptNum decode python implementation in functional suite,,FALSE
+Done (Merged to dashpay),,8f1753b29,Merge #14804: docs: Less confusing documentation for `torpassword`,,FALSE
+,P_Staged (merged to Pasta local repo),c789add6f,Merge #14760: Log env path in BerkeleyEnvironment::Flush,,FALSE
+Done (Merged to dashpay),,426535703,Merge #14848: docs: Fix broken Gmane URL in security-check.py,,FALSE
+Done (Merged to dashpay),,88445889f,"Merge #14733: P2P: Make peer timeout configurable, speed up very slow test and ensure correct code path tested.",,FALSE
+DNM (Did Not Merge),,abbf4be18,Merge #14861: tests: Modify rpc_bind to conform to #14532 behaviour.,No Changes Present,FALSE
+,,86ff0413b,Merge #14840: Remove duplicate libconsensus linking in test make,,FALSE
+,,e2c473ff7,Merge #14796: rpc: Pass argument descriptions to RPCHelpMan,,FALSE
+Done (Merged to dashpay),,1858e6f2f,Merge #14864: test: Run scripted-diff in subshell,,FALSE
+Done (Merged to dashpay),,127b30cce,Merge #14838: Use const in COutPoint class,,FALSE
+Done (Merged to dashpay),,0936e2596,Merge #14831: Scripts and tools: Use #!/usr/bin/env bash instead of #!/bin/bash.,Partial,FALSE
+Done (Merged to dashpay),,01bc479d1,Merge #14869: scripts: Add trusted key for Samuel Dobson,,FALSE
+Done (Merged to dashpay),,4987cdd16,Merge #14882: [doc] developer-notes.md: point out that UniValue deviates from upstream,,FALSE
+Done (Merged to dashpay),,a88bd3186,Merge #14670: http: Fix HTTP server shutdown,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),23a1fa024,Merge #14564: Adjust configure so that only bip70 is disabled when protobuf is missing instead of the GUI,,FALSE
+Done (Merged to dashpay),,f8456256c,Merge #14783: gui: Fix boost::signals2::no_slots_error in early calls to InitWarning,,FALSE
+Done (Merged to dashpay),,f544e2355,Merge #14863: refactor: Add and use HaveTxsDownloaded() where appropriate,,FALSE
+Done (Merged to dashpay),,b8b0b8ced,Merge #14480: refactor: Drop boost::this_thread::interruption_point and boost::thread_interrupted in main thread,,FALSE
+,,2b1226809,Merge #14854: qt: Cleanup SplashScreen class,,FALSE
+,,d38a2c141,Merge #14890: rpc: Avoid creating non-standard raw transactions,,FALSE
+Done (Merged to dashpay),,939021704,Merge #14795: test: allows test_runner command line to receive parameters for each test,,FALSE
+Done (Merged to dashpay),,2753285be,Merge #14788: tests: Possible fix the permission error when the tests open the cookie file,,FALSE
+Done (Merged to dashpay),,0eb65aa90,Merge #14801: qt: Use window() instead of obsolete topLevelWidget(),,FALSE
+DNM (Did Not Merge),,89cdcfedc,Merge #14799: docs: convert link from http to https in doc/release-process.md,No changes present,FALSE
+Done (Merged to dashpay),,e946fc7eb,Merge #14809: Tools: improve verify-commits.py script,,FALSE
+,,234b99b92,Merge #14885: rpc: Assert named arguments are unique in RPCHelpMan,,FALSE
+,,5f23460c7,Merge #14877: rpc: Document default values for optional arguments,,FALSE
+,,d680ef938,Merge #14883: add `--retry 5` to curl opts in install_db4.sh,Not something we use,FALSE
+,,7701b6256,Merge #14857: wallet_keypool_topup.py: Test for all keypool address types,,FALSE
+,,f65bce858,Merge #14886: [tests] Refactor importmulti tests,,FALSE
+,,3fff1ab81,Merge #14646: Add expansion cache functions to descriptors (unused for now),,FALSE
+,,ed2a2cebd,Merge #13076: Fix ScanForWalletTransactions to return an enum indicating scan result: success / failure / user_abort,,FALSE
+DNM (Did Not Merge),,96bde4f01,Merge #14909: doc: Update minimum required Qt,No changes present,FALSE
+DNM (Did Not Merge),,edc2822b9,Merge #14701: build: Add CLIENT_VERSION_BUILD to CFBundleGetInfoString,No changes present,FALSE
+DNM (Did Not Merge),,38fb1b40d,Merge #14914: Docs: Add nice table to files.md,No changes present,FALSE
+,,6d0a14703,Merge #14908: test: Removed implicit CTransaction constructor calls from tests and benchmarks.,,FALSE
+,,f17aca67b,"Merge #14903: tests: Handle ImportError explicitly, improve comparisons against None",,FALSE
+Done (Merged to dashpay),,84dc252a0,Merge #14884: Travis: enforce Python 3.4 support through linter,,FALSE
+Done (Merged to dashpay),,9c477c990,Merge #14741: doc: Indicate -rpcauth option password hashing alg,,FALSE
+Done (Merged to dashpay),,24b3b788b,Merge #14319: doc: Fix PSBT howto and example parameters,,FALSE
+Done (Merged to dashpay),,378fdfabb,Merge #14624: Some simple improvements to the RNG code,partially merged,FALSE
+Done (Merged to dashpay),,57c955609,Merge #14940: test: Add test for truncated pushdata script,,FALSE
+,,7202ae2e1,Merge #14926: test: consensus: Check that final transactions are valid,,FALSE
+Done (Merged to dashpay),,62c15471f,Merge #14849: depends: qt 5.9.7,,FALSE
+Done (Merged to dashpay),,20c54eef6,Merge #14834: validation: assert that pindexPrev is non-null when required,,FALSE
+Done (Merged to dashpay),,914faf178,Merge #14805: tests: Support calling add_nodes more than once,,FALSE
+,B_Staged (merged to Pravin local repo),d88d1f8c2,Merge #14937: travis: fix travis would always be green even if it fail,,FALSE
+Done (Merged to dashpay),,9a4334443,Merge #14947: scripts: Remove Python 2 import workarounds,,FALSE
+Done (Merged to dashpay),,a5aea9654,Merge #14953: test: Make g_insecure_rand_ctx thread_local,,FALSE
+,,7a30e0f6c,Merge #14821: Replace CAffectedKeysVisitor with descriptor based logic,,FALSE
+,,b53573e5c,"Merge #14951: Revert ""tests: Support calling add_nodes more than once""",,FALSE
+Done (Merged to dashpay),,6723d8e3a,Merge #14931: test: mempool_persist: Verify prioritization is dumped correctly,,FALSE
+,,913322729,Merge #14935: tests: Test for expected return values when calling functions returning a success code,,FALSE
+,,dba0f4c5c,Merge #14573: qt: Add Window menu,,FALSE
+,,342417168,Merge #14969: tests: Fix cuckoocache_tests TSAN failure introduced in 14935.,,FALSE
+,,bfd7e5409,Merge #14979: [Qt] Restore < Qt5.6 compatibility for addAction,,FALSE
+,,b545a6e68,Merge #14964: test: Fix race in mempool_accept,,FALSE
+,,27f5a295d,Merge #14957: wallet: Initialize stop_block in CWallet::ScanForWalletTransactions,,FALSE
+Done (Merged to dashpay),,e7b88ecbc,Merge #14975: qt: Refactoring with QString::toNSString(),,FALSE
+,,b545a7e33,Merge #14950: docs: add NSIS setup/install steps to windows docs,,FALSE
+,,f055389cb,Merge #14829: travis: Enable functional tests in the ThreadSanitizer (TSan) build job,,FALSE
+Done (Merged to dashpay),,d4197812d,Merge #14985: test: Remove thread_local from test_bitcoin,,FALSE
+,,f080c65a0,Merge #14875: RPCHelpMan: Support required arguments after optional ones,,FALSE
+,,cb52cee29,Merge #14993: rpc: Fix data race (UB) in InterruptRPC(),,FALSE
+,,86e0a33f5,Merge #14653: rpcwallet: Add missing transaction categories to rpc helptexts,,FALSE
+,,45fe39022,Merge #15005: test: Bump timeout to run tests in travis thread sanitizer,,FALSE
+,,feda41e0a,Merge #14811: Mining: Enforce that segwit option must be set in GBT,,FALSE
+,,cc7ad2f3d,Merge #15013: test: Avoid race in p2p_timeouts,,FALSE
+,,a4564b9b0,Merge #14172: Refactor and add tests for BlockFilter construction,,FALSE
+,,1ac7d599f,Merge #13128: policy: Add Clang thread safety annotations for variables guarded by cs_feeEstimator,,FALSE
+Done (Merged to dashpay),,18857b4c4,Merge #14960: lint/format-strings: Correctly exclude escaped percent symbols,,FALSE
+Done (Merged to dashpay),,e2dfeb014,Merge #13930: doc: Better explain GetAncestor check for m_failed_blocks in AcceptBlockHeader,,FALSE
+,,f8a3ab3b2,Merge #14565: Overhaul importmulti logic,,FALSE
+DNM (Did Not Merge),,df73c23f5,Merge #15033: doc: Add historical release notes for 0.17.1,,FALSE
+Done (Merged to dashpay),,e4850ce11,Merge #14930: test: pruning: Check that verifychain can be called when pruned,,FALSE
+Done (Merged to dashpay),,80d821600,Merge #15012: Docs: Fix minor error in doc/psbt.md,,FALSE
+,,5d118faab,Merge #14973: doc: Improve Windows native build instructions,,FALSE
+Done (Merged to dashpay),,346196b74,Merge #14944: doc: update NetBSD build instructions for 8.0,,FALSE
+,,ea0b1990d,Merge #14981: rpc: Clarifying RPC getrawtransaction's time help text,,FALSE
+Done (Merged to dashpay),,3c9b98bd6,Merge #14966: docs: fix testmempoolaccept CLI syntax,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),cbb91cd0e,Merge #13743: refactor: Replace boost::bind with std::bind,,FALSE
+Done (Merged to dashpay),,a1fd87612,Merge #15022: tests: Upgrade Travis OS to Xenial,,FALSE
+,,96d912bea,Merge #14738: Tests: Fix running wallet_listtransactions.py individually through test_runner.py,,FALSE
+Done (Merged to dashpay),,2741b2b6f,Merge #15026: [test] Rename rpc_timewait to rpc_timeout,,FALSE
+Done (Merged to dashpay),,cc07f9ce6,Merge #15061: [Trivial] Update license year range to 2019,,FALSE
+,,e756eca9e,Merge #15054: Update copyright headers to 2018,,FALSE
+DNM (Did Not Merge),,f5a70d146,"Merge #14974: doc: Removing redundant line: ""Windows XP not supported""",No Changes Present,FALSE
+DNM (Did Not Merge),,4f041ba14,Merge #15073: docs: Botbot.me (IRC logs) not available anymore,Not Needed,FALSE
+DNM (Did Not Merge),,3ec4cc0a9,"Merge #15069: test: Fix rpc_net.py ""pong"" race condition",No Changes Present,FALSE
+Done (Merged to dashpay),,62cf608e9,Merge #14336: net: implement poll,,FALSE
+Done (Merged to dashpay),,c3bb936a0,Merge #14790: Tests: Allow running rpc_bind.py --nonloopback test without IPv6,,FALSE
+,M_Staged (merged to Munky local repo),df894fa69,Merge #14457: test: add invalid tx templates for use in functional tests,,FALSE
+Done (Merged to dashpay),,fb52d0684,Merge #15000: qt: Fix broken notificator on GNOME,,FALSE
+,,031e3a32b,Merge #15081: Doc: Update release notes for master through to 2019-01-01,Not sure if needed,FALSE
+Done (Merged to dashpay),,d1effa11a,"Merge #14375: qt: Correct misleading ""overridden options"" label",,FALSE
+,M_Staged (merged to Munky local repo),06fabfa28,Merge #15020: Build: add names to Travis jobs,,FALSE
+,M_Staged (merged to Munky local repo),1d73636fd,Merge #15038: docs: Get more info about GUI-related issue on Linux,,FALSE
+Done (Merged to dashpay),,d71d0d7b7,Merge #13884: depends: Enable bdb unicode support for Windows,,FALSE
+DNM (Did Not Merge),,d3dc6d879,Merge #15085: gui: Fix incorrect application name when passing -regtest,No Changes Present,FALSE
+Done (Merged to dashpay),,f51aeac5a,Merge #15007: qt: Notificator class refactoring,,FALSE
+Done (Merged to dashpay),,fd83c57d6,Merge #14832: docs: Add more Doxygen information to Developer Notes,,FALSE
+Done (Merged to dashpay),,9c64278e1,Merge #13910: Log progress while verifying blocks at level 4,,FALSE
+DNM (Did Not Merge),,5b6b371c7,Merge #14855: test: Correct ineffectual WithOrVersion from transactions_tests,No Changes Present,FALSE
+,M_Staged (merged to Munky local repo),f7e182a97,Merge #12151: rpc: Remove cs_main lock from blockToJSON and blockheaderToJSON,,FALSE
+Done (Merged to dashpay),,fe5a70b9f,Merge #15099: tests: Use std::vector API for construction of test data,,FALSE
+,M_Staged (merged to Munky local repo),88bbcdc4e,Merge #14357: streams: Fix broken streams_vector_reader test. Remove unused seek(size_t).,,FALSE
+Done (Merged to dashpay),,9c7199877,Merge #14784: qt: Use WalletModel* instead of the wallet name as map key,,FALSE
+,M_Staged (merged to Munky local repo),295a1ad52,Merge #15102: test: Run invalid_txs.InputMissing test in feature_block,,FALSE
+,,f0fa6bad0,Merge #15110: build_msvc: Fix the build problem in libbitcoin_server,,FALSE
+Done (Merged to dashpay),,fcc618d50,Merge #15078: rpc: Document bytessent_per_msg and bytesrecv_per_msg,,FALSE
+,,1973257da,"Merge #15057: [rpc] Correct reconsiderblock help text, add test",,FALSE
+,M_Staged (merged to Munky local repo),29a9f0774,Merge #12153: Avoid permanent cs_main lock in getblockheader,,FALSE
+,,c6806ee86,Merge #15059: test: Add basic test for BIP34,,FALSE
+,,fdbe7f41c,Merge #11625: Add BitcoinApplication & RPCConsole tests,,FALSE
+,,e12a480e4,Merge #14085: index: Fix for indexers skipping genesis block.,,FALSE
+Done (Merged to dashpay),,3f1251519,Merge #15109: refactor: Use C++11 default member initializers,,FALSE
+,,ff7f7364d,Merge #15087: Error if rpcpassword contains hash in conf sections,,FALSE
+Done (Merged to dashpay),,195d28fec,Merge #15124: Fail AppInitMain if either disk space check fails,,FALSE
+Done (Merged to dashpay),,699d0bd9f,Merge #15117: Fix invalid memory write in case of failing mmap(...) in PosixLockedPageAllocator::AllocateLocked,,FALSE
+Done (Merged to dashpay),,854ca855a,Merge #15051: Tests: IsReachable is the inverse of IsLimited (DRY). Includes unit tests,,FALSE
+,,62f3977f6,"Merge #14599: Use functions guaranteed to be locale independent (IsDigit, ToLower) in {Format,Parse}Money(...), uint256::SetHex(...), etc. Remove the use of locale dependent boost::is_space(...)",,FALSE
+DNM (Did Not Merge),,c7fab5571,Merge #15128: docs: Fix download link in doc/README.md,Does not seem necessary,FALSE
+Done (Merged to dashpay),,0ed279cb4,Merge #14517: qt: Fix start with the `-min` option,,FALSE
+,,1cfbb16b5,Merge #15108: [tests] tidy up wallet_importmulti.py,,FALSE
+Done (Merged to dashpay),,5da08e0ac,Merge #15127: docs: Clarifying testing instructions,,FALSE
+DNM (Did Not Merge),,d7943bd00,Merge #15132: docs: Add FreeBSD build notes link to doc/README.md,,FALSE
+,,cebe91071,Merge #15039: wallet: Avoid leaking nLockTime fingerprint when anti-fee-sniping,,FALSE
+,M_Staged (merged to Munky local repo),68dddccda,Merge #15139: util: Remove [U](BEGIN|END) macros,,FALSE
+Done (Merged to dashpay),,b68bac83d,Merge #15047: build: Allow to configure --with-sanitizers=fuzzer,,FALSE
+,M_Staged (merged to Munky local repo),84d0fdce1,Merge #13216: [Qt] implements concept for different disk sizes on intro,,FALSE
+,,a9b71a09a,"Merge #15154: configure: bitcoin-tx doesn't need libevent, so don't pull it in",Does not seem necessary,FALSE
+Done (Merged to dashpay),,43a79d22c,Merge #15138: Drop IsLimited in favor of IsReachable,,FALSE
+,,070eaf7fe,Merge #15144: [refactor] CNode: Use C++11 default member initializers,,FALSE
+,M_Staged (merged to Munky local repo),76335298f,Merge #15114: Qt: Replace remaining 0 with nullptr,,FALSE
+Done (Merged to dashpay),,035f34937,Merge #15164: qa: Ignore shellcheck warning SC2236,,FALSE
+,B_Staged (merged to Pravin local repo),cf0c67b62,Merge #14982: rpc: Add getrpcinfo command,,FALSE
+,,1b6fc3053,Merge #14941: rpc: Make unloadwallet wait for complete wallet unload,,FALSE
+,,a5daf70ff,Merge #14594: qt: Fix minimized window bug on Linux,,FALSE
+,,e8ad580f5,"Merge #14556: qt: fix confirmed transaction labeled ""open"" (#13299)",,FALSE
+,,eb2aecfb8,Merge #14433: Add checksum in gitian build scripts for ossl,,FALSE
+,M_Staged (merged to Munky local repo),82ffd4d91,"Merge #14963: mempool, validation: Explain cs_main locking semantics",,FALSE
+,,c7c84209b,Merge #15149: gui: Show current wallet name in window title,,FALSE
+Done (Merged to dashpay),,391a27376,Merge #15173: [doc] explain what .python-version does,,FALSE
+Done (Merged to dashpay),,16c4a5373,Merge #15170: refactor/lint: Add ignored shellcheck suggestions to an array,,FALSE
+,M_Staged (merged to Munky local repo),bcdd31f26,Merge #15165: contrib: Allow use of github API authentication in github-merge,,FALSE
+,,acec9e45c,"Merge #15136: qt: ""Peers"" tab overhaul",,FALSE
+,P_Staged (merged to Pasta local repo),3ae3748ce,Merge #14958: qa: Remove race between connecting and shutdown on separate connections,,FALSE
+Done (Merged to dashpay),,64ee94356,Merge #14409: utils and libraries: Make 'blocksdir' always net specific,,FALSE
+,,19c60ca49,Merge #14151: windows: Fix remaining compiler warnings (MSVC),,FALSE
+,,d44b01f02,Merge #14268: Introduce SafeDbt to handle Dbt with free or memory_cleanse raii-style,,FALSE
+,,f71c2ea66,Merge #15122: [RPC] Expand help text for importmulti changes,,FALSE
+Done (Merged to dashpay),,fcb6694a9,Merge #14839: [rebase] threads: fix unitialized members in sched_param,,FALSE
+,,7ee604487,Merge #14250: qt: Remove redundant stopThread() and stopExecutor() signals,,FALSE
+Done (Merged to dashpay),,003a47f80,Merge #15185: docs: Spelling error fix on fuzzing.md,,FALSE
+,,12b30105f,Merge #15166: qa: Pin shellcheck version,partially merged in #3636,FALSE
+,M_Staged (merged to Munky local repo),cd42553b1,Merge #15040: qt: Add workaround for QProgressDialog bug on macOS,,FALSE
+,,63144335b,Merge #15101: gui: Add WalletController,,FALSE
+Done (Merged to dashpay),,f55808ad6,Merge #15175: build: Drop macports support,,FALSE
+Done (Merged to dashpay),,3b59fa2ce,"Merge #15178: qt: Improve ""help-console"" message",,FALSE
+,,fe60ee96e,Merge #15186: rpc: remove duplicate solvable field from getaddressinfo,,FALSE
+,M_Staged (merged to Munky local repo),978682b9d,Merge #15194: Add comment describing fDisconnect behavior,,FALSE
+,,7455ca2ae,Merge #15210: gui: Fix window title update,,FALSE
+,,1522079d5,Merge #15209: zmq: log outbound message high water mark when reusing socket,,FALSE
+,,6be52d6f7,Merge #15213: doc: Remove errant paste from walletcreatefundedpsbt for nLocktime replaceable,,FALSE
+,,9fa2b89ed,Merge #15188: Update zmq to 4.3.1,,FALSE
+Done (Merged to dashpay),,72506ed34,Merge #15177: rest: Improve tests and documention of /headers and /block,,FALSE
+,M_Staged (merged to Munky local repo),0f1576ab3,Merge #15167: qt: Fix wallet selector size adjustment,,FALSE
+Done (Merged to dashpay),,5baa9092c,Merge #14605: Return of the Banman,,FALSE
+DNM (Did Not Merge),,ace87ea2b,Merge #14970: [net] add dnsseed.emzy.de to DNS seeds,,FALSE
+,,6e6b3b944,Merge #14955: Switch all RNG code to the built-in PRNG,,FALSE
+,,f0c9e1c22,Merge #14906: refactor: Make explicit CMutableTransaction -> CTransaction conversion.,,FALSE
+,M_Staged (merged to Munky local repo),9bad1e0b2,Merge #15219: lint: Enable python linters via an array,,FALSE
+,K_Staged (merged to Kitty local repo),94167e2b5,"Merge #15208: Qt: remove macOS launch-at-startup when compiled with > macOS 10.11, fix memory missmanagement",,FALSE
+Done (Merged to dashpay),,82cf6813a,"Merge #14353: REST: add blockhash call, fetch blockhash by height",,FALSE
+Done (Merged to dashpay),,73a6bac9f,Merge #15196: [test]: Update all subprocess.check_output functions to be Python 3.4 compatible,,FALSE
+,P_Staged (merged to Pasta local repo),5eb32d238,Merge #15223: Doc: add information about security to the JSON-RPC doc,,FALSE
+,,72bd4ab86,Merge #15193: Default -whitelistforcerelay to off,segwit,FALSE
+Done (Merged to dashpay),,d14ef5721,Merge #15233: Prevent mutex lock fail even if --enable-debug,,FALSE
+Done (Merged to dashpay),,ab46fe6ec,Merge #15249: Docs: Update python docs to reflect that wildcard imports are disallowed,,FALSE
+Done (Merged to dashpay),,b78f6c61c,Merge #15258: Scripts and tools: Fix devtools/copyright_header.py to always honor exclusions,,FALSE
+,M_Staged (merged to Munky local repo),5e0c0fd62,Merge #15254: Trivial: fixup a few doxygen comments,,FALSE
+,,d6e700e40,Merge #15248: rpc: Compile on GCC4.8,,FALSE
+,,7275365c9,Merge #14987: RPCHelpMan: Pass through Result and Examples,,FALSE
+Done (Merged to dashpay),,2d790e82c,Merge #14929: net: Allow connections from misbehavior banned peers,,FALSE
+,,72ca72e63,Merge #14711: Remove uses of chainActive and mapBlockIndex in wallet code,,FALSE
+Done (Merged to dashpay),,29396bd66,Merge #15270: Pull leveldb subtree,,FALSE
+,M_Staged (merged to Munky local repo),bd8bda161,Merge #15243: [doc] add notes on release notes,,FALSE
+,,a47319dad,Merge #15159: [RPC] Remove lookup to UTXO set from GetTransaction,,FALSE
+,M_Staged (merged to Munky local repo),04226f870,Merge #15279: wallet: Clarify rescanblockchain doc,,FALSE
+,M_Staged (merged to Munky local repo),77339e5c2,"Merge #15163: Correct units for ""-dbcache"" and ""-prune""",,FALSE
+Done (Merged to dashpay),,9553102c3,Merge #15043: test: Build fuzz targets into seperate executables,,FALSE
+,M_Staged (merged to Munky local repo),bb36f5e24,Merge #15276: travis: Compile once on trusty,,FALSE
+,,cb77dc820,Merge #15292: Remove 'boost::optional'-related false positive -Wmaybe-uninitialized warnings on GCC compiler,Does not seem to have any changes,FALSE
+DNM (Did Not Merge),,37d09b251,Merge #15275: Add gitian PGP key for hebasto,,FALSE
+,B_Staged (merged to Pravin local repo),b9d3df8bc,Merge #15176: docs: Get rid of badly named readme,,FALSE
+,B_Staged (merged to Pravin local repo),a0d657bd3,Merge #15272: doc: correct logging return type and RPC example,,FALSE
+,K_Staged (merged to Kitty local repo),36aeb43c0,Merge #15246: qa: Add tests for invalid message headers,,FALSE
+,M_Staged (merged to Munky local repo),7c09e209e,Merge #15225: GUI: Change the receive button to respond to keypool state changing,,FALSE
+,,4d661baf1,Merge #15244: gdb attaching to process during tests has non-sudo solution,Does not seem to have any changes,FALSE
+,,252fd15ad,Merge #13926: [Tools] bitcoin-wallet - a tool for creating and managing wallets offline,,FALSE
+Done (Merged to dashpay),,efb6ddef9,Merge #11911: Free BerkeleyEnvironment instances when not in use,,FALSE
+,,4b6673d38,Merge #15299: Fix assertion in CKey::SignCompact,,FALSE
+,,3b19d8e34,Merge #14372: msvc: build secp256k1 and leveldb locally,,FALSE
+,,cb35f1d30,"Merge #15301: tests: When testing with --usecli, unify RPC arg to cli arg conversion and handle dicts and lists",,FALSE
+,B_Staged (merged to Pravin local repo),3e38d4087,Merge #15235: Do not import private keys to wallets with private keys disabled,,FALSE
+,B_Staged (merged to Pravin local repo),5c99bb004,Merge #15247: qa: Use wallet to retrieve raw transactions,,FALSE
+,,2c0867a18,Merge #15308: build: Restore compatibility with older boost,,FALSE
+,,b3a715301,Merge #15303: travis: Remove unused FUNCTIONAL_TESTS_CONFIG,,FALSE
+,,6e6b859f8,Merge #15263: Descriptor expansions only need pubkey entries for PKH/WPKH,,FALSE
+,K_Staged (merged to Kitty local repo),2fbf6a57d,Merge #15330: test: Fix race in p2p_invalid_messages,,FALSE
+,,64127b309,Merge #15280: gui: Fix shutdown order,,FALSE
+Done (Merged to dashpay),,424327e1a,Merge #15324: test: Make bloom tests deterministic,,FALSE
+Done (Merged to dashpay),,ebc6542d9,Merge #15322: wallet: Add missing cs_db lock,,FALSE
+,,6a5feb7d8,Merge #15325: msvc: Fix silent merge conflict between #13926 and #14372,,FALSE
+,,70d06eb85,"Merge #15328: travis: Revert ""Run extended tests once daily""",,FALSE
+,,cf8aa5c76,Merge #15339: qt: Pre-0.18 split-off translations update,,FALSE
+,M_Staged (merged to Munky local repo),76deb3055,Merge #12255: Update bitcoin.service to conform to init.md,,FALSE
+Done (Merged to dashpay),,bfbe42585,Merge #15345: net: Correct comparison of addr count,,FALSE
+,,452acee4d,Merge #15266: memory: Construct globals on first use,,FALSE
+,,e50853501,Merge #15347: Fix build after pr 15266 merged,,FALSE
+,,bbdcc0b0f,Merge #15342: Suggested wallet code cleanups from #14711,,FALSE
+,,fc21bb4e3,Merge #15245: remove deprecated mentions of signrawtransaction from fundraw help,,FALSE
+,,3a573fd46,Merge #14922: windows: Set _WIN32_WINNT to 0x0601 (Windows 7),,FALSE
+Done (Merged to dashpay),,30e799a5f,Merge #15297: wallet: Releases dangling files on BerkeleyEnvironment::Close,,FALSE
+,,9b63c436a,"Merge #15203: Fix issue #9683 ""gui, wallet: random abort (segmentation fault)",,FALSE
+,,9e7f8f6c8,Merge #15327: tests: Make test updatecoins_simulation_test deterministic,,FALSE
+,,baf125b31,Merge #15332: [Docs] Small updates to getrawtransaction description,,FALSE
+,B_Staged (merged to Pravin local repo),5029e94f8,Merge #14519: tests: add utility to easily profile node performance with perf,,FALSE
+,B_Staged (merged to Pravin local repo),645a1264f,Merge #15351: Update linearize-hashes.py,,FALSE
+,,ddae781a0,Merge #15349: travis: Only exit early if compilation took longer than 30 min,,FALSE
+,M_Staged (merged to Munky local repo),12a910c94,Merge #15091: GUI: fix model overlay header sync,,FALSE
+,,1a6036978,Merge #15354: doc: Add missing bitcoin-wallet tool manpages,,FALSE
+,,5cdb82111,Merge #15321: doc: Add cs_main lock annotations for mapBlockIndex,,FALSE
+,M_Staged (merged to Munky local repo),72d34c0ed,Merge #15343: [doc] netaddress: Make IPv4 loopback comment more descriptive,,FALSE
+,M_Staged (merged to Munky local repo),d83d60794,Merge #15350: qa: Drop RPC connection if --usecli,,FALSE
+,,1933e38c1,Merge #14667: Add deriveaddresses RPC util method,,FALSE
+,,9127bd7ab,Merge #14491: Allow descriptor imports with importmulti,,FALSE
+Done (Merged to dashpay),,b9b26d9c3,Merge #14897: randomize GETDATA(tx) request order and introduce bias toward outbound,,FALSE
+Done (Merged to dashpay),,6fc656a41,"Merge #14242: Avoid triggering undefined behaviour (std::memset(nullptr, 0, 0)) if an invalid string is passed to DecodeSecret(...)",,FALSE
+Done (Merged to dashpay),,30495d1e7,Merge #15201: net: Add missing locking annotation for vNodes. vNodes is guarded by cs_vNodes.,,FALSE
+,,020695660,Merge #15365: wallet: Add lock annotation for mapAddressBook,,FALSE
+,,1477933f2,Merge #15370: test_runner: Remove unused --force option,,FALSE
+,,d5dbb45bd,Merge #15314: [Doc] update release notes for changes up to cb35f1d,,FALSE
+,,294549242,Merge #15357: rpc: Don't ignore `-maxtxfee` when wallet is disabled,,FALSE
+,,6f4e0d154,Merge #15226: Allow creating blank (empty) wallets (alternative),,FALSE
+Done (Merged to dashpay),,e84e0d4b5,Merge #15337: rpc: Fix for segfault if combinepsbt called with empty inputs,,FALSE
+,,ff9e19721,Merge #15380: trivial: correct parameter name in comments,,FALSE
+,,ad039aa0d,Merge #15373: Move ParseConfirmTarget from rpc/mining to rpc/util,,FALSE
+,,1bc149d05,Merge #15353: docs: Minor textual improvements in translation_strings_policy.md,,FALSE
+,,65435701e,Merge #15358: util: Add SetupHelpOptions(),,FALSE
+,,03732f864,Merge #14543: [QA] minor p2p_sendheaders fix of height in coinbase,,FALSE
+,,d8794a78a,Merge #13787: Test for Windows encoding issue,,FALSE
+,,7d3f25531,Merge #15153: gui: Add Open Wallet menu,,FALSE
+,,ea022d9fd,Merge #15378: tests: Added missing tests for RPC wallet errors,,FALSE
+,,d73918447,Merge #15216: Scripts and tools: Replace script name with a special parameter,,FALSE
+,,029d28a7a,Merge #15238: [QA] remove some magic mining constants in functional tests,,FALSE
+,,0d1160e42,Merge #14918: RPCHelpMan: Check default values are given at compile-time,,FALSE
+,,cbe7efe9e,Merge #15389: Remove unnecessary const_cast,,FALSE
+,,9c4a90040,Merge #15390: [wallet-tool] Close bdb when flushing wallet,,FALSE
+,,9c93f5d9f,Merge #15334: wallet: Log absolute paths for the wallets,,FALSE
+,,2452c6cc0,Merge #14978: Factor out PSBT utilities from RPCs for use in GUI code; related refactoring.,partial,FALSE
+,,38989ab03,Merge #15183: [Qt]: fixes m_assumed_blockchain_size variable value,,FALSE
+,,e3b1c7a9d,Merge #15407: msvc: Fix silent merge conflict between #13926 and #14372 part II,,FALSE
+,P_Staged (merged to Pasta local repo),9b1df4ba0,Merge #15388: [build] Makefile.am: add rule for src/bitcoin-wallet,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),758c6d784,"Merge #15063: GUI: If BIP70 is disabled, attempt to fall back to BIP21 parsing",,FALSE
+Done (Merged to dashpay),,3b33cbc2b,Merge #15393: build: Bump minimum Qt version to 5.5.1,,FALSE
+,,b7456e6bf,Merge #15195: gui: Add Close Wallet action,,FALSE
+Done (Merged to dashpay),,cd8ca8be3,Merge #14626: Select orphan transaction uniformly for eviction,,FALSE
+,,3facd9fdc,Merge #14481: Add P2SH-P2WSH support to listunspent RPC,,FALSE
+,Vlad_Staged (staged to Vladimir local repo),642bd7bbe,Merge #15411: travis: Combine --disable-bip70 into existing job,,FALSE
+Done (Merged to dashpay),,31f7c6dd2,Merge #15295: fuzz: Add test/fuzz/test_runner.py and run it in travis,,FALSE
+,,33480c636,Merge #15285: build: Prefer Python 3.4 even if newer versions are present on the system,,FALSE
+,,8d0ec7480,Merge #14021: Import key origin data through descriptors in importmulti,,FALSE
+,,c576979b7,Merge #14075: Import watch only pubkeys to the keypool if private keys are disabled,,FALSE
+,,4d2767c22,"Merge #15413: tests: Add missing cs_main locks required when accessing pcoinsdbview, pcoinsTip or pblocktree",,FALSE
+,,bf3677a6b,Merge #15405: [build] AppVeyor: clean cache when build configuration changes,,FALSE
+,,eca1273c3,"Merge #15383: [rpc] mining: Omit uninitialized currentblockweight, currentblocktx",,FALSE
+,,95801902b,Merge #15391: Add compile time verification of assumptions we're currently making implicitly/tacitly,,FALSE
+Done (Merged to dashpay),,743c2f461,Merge #15399: fuzz: Script validation flags,,FALSE
+,P_Staged (merged to Pasta local repo),f9d50e83e,Merge #15410: test: txindex: interrupt threadGroup before calling destructor,,FALSE
+,,d5b929c81,Merge #13932: Additional utility RPCs for PSBT,,FALSE
+,,f60d029a2,Merge #15368: Descriptor checksums,,FALSE
+,,e9c190044,Merge #15398: msvc: add rapidcheck property tests,,FALSE
+,,2d0337992,Merge #15426: [Doc] importmulti: add missing description of keypool option,,FALSE
+,,4064d048d,Merge #15425: [Doc] add missing newline to listunspent help for witnessScript,,FALSE
+,,b72c787dc,Merge #15431: msvc: scripted-diff: Remove NDEBUG pre-define in project file,,FALSE
+,,f5a623eb6,"Merge #15429: Update assumevalid, minimumchainwork, and getchaintxstats to height 563378",,FALSE
+,,29e82e460,"Merge #15250: Use RdSeed when available, and reduce RdRand load",,FALSE
+,,6ba3f1fdf,Merge #15397: Remove manual byte editing in wallet_tx_clone func test,,FALSE
+,,f78cd3dd5,Merge #15348: doc: Add separate productivity notes document,,FALSE
+,,904308dca,Merge #15433: Use a single wallet batch for UpgradeKeyMetadata,,FALSE
+,,3e4fd4075,"Merge #15415: [test] functional: allow custom cwd, use tmpdir as default",,FALSE
+,,38429c4b6,Merge #15404: [test] Remove -txindex to start nodes,,FALSE
+,,f9775a865,Merge #15439: tests: remove byte.hex() to keep compatibility,,FALSE
+,P_Staged (merged to Pasta local repo),3e1ca1348,Merge #15278: Improve PID file error handling,,FALSE
+,,4d126f289,Merge #15416: doc: update FreeBSD build guide for 12.0,,FALSE
+,,b853746d4,Merge #15222: docs: Add info about factors that affect dependency list,,FALSE
+,,a83aedca1,Merge #13676: Explain that mempool memory is added to -dbcache,,FALSE
+Done (Merged to dashpay),,a094b5433,Merge #15273: docs: Slight tweak to the verify-commits script directions,,FALSE
+,,77fcf252f,Merge #15458: refactor: Drop redundant wallet reference,,FALSE
+,,169dced9a,Merge #15408: Remove unused TransactionError constants,,FALSE
+,P_Staged (merged to Pasta local repo),f3f9c1de1,Merge #15435: rpc: Add missing #include,,FALSE
+,,1a8a5ede9,Merge #15401: rpc: Actually throw help when passed invalid number of params,,FALSE
+,,b4fc5257b,Merge #15456: Enable PID file creation on WIN,,FALSE
+,,8f470ecc5,Merge #15419: qa: Always refresh cache to be out of ibd,,FALSE
+,,d88f7f876,Merge #15471: rpc/gui: Remove 'Unknown block versions being mined' warning,,FALSE
+,,6f43ed4c5,Merge #15462: gui: Fix async open wallet call order,,FALSE
+,,a4f9c024c,Merge #15468: wallet: Use fsbridge::ifstream to fix Windows path issue,,FALSE
+,,a0d4e79b4,Merge #15477: doc: Remove misleading hint in getrawtransaction,,FALSE
+,,20268c6d7,Merge #15489: doc: Update release process for snap package,,FALSE
+,,29c24b05f,Merge #15503: msvc: Use a single file to specify the include path,,FALSE
+,,e8612adc5,Merge #15507: test: Bump timeout on tests that timeout on windows,,FALSE
+,,a6d7026a4,Merge #15497: rpc: Consistent range arguments in scantxoutset/importmulti/deriveaddresses,,FALSE
+,,dc251de6a,Merge #15506: appveyor: fix cache issue and reduce dependencies build time,,FALSE
+,,f9dbb319d,"Merge #15485: add rpc_misc.py, mv test getmemoryinfo, add test mallocinfo",,FALSE
+,,37f236acc,Merge #15510: [rpc] deriveaddresses: add range to CRPCConvertParam,,FALSE
+DNM (Did Not Merge),,742f7dd97,build: Bump version to 0.18.0,,FALSE
+,,b702e3757,doc: Merge release notes fragments,,FALSE
+,,7630301c1,Merge #15524: [0.18] doc: Remove ppa from linux build instructions,,FALSE
+DNM (Did Not Merge),,6a178e526,build: set RC1,,FALSE
+,,71ac4ebe4,doc: Remove pr release notes file in wrong dir,,FALSE
+,,0fd363286,Merge #15552: 0.18: Granular invalidateblock and RewindBlockIndex,,FALSE
+,,f810f14cf,gitian: Improve error handling,,FALSE
+,,561b00a02,[addrman] Improve tried table collision logging,,FALSE
+,,487f0c3dc,[net] feeler connections can be made to outbound peers in same netgroup,,FALSE
+,,333be7aab,[addrman] Ensure collisions eventually get resolved,,FALSE
+,,b80dedb59,[addrman] Improve collision logging and address nits,,FALSE
+,,936ef73fa,qt: periodic translations update,,FALSE
+,,021a9ad6f,build: use full version string in setup.exe,,FALSE
+,,20fd64fe1,doc: correct analysepsbt rpc doc,,FALSE
+,,2edd0c40c,rpc: return a number for estimated_feerate in analyzepsbt,,FALSE
+,,232ef630e,Fix overflow bug in analyzepsbt fee: CAmount instead of int,,FALSE
+,,a01925c15,doc: Pre-rc2 translations update,,FALSE
+,,ef27a060a,wallet: Log and ignore errors in ListWalletDir and IsBerkeleyBtree,,FALSE
+DNM (Did Not Merge),,85f175516,build: bump to rc2,,FALSE
+DNM (Did Not Merge),,889af0eaa,doc: Update manpages,,FALSE
+,,d3a038200,Merge #15602: 0.18: [p2p] Enable reject messages by default,,FALSE
+,,238ef3369,Do not relay banned IP addresses,,FALSE
+,,b02224288,Merge #15641: Backport #15614 to 0.18: gui: Defer removeAndDeleteWallet when no modal widget is active,,FALSE
+,,7eab2db84,Merge #15647: [rpc] Remove deprecated functionality message from validateaddress help,,FALSE
+DNM (Did Not Merge),,09a05e86d,qt: Translations update pre-rc3,,FALSE
+DNM (Did Not Merge),,f14a0aa99,build: Bump to rc3,,FALSE
+DNM (Did Not Merge),,dcd96b84c,release: Update the Windows Codesigning certificate,,FALSE
+DNM (Did Not Merge),,7bcf90cb0,doc: Update manpages for changes since rc2,,FALSE
+,,32ec90085,Merge #15691: 0.18: rc3 backports,,FALSE
+,,164082c82,Merge #15775: [0.18] Doc Backports,,FALSE
+,,f42ed1442,Merge #15790: [0.18] backport #15754,,FALSE
+,,fa3993bfe,Merge #15800: Backport: [rpc] Remove the addresses field from the getaddressinfo return object,,FALSE
+,,e57462c6b,Merge #15803: [0.18] Backport 15749: importmulti only imports origin info for PKH outputs,,FALSE
+,,e753cbd64,Merge #15818: [0.18] doc backports,,FALSE
+,,55462077f,GUI: Options: Set the range of pruning size before loading its value,,FALSE
+,,a58d80d1b,GUI: Options: Remove the upper-bound limit from pruning size setting,,FALSE
+,,607b1b749,Merge #15839: [0.18] Revert GetData randomization change (#14897),,FALSE
+DNM (Did Not Merge),,a4fc2fbb1,gui: Pre-rc4 translations update,,FALSE
+,,438483983,doc: Move release notes from wiki,,FALSE
+DNM (Did Not Merge),,379f71ea4,build: Bump version to rc4,,FALSE
+,,825ecb575,Merge #15852: doc: 0.18: Remove TODO from release notes,,FALSE
+DNM (Did Not Merge),,2472733a2,build: Bump version to -final,,FALSE
+DNM (Did Not Merge),,be92be564,doc: Clean out release notes post-0.18.0,,FALSE
+,,9c29bc71d,"Merge #16189: 0.18: Backport ""Add -ignorepartialspends to list of ignored wallet options""",,FALSE
+,,629c7b029,Merge #16035: 0.18.1: Backports,,FALSE
+,,1fb747a80,Merge #16342: 0.18 backport: report error when missing redeemScript/witnessScript,,FALSE
+,,410774ab8,"Merge #16359: 0.18: Backport ""qt: Assert QMetaObject::invokeMethod result""",,FALSE
+,,3f7616008,Merge #16406: 0.18: fix: tor: Call event_base_loopbreak from the event's callback,,FALSE
+,,063c8ce7a,net: Make poll in InterruptibleRecv only filter for POLLIN events. poll should block until there is data to be read or the timeout expires.,,FALSE
+DNM (Did Not Merge),,641b2ffb4,qt: pre-rc1 translations update,,FALSE
+DNM (Did Not Merge),,aa2d12a59,build: Bump version to 0.18.1rc1,,FALSE
+DNM (Did Not Merge),,a6cba1983,doc: Update manpages for rc1,,FALSE
+DNM (Did Not Merge),,784e21861,doc: Update release notes for rc1,,FALSE
+,,673919caf,Merge #16532: [0.18] Doc: remove old release notes about systemd and riscv changes,,FALSE
+DNM (Did Not Merge),,bfa7183c4,build: set CLIENT_VERSION_RC to 0 pre-final,,FALSE
+DNM (Did Not Merge),,fa27a0760,doc: Bump manpages pre-final,,FALSE
+DNM (Did Not Merge),,bbc297008,doc: Clean out release notes post-0.18.1,,FALSE
+,,43cf76b19,"Merge #16610: [0.18] travis: Bump timeout from 50 minutes to 90, caching fixes",,FALSE
+,,00ffe5aca,Merge #16608: [0.18] Backport #15911: Use wallet RBF default for walletcreatefundedpsbt,,FALSE
+,,,,,FALSE
