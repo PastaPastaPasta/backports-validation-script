@@ -64,33 +64,33 @@ class backport_object:
 
 backport_objects = []
 
-for file in files:
-    with open('0.17.csv') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        line = 0
-        for row in spamreader:
-            line += 1
+# for file in files:
+with open('0.17.csv') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=',')
+    line = 0
+    for row in spamreader:
+        line += 1
 
-            if row[0] == "Status":
-                continue
+        if row[0] == "Status":
+            continue
 
-            # Skip fully blank lines
-            if row[0] == "" and row[1] == "" and row[2] == "" and row[3] == "":
-                continue
+        # Skip fully blank lines
+        if row[0] == "" and row[1] == "" and row[2] == "" and row[3] == "":
+            continue
 
-            obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False)
-            if row[0] == "DNM (Did Not Merge)":
-                obj.status_done = StatusDone.DNM
-            elif row[0] == "Done (Merged to dashpay)":
-                obj.status_done = StatusDone.DONE
+        obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False)
+        if row[0] == "DNM (Did Not Merge)":
+            obj.status_done = StatusDone.DNM
+        elif row[0] == "Done (Merged to dashpay)":
+            obj.status_done = StatusDone.DONE
 
-            if row[1].find("Staged"):
-                obj.status_staged = StatusStaged.STAGED
+        if row[1].find("Staged"):
+            obj.status_staged = StatusStaged.STAGED
 
-            obj.commit_hash = row[2]
-            obj.message = row[3]
+        obj.commit_hash = row[2]
+        obj.message = row[3]
 
-            backport_objects.append(obj)
+        backport_objects.append(obj)
 
 commit = repo.head.reference.commit
 
