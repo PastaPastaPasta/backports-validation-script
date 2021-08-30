@@ -46,9 +46,10 @@ class backport_object:
     message: str
     notes: str
     problem: bool
+    version: str
 
     def __str__(self):
-        ret = ""
+        ret = self.version + " "
         if self.status_done is StatusDone.DONE:
             ret += "DONE "
         elif self.status_done is StatusDone.DNM:
@@ -65,7 +66,7 @@ class backport_object:
 backport_objects = []
 
 # for file in files:
-with open('0.17.csv') as csvfile:
+with open('0.18.csv') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',')
     line = 0
     for row in spamreader:
@@ -78,13 +79,13 @@ with open('0.17.csv') as csvfile:
         if row[0] == "" and row[1] == "" and row[2] == "" and row[3] == "":
             continue
 
-        obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False)
+        obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False, csvfile.name)
         if row[0] == "DNM (Did Not Merge)":
             obj.status_done = StatusDone.DNM
         elif row[0] == "Done (Merged to dashpay)":
             obj.status_done = StatusDone.DONE
 
-        if row[1].find("Staged"):
+        if "Staged" in row[1]:
             obj.status_staged = StatusStaged.STAGED
 
         obj.commit_hash = row[2]
@@ -108,9 +109,11 @@ for v in log_temp:
 print(len(log))
 # print(log)
 
-def search_for_merge_number(log_i, number):
+def search_for_merge_number(log_i, number, ignore_partial=True):
     for item in log_i:
         if ("bitcoin #" + number) in item or ("bitcoin#" + number) in item or ("Merge #" + number) in item or ("Backport " + number) in item or ("backport " + number) in item or ("bitcoin " + number) in item:
+            if ignore_partial and ("partial" in item or "Partial" in item):
+                continue
             return True
     return False
 
@@ -143,5 +146,7 @@ for obj in backport_objects:
 
     if obj.status_done is StatusDone.DONE:
         if not search_for_merge_number(log, number):
-            print("Issue with", obj)
-
+            print("Stated done, but not found for", obj)
+    else:
+        if search_for_merge_number(log, number):
+            print("Stated not done / unknown, but found for", obj)
