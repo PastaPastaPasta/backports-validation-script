@@ -1,20 +1,20 @@
 import csv
 import os
+import sys
 from dataclasses import dataclass
 from enum import Enum
 import requests
-
 import git
-
 from multiprocessing import Pool
 
-documet_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
+document_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
+
 
 def download_and_write_file(file_tuple):
     file = file_tuple[0]
     gid = file_tuple[1]
     print("downloading", file)
-    file_link = f"https://docs.google.com/spreadsheets/d/{documet_id}/export?gid={gid}&format=csv"
+    file_link = f"https://docs.google.com/spreadsheets/d/{document_id}/export?gid={gid}&format=csv"
     response = requests.get(file_link)
     assert response.status_code == 200, 'Wrong status code'
 
@@ -45,8 +45,6 @@ else:
 assert str(repo.head.reference) == "develop"
 repo.remotes.origin.pull()
 
-
-
 files = [
     ('0.16.csv', "1860904166"),
     ('0.17.csv', "119635402"),
@@ -59,14 +57,17 @@ files = [
 
 download_sheet_as_csv(files)
 
+
 class StatusDone(Enum):
     DONE = 1
     DNM = 2
     NONE = 3
 
+
 class StatusStaged(Enum):
     STAGED = 1
     NONE = 2
+
 
 @dataclass
 class backport_object:
@@ -100,9 +101,9 @@ backport_objects = []
 
 for file, _ in files:
     with open(file) as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
+        reader = csv.reader(csvfile, delimiter=',')
         line = 0
-        for row in spamreader:
+        for row in reader:
             line += 1
 
             if row[0] == "Status":
@@ -128,10 +129,9 @@ for file, _ in files:
 
 commit = repo.head.reference.commit
 
-print(commit)
+print("Commit hash:", commit)
 
 log = []
-
 log_temp = repo.git.log("--oneline").split("\n")
 
 # This will filter off the commit id, and everything after first semicolon
@@ -184,22 +184,28 @@ ignore_list = [
     "7723479300",
 ]
 
-
 def check_object(obj):
     if obj.commit_hash in ignore_list:
-        return
+        return True
 
     if "Merge #" not in obj.message:
-        return
+        return True
 
     if obj.status_done is StatusDone.DONE:
         if not search_for_merge_number(log, obj):
             print("Stated done, not found for: ", obj.get_number())
+            return False
     else:
         if search_for_merge_number(log, obj):
             print("Stated NOT done, found for:", obj.get_number())
+            return False
+    return True
 
 
 with Pool(8) as pool:
-    pool.map(check_object, backport_objects)
+    results = pool.map(check_object, backport_objects)
+
+if False in results:
+    print("Errors detected!")
+    sys.exit(1)
 
