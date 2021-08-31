@@ -208,4 +208,6 @@ with Pool(8) as pool:
 if False in results:
     print("Errors detected!")
     sys.exit(1)
+else:
+    print("All good, no errors detected.")
 
