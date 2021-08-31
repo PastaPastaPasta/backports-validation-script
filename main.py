@@ -6,21 +6,28 @@ import requests
 
 import git
 
+from multiprocessing import Pool
+
 documet_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
+
+def download_and_write_file(file_tuple):
+    file = file_tuple[0]
+    gid = file_tuple[1]
+    print("downloading", file)
+    file_link = f"https://docs.google.com/spreadsheets/d/{documet_id}/export?gid={gid}&format=csv"
+    response = requests.get(file_link)
+    assert response.status_code == 200, 'Wrong status code'
+
+    if os.path.exists(file):
+        os.remove(file)
+
+    with open(file, "wb") as csvfile:
+        csvfile.write(response.content)
 
 def download_sheet_as_csv(files):
     print("downloading necessary google sheet files")
-    for file, gid in files:
-        print("downloading", file)
-        file_link = f"https://docs.google.com/spreadsheets/d/{documet_id}/export?gid={gid}&format=csv"
-        response = requests.get(file_link)
-        assert response.status_code == 200, 'Wrong status code'
-
-        if os.path.exists(file):
-            os.remove(file)
-
-        with open(file, "wb") as csvfile:
-            csvfile.write(response.content)
+    with Pool(len(files)) as p:
+        p.map(download_and_write_file, files)
 
     return
 
@@ -70,6 +77,9 @@ class backport_object:
     notes: str
     problem: bool
     version: str
+
+    def get_number(self):
+        return self.message.split("#", 1)[1].split(":", 1)[0]
 
     def __str__(self):
         ret = self.version + " "
@@ -127,50 +137,69 @@ log_temp = repo.git.log("--oneline").split("\n")
 # This will filter off the commit id, and everything after first semicolon
 for v in log_temp:
     # if not ("Merge" in v or "merge" in v or "bitcoin" in v or "Backport" in v or "backport" in v): continue
-    log.append(v.split(" ", 1)[1])
+    log.append(v.split(" ", 1)[1].lower())
 
 print(len(log))
-# print(log)
 
-def search_for_merge_number(log_i, number, ignore_partial=True):
+
+def search_for_merge_number(log_i, backport_object, ignore_partial=True):
+    number = backport_object.get_number()
     for item in log_i:
         item = item.lower()
-        if ("bitcoin #" + number) in item or ("bitcoin#" + number) in item or ("merge #" + number) in item or ("backport " + number) in item or ("backport " + number) in item or ("bitcoin " + number) in item:
+
+        if "bitcoin-core/gui" in item and "bitcoin-core/gui" not in backport_object.message:
+            continue
+
+        if ("bitcoin #" + number) in item or ("bitcoin#" + number) in item or ("merge #" + number) in item or \
+                ("backport " + number) in item or ("backport #" + number) in item \
+                or ("merge: #" + number) in item or ("bitcoin " + number) in item:
             if ignore_partial and "partial" in item:
                 continue
             return True
     return False
 
+
 ignore_list = [
     "d451d0bcf",
     "e7f125562",
+    "6970b30c6",
+    "46d1ebfcf",
+    "0f8e09599",
     "aae64a21b",
     "9a75902c5",
-    "3de01268b",
     "9a2db3b3d",
     "5f0c6a7b0",
     "e76acf338",
-    "e2746db66",
     "418ae49ee",
     "d9ebb6391",
     "5c05dd628",
     "19d8ca5cc",
+    "cbb91cd0e",
 
+    # Needed as these are ambiguous ex: "Merge #20" is ambiguous and results in false positives
+    "9453fbf5a0",
+    "d875bcc8f9",
+    "d1ddead09a",
+    "7fca189a2a",
+    "7723479300",
 ]
 
-for obj in backport_objects:
 
+def check_object(obj):
     if obj.commit_hash in ignore_list:
-        continue
+        return
 
     if "Merge #" not in obj.message:
-        continue
-
-    number = obj.message.split("#", 1)[1].split(":", 1)[0]
+        return
 
     if obj.status_done is StatusDone.DONE:
-        if not search_for_merge_number(log, number):
-            print("Stated done, not found for: ", obj)
+        if not search_for_merge_number(log, obj):
+            print("Stated done, not found for: ", obj.get_number())
     else:
-        if search_for_merge_number(log, number):
-            print("Stated NOT done, found for:", obj)
+        if search_for_merge_number(log, obj):
+            print("Stated NOT done, found for:", obj.get_number())
+
+
+with Pool(8) as pool:
+    pool.map(check_object, backport_objects)
+
