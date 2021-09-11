@@ -6,6 +6,7 @@ from enum import Enum
 import requests
 import git
 from multiprocessing import Pool
+from datetime import date
 
 document_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
 
@@ -40,6 +41,7 @@ if not os.path.isdir("dashpaydash"):
 else:
     print("Initializing dashpay/dash repo")
     repo = git.Repo('dashpaydash')
+    # repo.git.reset('--hard')
     repo.git.checkout("develop")
 
 assert str(repo.head.reference) == "develop"
@@ -78,6 +80,7 @@ class backport_object:
     notes: str
     problem: bool
     version: str
+    non_trivial: bool
 
     def get_number(self):
         return self.message.split("#", 1)[1].split(":", 1)[0]
@@ -113,7 +116,7 @@ for file, _ in files:
             if row[0] == "" and row[1] == "" and row[2] == "" and row[3] == "":
                 continue
 
-            obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False, csvfile.name)
+            obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False, csvfile.name, False)
             if row[0] == "DNM (Did Not Merge)":
                 obj.status_done = StatusDone.DNM
             elif row[0] == "Done (Merged to dashpay)":
@@ -124,6 +127,18 @@ for file, _ in files:
 
             obj.commit_hash = row[2]
             obj.message = row[3]
+
+            # if obj.commit_hash == "58efc49b9":
+            #     print(row)
+
+            try:
+                obj.non_trivial = row[8] == 'TRUE'
+                # print(obj.commit_hash, "marked", obj.non_trivial)
+                # if obj.non_trivial is True:
+                #     print(obj.commit_hash, "HEYHEYHEY")
+            except IndexError:
+                obj.non_trivial = True
+                # print("missing")
 
             backport_objects.append(obj)
 
@@ -207,7 +222,36 @@ with Pool(8) as pool:
 
 if False in results:
     print("Errors detected!")
-    sys.exit(1)
+    # sys.exit(1)
 else:
     print("All good, no errors detected.")
+
+
+# repo.git.remote("add bitcoin https://github.com/bitcoin/bitcoin")
+# repo.git.fetch("bitcoin")
+
+if repo.is_dirty():
+    repo.git.cherry_pick("--abort")
+    repo.git.reset('--hard')
+
+try:
+    repo.git.checkout("-b", f'develop-trivial-{date.today()}')
+except git.exc.GitCommandError:
+    repo.git.checkout(f'develop-trivial-{date.today()}')
+
+backported_count = 0
+
+for obj in backport_objects:
+    if obj.status_done == StatusDone.NONE and not obj.non_trivial and obj.status_staged != StatusStaged.STAGED:
+        try:
+            repo.git.cherry_pick('-m1', f'{obj.commit_hash}')
+            print(obj.commit_hash, "was cherry-picked cleanly")
+            backported_count += 1
+            if backported_count >= 20:
+                print("Done :)")
+                sys.exit(0)
+        except git.exc.GitCommandError:
+            repo.git.reset("--hard")
+            print(obj.commit_hash, "NOT was cherry-picked cleanly")
+
 
