@@ -6,6 +6,7 @@ from enum import Enum
 import requests
 import git
 from multiprocessing import Pool
+from datetime import date
 
 document_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
 
@@ -78,6 +79,7 @@ class backport_object:
     notes: str
     problem: bool
     version: str
+    non_trivial: bool
 
     def get_number(self):
         return self.message.split("#", 1)[1].split(":", 1)[0]
@@ -113,7 +115,7 @@ for file, _ in files:
             if row[0] == "" and row[1] == "" and row[2] == "" and row[3] == "":
                 continue
 
-            obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False, csvfile.name)
+            obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False, csvfile.name, False)
             if row[0] == "DNM (Did Not Merge)":
                 obj.status_done = StatusDone.DNM
             elif row[0] == "Done (Merged to dashpay)":
@@ -124,6 +126,11 @@ for file, _ in files:
 
             obj.commit_hash = row[2]
             obj.message = row[3]
+
+            try:
+                obj.non_trivial = row[9] == 'TRUE'
+            except IndexError:
+                obj.non_trivial = True
 
             backport_objects.append(obj)
 
