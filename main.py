@@ -244,28 +244,27 @@ def main():
         repo.git.reset('--hard')
     
     try:
-        repo.git.checkout("-b", f'develop-trivial-{date.ctime()}')
+        repo.git.checkout("-b", f'develop-trivial-{date.today()}')
     except git.exc.GitCommandError:
-        assert False
-        # repo.git.checkout(f'develop-trivial-{date.today()}')
+        repo.git.checkout(f'develop-trivial-{date.today()}')
     
     backported_count = 0
     
-    for obj in backport_objects:
+    for index, obj in enumerate(backport_objects):
         if obj.status_done == StatusDone.NONE and \
                 not obj.non_trivial and \
                 obj.status_staged != StatusStaged.STAGED and \
                 "Merge #" in obj.message:
             try:
                 repo.git.cherry_pick('-m1', f'{obj.commit_hash}')
-                print(obj.commit_hash, "was cherry-picked cleanly")
+                print(f'(({backported_count}:{index}) / {len(backport_objects)}) {obj.commit_hash} was cherry-picked cleanly')
                 backported_count += 1
                 if backported_count >= 20:
                     print("Done :)")
                     sys.exit(0)
             except git.exc.GitCommandError:
                 repo.git.reset("--hard")
-                print(obj.commit_hash, "NOT was cherry-picked cleanly")
+                print(f'(({backported_count}:{index}) / {len(backport_objects)}) {obj.commit_hash} NOT was cherry-picked cleanly')
 
 
 if __name__ == "__main__":
