@@ -162,7 +162,7 @@ def main():
         ('0.22.csv', "1796444839")
     ]
     
-    # download_sheet_as_csv(files)
+    download_sheet_as_csv(files)
     
     backport_objects = []
     
@@ -198,8 +198,8 @@ def main():
                 try:
                     obj.non_trivial = row[8] == 'TRUE'
                     # print(obj.commit_hash, "marked", obj.non_trivial)
-                    # if obj.non_trivial is True:
-                    #     print(obj.commit_hash, "HEYHEYHEY")
+                    if obj.non_trivial is True:
+                        print(obj.commit_hash, "HEYHEYHEY")
                 except IndexError:
                     obj.non_trivial = True
                     # print("missing")
@@ -244,9 +244,10 @@ def main():
         repo.git.reset('--hard')
     
     try:
-        repo.git.checkout("-b", f'develop-trivial-{date.today()}')
+        repo.git.checkout("-b", f'develop-trivial-{date.ctime()}')
     except git.exc.GitCommandError:
-        repo.git.checkout(f'develop-trivial-{date.today()}')
+        assert False
+        # repo.git.checkout(f'develop-trivial-{date.today()}')
     
     backported_count = 0
     
