@@ -1,8 +1,13 @@
+#!/usr/bin/env python3
+
 import csv
 import os
 import sys
 from dataclasses import dataclass
 from enum import Enum
+from functools import partial
+from pprint import pprint
+
 import requests
 import git
 from multiprocessing import Pool
@@ -91,31 +96,33 @@ def search_for_merge_number(log_i, backport_object, ignore_partial=True):
     return False
 
 
-def check_object(obj):
-    ignore_list = [
-        "d451d0bcf",
-        "e7f125562",
-        "6970b30c6",
-        "46d1ebfcf",
-        "0f8e09599",
-        "aae64a21b",
-        "9a75902c5",
-        "9a2db3b3d",
-        "5f0c6a7b0",
-        "e76acf338",
-        "418ae49ee",
-        "d9ebb6391",
-        "5c05dd628",
-        "19d8ca5cc",
-        "cbb91cd0e",
+ignore_list = [
+    "d451d0bcf",
+    "e7f125562",
+    "6970b30c6",
+    "46d1ebfcf",
+    "0f8e09599",
+    "aae64a21b",
+    "9a75902c5",
+    "9a2db3b3d",
+    "5f0c6a7b0",
+    "e76acf338",
+    "418ae49ee",
+    "d9ebb6391",
+    "5c05dd628",
+    "19d8ca5cc",
+    "cbb91cd0e",
 
-        # Needed as these are ambiguous ex: "Merge #20" is ambiguous and results in false positives
-        "9453fbf5a0",
-        "d875bcc8f9",
-        "d1ddead09a",
-        "7fca189a2a",
-        "7723479300",
-    ]
+    # Needed as these are ambiguous ex: "Merge #20" is ambiguous and results in false positives
+    "9453fbf5a0",
+    "d875bcc8f9",
+    "d1ddead09a",
+    "7fca189a2a",
+    "7723479300",
+]
+
+
+def check_object(log, obj):
 
     if obj.commit_hash in ignore_list:
         return True
@@ -134,10 +141,8 @@ def check_object(obj):
     return True
 
 
-log = []
-
-
 def main():
+    log = []
     repo = git.Repo
     if not os.path.isdir("dashpaydash"):
         print("Cloning dashpay/dash repo")
@@ -150,7 +155,7 @@ def main():
         repo.git.checkout("develop")
     
     assert str(repo.head.reference) == "develop"
-    repo.remotes.origin.pull()
+    repo.remotes.origin.pull('develop')
     
     files = [
         ('0.16.csv', "1860904166"),
@@ -159,7 +164,8 @@ def main():
         ('0.19.csv', "259176943"),
         ('0.20.csv', "1507625552"),
         ('0.21.csv', "331846632"),
-        ('0.22.csv', "1796444839")
+        ('0.22.csv', "1796444839"),
+        ('0.23.csv', "1637681185"),
     ]
     
     download_sheet_as_csv(files)
@@ -196,10 +202,11 @@ def main():
                 #     print(row)
     
                 try:
-                    obj.non_trivial = row[8] == 'TRUE'
+                    obj.non_trivial = row[9] == 'TRUE'
+                    assert row[9] == 'TRUE' or row[9] == 'FALSE'
                     # print(obj.commit_hash, "marked", obj.non_trivial)
-                    if obj.non_trivial is True:
-                        print(obj.commit_hash, "HEYHEYHEY")
+                    # if obj.non_trivial is True:
+                    #     print(obj.commit_hash, "HEYHEYHEY")
                 except IndexError:
                     obj.non_trivial = True
                     # print("missing")
@@ -219,18 +226,20 @@ def main():
     
     print(len(log))
 
-
-    # with Pool(8) as pool:
-    #     results = pool.map(check_object, backport_objects)
-    results = []
-    for obj in backport_objects:
-        results.append(check_object(obj))
+    with Pool(8) as pool:
+        results = pool.map(partial(check_object, log), backport_objects)
+    # pprint(results)
+    # results = []
+    # for obj in backport_objects:
+    #     results.append(check_object(obj))
 
     if False in results:
         print("Errors detected!")
-        # sys.exit(1)
+        sys.exit(1)
     else:
         print("All good, no errors detected.")
+        if input("continue? y/n ") != 'y':
+            sys.exit(0)
     
     
     # repo.git.remote("add bitcoin https://github.com/bitcoin/bitcoin")

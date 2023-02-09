@@ -1,2 +1,4 @@
 gitpython
-requests
+requests~=2.27.1
+multiprocess~=0.70.12.2
+setuptools~=57.0.0
