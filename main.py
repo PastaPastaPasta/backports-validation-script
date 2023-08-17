@@ -16,7 +16,7 @@ from datetime import date
 
 def download_and_write_file(file_tuple):
     document_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
-    
+
     file = file_tuple[0]
     gid = file_tuple[1]
     print("downloading", file)
@@ -154,10 +154,10 @@ def main():
         repo = git.Repo('dashpaydash')
         # repo.git.reset('--hard')
         repo.git.checkout("develop")
-    
+
     assert str(repo.head.reference) == "develop"
     repo.remotes.origin.pull('develop')
-    
+
     files = [
         ('0.16.csv', "1860904166"),
         ('0.17.csv', "119635402"),
@@ -167,41 +167,43 @@ def main():
         ('0.21.csv', "331846632"),
         ('0.22.csv', "1796444839"),
         ('0.23.csv', "1637681185"),
+        ('0.24.csv', "1723848108"),
+        ('0.25.csv', "1543943941"),
     ]
-    
+
     download_sheet_as_csv(files)
-    
+
     backport_objects = []
-    
+
     for file, _ in files:
         with open(file) as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             line = 0
             for row in reader:
                 line += 1
-    
+
                 if row[0] == "Status":
                     continue
-    
+
                 # Skip fully blank lines
                 if row[0] == "" and row[1] == "" and row[2] == "" and row[3] == "":
                     continue
-    
+
                 obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False, csvfile.name, False)
                 if row[0] == "DNM (Did Not Merge)":
                     obj.status_done = StatusDone.DNM
                 elif row[0] == "Done (Merged to dashpay)":
                     obj.status_done = StatusDone.DONE
-    
+
                 if "Staged" in row[1]:
                     obj.status_staged = StatusStaged.STAGED
-    
+
                 obj.commit_hash = row[2]
                 obj.message = row[3]
-    
+
                 # if obj.commit_hash == "58efc49b9":
                 #     print(row)
-    
+
                 try:
                     obj.non_trivial = row[9] == 'TRUE'
                     assert row[9] == 'TRUE' or row[9] == 'FALSE'
@@ -211,20 +213,20 @@ def main():
                 except IndexError:
                     obj.non_trivial = True
                     # print("missing")
-    
+
                 backport_objects.append(obj)
-    
+
     commit = repo.head.reference.commit
-    
+
     print("Commit hash:", commit)
-    
+
     log_temp = repo.git.log("--oneline").split("\n")
-    
+
     # This will filter off the commit id, and everything after first semicolon
     for v in log_temp:
         # if not ("Merge" in v or "merge" in v or "bitcoin" in v or "Backport" in v or "backport" in v): continue
         log.append(v.split(" ", 1)[1].lower())
-    
+
     print(len(log))
 
     with Pool(8) as pool:
@@ -241,25 +243,25 @@ def main():
         print("All good, no errors detected.")
         if input("continue? y/n ") != 'y':
             sys.exit(0)
-    
-    
+
+
     # repo.git.remote("add bitcoin https://github.com/bitcoin/bitcoin")
     # repo.git.fetch("bitcoin")
-    
+
     if repo.is_dirty():
         try:
             repo.git.cherry_pick("--abort")
         except git.exc.GitCommandError:
             pass
         repo.git.reset('--hard')
-    
+
     try:
         repo.git.checkout("-b", f'develop-trivial-{date.today()}')
     except git.exc.GitCommandError:
         repo.git.checkout(f'develop-trivial-{date.today()}')
-    
+
     backported_count = 0
-    
+
     for index, obj in enumerate(backport_objects):
         if obj.status_done == StatusDone.NONE and \
                 not obj.non_trivial and \
