@@ -2,6 +2,7 @@
 
 import csv
 import os
+import subprocess
 import sys
 from dataclasses import dataclass
 from enum import Enum
@@ -44,10 +45,26 @@ class StatusDone(Enum):
     DNM = 2
     NONE = 3
 
+    def __str__(self):
+        if self == StatusDone.DONE:
+            return "DONE"
+        elif self == StatusDone.DNM:
+            return "DNM"
+        elif self == StatusDone.NONE:
+            return "NONE"
+        assert False
+
+
 
 class StatusStaged(Enum):
     STAGED = 1
     NONE = 2
+    def __str__(self):
+        if self == StatusStaged.STAGED:
+            return "STAGED"
+        elif self == StatusStaged.NONE:
+            return "NONE"
+        assert False
 
 
 @dataclass
@@ -65,34 +82,29 @@ class backport_object:
         return self.message.split("#", 1)[1].split(":", 1)[0]
 
     def __str__(self):
-        ret = self.version + " "
-        if self.status_done is StatusDone.DONE:
-            ret += "DONE "
-        elif self.status_done is StatusDone.DNM:
-            ret += "DNM "
-        elif self.status_staged is StatusStaged.STAGED:
-            ret += "STAGED "
-        else:
-            ret += "NOT_STAGED "
-
-        ret += self.commit_hash + " " + self.message + " " + self.notes + " " + str(self.problem)
+        ret = f"{self.version} {self.status_done} {self.status_staged} {self.commit_hash} {self.message} {self.notes} {str(self.problem)}"
         return ret
 
 
 def search_for_merge_number(log_i, backport_object, ignore_partial=True):
     number = backport_object.get_number()
+    is_gui = "bitcoin-core/gui" in backport_object.message
     for item in log_i:
         item = item.lower()
 
-        if "bitcoin-core/gui" in item and "bitcoin-core/gui" not in backport_object.message:
-            continue
+        if not is_gui:
+            if ("bitcoin #" + number) in item or ("bitcoin#" + number) in item or ("merge #" + number) in item or \
+                    ("backport " + number) in item or ("backport #" + number) in item \
+                    or ("merge: #" + number) in item or ("bitcoin " + number) in item:
+                if ignore_partial and "partial" in item:
+                    continue
+                return True
+        else:
+            if f"gui#{number}:" in item:
+                if ignore_partial and "partial" in item:
+                    continue
+                return True
 
-        if ("bitcoin #" + number) in item or ("bitcoin#" + number) in item or ("merge #" + number) in item or \
-                ("backport " + number) in item or ("backport #" + number) in item \
-                or ("merge: #" + number) in item or ("bitcoin " + number) in item:
-            if ignore_partial and "partial" in item:
-                continue
-            return True
     return False
 
 
@@ -128,16 +140,16 @@ def check_object(log, obj):
     if obj.commit_hash in ignore_list:
         return True
 
-    if "Merge #" not in obj.message:
+    if "Merge " not in obj.message and "merge" not in obj.message:
         return True
 
     if obj.status_done is StatusDone.DONE:
         if not search_for_merge_number(log, obj):
-            print("Stated done, not found for: ", obj.get_number())
+            print("Stated done, not found for: ", obj.message.split('`')[0])
             return False
     else:
         if search_for_merge_number(log, obj):
-            print("Stated NOT done, found for:", obj.get_number())
+            print("Stated NOT done, found for:", obj.message.split('`')[0])
             return False
     return True
 
@@ -148,11 +160,12 @@ def main():
     if not os.path.isdir("dashpaydash"):
         print("Cloning dashpay/dash repo")
         repo = git.Repo.clone_from('https://github.com/dashpay/dash', 'dashpaydash', branch='develop')
+        repo.create_remote('bitcoin', 'https://github.com/bitcoin/bitcoin')
+        repo.remote('bitcoin').fetch()
         print("Done cloning repo")
     else:
         print("Initializing dashpay/dash repo")
         repo = git.Repo('dashpaydash')
-        # repo.git.reset('--hard')
         repo.git.checkout("develop")
 
     assert str(repo.head.reference) == "develop"
@@ -169,6 +182,7 @@ def main():
         ('0.23.csv', "1637681185"),
         ('0.24.csv', "1723848108"),
         ('0.25.csv', "1543943941"),
+        ('0.26.csv', "1508745094"),
     ]
 
     download_sheet_as_csv(files)
@@ -201,20 +215,17 @@ def main():
                 obj.commit_hash = row[2]
                 obj.message = row[3]
 
-                # if obj.commit_hash == "58efc49b9":
-                #     print(row)
-
                 try:
                     obj.non_trivial = row[9] == 'TRUE'
                     assert row[9] == 'TRUE' or row[9] == 'FALSE'
-                    # print(obj.commit_hash, "marked", obj.non_trivial)
-                    # if obj.non_trivial is True:
-                    #     print(obj.commit_hash, "HEYHEYHEY")
                 except IndexError:
                     obj.non_trivial = True
-                    # print("missing")
+                try:
+                    obj.get_number()
+                    backport_objects.append(obj)
+                except:
+                    pass
 
-                backport_objects.append(obj)
 
     commit = repo.head.reference.commit
 
@@ -224,7 +235,6 @@ def main():
 
     # This will filter off the commit id, and everything after first semicolon
     for v in log_temp:
-        # if not ("Merge" in v or "merge" in v or "bitcoin" in v or "Backport" in v or "backport" in v): continue
         log.append(v.split(" ", 1)[1].lower())
 
     print(len(log))
@@ -232,6 +242,7 @@ def main():
     with Pool(8) as pool:
         results = pool.map(partial(check_object, log), backport_objects)
     # pprint(results)
+    # Single threaded version to use when debugging
     # results = []
     # for obj in backport_objects:
     #     results.append(check_object(obj))
@@ -243,10 +254,9 @@ def main():
         print("All good, no errors detected.")
         if input("continue? y/n ") != 'y':
             sys.exit(0)
-
-
-    # repo.git.remote("add bitcoin https://github.com/bitcoin/bitcoin")
-    # repo.git.fetch("bitcoin")
+        # To be implemented
+        # check_all = input("build on each? y/n") == 'y'
+        to_backport_count = int(input("Please enter the number of PRs to backport"))
 
     if repo.is_dirty():
         try:
@@ -266,18 +276,27 @@ def main():
         if obj.status_done == StatusDone.NONE and \
                 not obj.non_trivial and \
                 obj.status_staged != StatusStaged.STAGED and \
-                "Merge #" in obj.message:
+                ("Merge #" in obj.message or "Merge bitcoin" in obj.message):
             try:
                 repo.git.cherry_pick('-m1', f'{obj.commit_hash}')
+                # To be implemented
+                # build_result = subprocess.run(['cd', 'dashpaydash', '&&', 'make', '-j8'], check=True)
                 print(f'(({backported_count}:{index}) / {len(backport_objects)}) {obj.commit_hash} was cherry-picked cleanly')
                 backported_count += 1
-                if backported_count >= 20:
+                if backported_count >= to_backport_count:
                     print("Done :)")
-                    sys.exit(0)
+                    break
             except git.exc.GitCommandError:
                 repo.git.reset("--hard")
                 print(f'(({backported_count}:{index}) / {len(backport_objects)}) {obj.commit_hash} NOT was cherry-picked cleanly')
+            except subprocess.CalledProcessError:
+                # Reset to the previous state if build fails
+                repo.git.reset("--hard", "HEAD~1")
+                print(f'(({backported_count}:{index}) / {len(backport_objects)}) Build failed after cherry-picking {obj.commit_hash}')
 
+        else:
+            pass
+    print("Exiting...")
 
 if __name__ == "__main__":
     main()
