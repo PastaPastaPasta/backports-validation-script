@@ -14,6 +14,8 @@ import git
 from multiprocessing import Pool
 from datetime import date
 
+import argparse
+
 
 def download_and_write_file(file_tuple):
     document_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
@@ -155,21 +157,30 @@ def check_object(log, obj):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Backports validation script")
+    parser.add_argument('--count', type=int, default=0, help='Number of PRs to backport')
+    parser.add_argument('--check-only', action='store_true', help='Only run checks, do not backport any PRs')
+    args = parser.parse_args()
     log = []
-    repo = git.Repo
     if not os.path.isdir("dashpaydash"):
         print("Cloning dashpay/dash repo")
-        repo = git.Repo.clone_from('https://github.com/dashpay/dash', 'dashpaydash', branch='develop')
-        repo.create_remote('bitcoin', 'https://github.com/bitcoin/bitcoin')
-        repo.remote('bitcoin').fetch()
-        print("Done cloning repo")
+        try:
+            repo = git.Repo.clone_from('https://github.com/dashpay/dash', 'dashpaydash', branch='develop')
+            repo.create_remote('bitcoin', 'https://github.com/bitcoin/bitcoin')
+            repo.remote('bitcoin').fetch()
+            print("Done cloning repo")
+        except git.exc.GitCommandError as e:
+            print(f"Error cloning repository: {e}")
+            sys.exit(1)
     else:
         print("Initializing dashpay/dash repo")
-        repo = git.Repo('dashpaydash')
-        repo.git.checkout("develop")
-
-    assert str(repo.head.reference) == "develop"
-    repo.remotes.origin.pull('develop')
+        try:
+            repo = git.Repo('dashpaydash')
+            repo.git.checkout("develop")
+            repo.remotes.origin.pull('develop')
+        except git.exc.GitCommandError as e:
+            print(f"Error initializing repository: {e}")
+            sys.exit(1)
 
     files = [
         ('0.16.csv', "1860904166"),
@@ -183,6 +194,8 @@ def main():
         ('0.24.csv', "1723848108"),
         ('0.25.csv', "1543943941"),
         ('0.26.csv', "1508745094"),
+        ('0.27.csv', "1591965303"),
+        ('0.28.csv', "1290127568"),
     ]
 
     download_sheet_as_csv(files)
@@ -252,11 +265,10 @@ def main():
         sys.exit(1)
     else:
         print("All good, no errors detected.")
-        if input("continue? y/n ") != 'y':
+        to_backport_count = args.count
+        if args.check_only:
+            print("Check-only mode enabled; skipping backporting.")
             sys.exit(0)
-        # To be implemented
-        # check_all = input("build on each? y/n") == 'y'
-        to_backport_count = int(input("Please enter the number of PRs to backport"))
 
     if repo.is_dirty():
         try:
