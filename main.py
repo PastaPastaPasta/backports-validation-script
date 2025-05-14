@@ -14,7 +14,14 @@ import git
 from multiprocessing import Pool
 from datetime import date
 
+
 import argparse
+
+# Google Sheets integration
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+DOCUMENT_ID = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
 
 
 def download_and_write_file(file_tuple):
@@ -161,6 +168,11 @@ def main():
     parser.add_argument('--count', type=int, default=0, help='Number of PRs to backport')
     parser.add_argument('--check-only', action='store_true', help='Only run checks, do not backport any PRs')
     args = parser.parse_args()
+    # Initialize Google Sheets client
+    scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('.secrets/service_account.json', scope)
+    gs_client = gspread.authorize(creds)
+    spreadsheet = gs_client.open_by_key(DOCUMENT_ID)
     log = []
     if not os.path.isdir("dashpaydash"):
         print("Cloning dashpay/dash repo")
@@ -260,15 +272,29 @@ def main():
     # for obj in backport_objects:
     #     results.append(check_object(obj))
 
+    to_backport_count = args.count
+
     if False in results:
         print("Errors detected!")
-        sys.exit(1)
     else:
         print("All good, no errors detected.")
-        to_backport_count = args.count
         if args.check_only:
             print("Check-only mode enabled; skipping backporting.")
             sys.exit(0)
+    # Batch update any rows that were incorrectly marked NOT done but actually merged
+    for obj, passed in zip(backport_objects, results):
+        if not passed and obj.status_done is not StatusDone.DONE and search_for_merge_number(log, obj):
+            sheet_name = obj.version.replace('.csv', '')
+            try:
+                worksheet = spreadsheet.worksheet(sheet_name)
+                cell = worksheet.find(obj.message)
+                row = cell.row
+                worksheet.update_cell(row, 1, "Done (Merged to dashpay)")
+                worksheet.update_cell(row, 2, "")
+                worksheet.update_cell(row, 7, "")
+                print(f"Updated sheet '{sheet_name}' row {row} for {obj.message}")
+            except Exception as e:
+                print(f"Failed to update sheet '{sheet_name}' for {obj.message}: {e}")
 
     if repo.is_dirty():
         try:
@@ -285,6 +311,9 @@ def main():
     backported_count = 0
 
     for index, obj in enumerate(backport_objects):
+        if backported_count >= to_backport_count:
+            print("Done :)")
+            break
         if obj.status_done == StatusDone.NONE and \
                 not obj.non_trivial and \
                 obj.status_staged != StatusStaged.STAGED and \
@@ -295,9 +324,6 @@ def main():
                 # build_result = subprocess.run(['cd', 'dashpaydash', '&&', 'make', '-j8'], check=True)
                 print(f'(({backported_count}:{index}) / {len(backport_objects)}) {obj.commit_hash} was cherry-picked cleanly')
                 backported_count += 1
-                if backported_count >= to_backport_count:
-                    print("Done :)")
-                    break
             except git.exc.GitCommandError:
                 repo.git.reset("--hard")
                 print(f'(({backported_count}:{index}) / {len(backport_objects)}) {obj.commit_hash} NOT was cherry-picked cleanly')
