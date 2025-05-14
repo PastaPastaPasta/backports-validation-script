@@ -4,3 +4,4 @@ multiprocess~=0.70.12.2
 setuptools~=57.0.0
 gspread
 oauth2client
+github
