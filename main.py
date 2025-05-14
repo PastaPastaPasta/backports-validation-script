@@ -16,8 +16,8 @@ from datetime import date
 
 
 import argparse
+import json
 
-# Google Sheets integration
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -168,9 +168,16 @@ def main():
     parser.add_argument('--count', type=int, default=0, help='Number of PRs to backport')
     parser.add_argument('--check-only', action='store_true', help='Only run checks, do not backport any PRs')
     args = parser.parse_args()
-    # Initialize Google Sheets client
+    # Initialize Google Sheets client (from ENV or fallback to file)
     scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('.secrets/service_account.json', scope)
+    sa_json = os.environ.get('SERVICE_ACCOUNT_JSON')
+    if sa_json:
+        # Decode any escaped newlines
+        sa_json = sa_json.replace('\\n', '\n')
+        sa_info = json.loads(sa_json)
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(sa_info, scope)
+    else:
+        creds = ServiceAccountCredentials.from_json_keyfile_name('.secrets/service_account.json', scope)
     gs_client = gspread.authorize(creds)
     spreadsheet = gs_client.open_by_key(DOCUMENT_ID)
     log = []
