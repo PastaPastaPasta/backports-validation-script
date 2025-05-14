@@ -14,12 +14,12 @@ import git
 from multiprocessing import Pool
 from datetime import date
 
+
 import argparse
 import json
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from github import Github
 
 DOCUMENT_ID = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
 
@@ -296,48 +296,6 @@ def main():
             except Exception as e:
                 print(f"Failed to update sheet '{sheet_name}' for {obj.message}: {e}")
 
-    # --- Automatic backport PR creation, marking Non-trivial to prevent reprocessing ---
-    gh = Github(os.environ['GITHUB_TOKEN'])
-    upstream = gh.get_repo("PastaPastaPasta/dash")
-    fork = gh.get_user().get_repo("dash")
-    # Column indexes: A=1, B=2, C=3, D=4, E=5, F=6, G=7, H=8, I=9, J=10
-    nontrivial_col = 10
-    notes_col = 2
-    for file, _ in files:
-        sheet_name = file.replace('.csv', '')
-        ws = spreadsheet.worksheet(sheet_name)
-        rows = ws.get_all_records()
-        for idx, row in enumerate(rows, start=2):
-            if row['Status'] != 'NONE':
-                continue
-            if row['Non-trivial'] == True or row['Non-trivial'] == 'TRUE':
-                continue
-            if row['Problem']:
-                continue
-            if 'Merge #' not in row['Message']:
-                continue
-            sha = row['Commit']
-            msg = row['Message']
-            branch = f"auto-backport-{sha[:8]}-{sheet_name}"
-            try:
-                repo.git.checkout("develop")
-                repo.git.checkout("-b", branch)
-                repo.git.cherry_pick("-m1", sha)
-                repo.remotes.origin.push(refspec=f"{branch}:{branch}")
-                # Open PR on upstream
-                pr = upstream.create_pull(
-                    title=f"[{sheet_name}] Backport {sha[:8]}",
-                    body=f"Cherry-pick {sha} to {sheet_name}",
-                    head=f"{fork.owner.login}:{branch}",
-                    base="develop"
-                )
-                # Mark non-trivial so we don’t reprocess
-                ws.update_cell(idx, nontrivial_col, "TRUE")
-                print(f"Opened PR {pr.html_url} for {sha}, marked Non-trivial")
-            except Exception as e:
-                ws.update_cell(idx, notes_col, f"Auto-backport error: {e}")
-                print(f"Error creating backport for {sha}: {e}")
-
     if repo.is_dirty():
         try:
             repo.git.cherry_pick("--abort")
@@ -380,3 +338,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
