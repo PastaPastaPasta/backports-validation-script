@@ -177,9 +177,11 @@ def main():
     if not os.path.isdir("dashpaydash"):
         print("Cloning dashpay/dash repo")
         try:
-            repo = git.Repo.clone_from('https://github.com/dashpay/dash', 'dashpaydash', branch='develop')
+            repo = git.Repo.clone_from('https://github.com/DashCoreAutoGuix/dash', 'dashpaydash', branch='develop')
+            repo.create_remote('upstream', 'https://github.com/dashpay/dash')
             repo.create_remote('bitcoin', 'https://github.com/bitcoin/bitcoin')
             repo.remote('bitcoin').fetch()
+            repo.remote('upstream').fetch()
             print("Done cloning repo")
         except git.exc.GitCommandError as e:
             print(f"Error cloning repository: {e}")
@@ -209,6 +211,10 @@ def main():
         ('0.27.csv', "1591965303"),
         ('0.28.csv', "1290127568"),
     ]
+
+    # Skip 0.16 and 0.17 to auto-bp from
+    auto_files = files[2:]
+    auto_files = files[9:]
 
     download_sheet_as_csv(files)
 
@@ -298,45 +304,60 @@ def main():
 
     # --- Automatic backport PR creation, marking Non-trivial to prevent reprocessing ---
     gh = Github(os.environ['GITHUB_TOKEN'])
-    upstream = gh.get_repo("PastaPastaPasta/dash")
+    upstream = gh.get_repo("DashCoreAutoGuix/dash")
     fork = gh.get_user().get_repo("dash")
     # Column indexes: A=1, B=2, C=3, D=4, E=5, F=6, G=7, H=8, I=9, J=10
     nontrivial_col = 10
-    notes_col = 2
-    for file, _ in files:
+    notes_col = 5
+    for file, _ in auto_files:
         sheet_name = file.replace('.csv', '')
+        print(file)
         ws = spreadsheet.worksheet(sheet_name)
         rows = ws.get_all_records()
         for idx, row in enumerate(rows, start=2):
-            if row['Status'] != 'NONE':
+            if row['Status'] != '':
+                print(f"skipping status {row['Status']}")
                 continue
-            if row['Non-trivial'] == True or row['Non-trivial'] == 'TRUE':
+            if "Staged" in row['Staged']:
+                print("skipping staged")
                 continue
-            if row['Problem']:
+            if row['Non-Trivial'] == True or row['Non-Trivial'] == 'TRUE':
+                print("skipping non-triv")
                 continue
-            if 'Merge #' not in row['Message']:
+            if row['Problem'] != "FALSE":
+                print(f"skipping problem")
                 continue
-            sha = row['Commit']
+            if 'Merge' not in row['Message']:
+                print(f"skipping bad message {row['Message']}")
+                continue
+            sha = str(row['Commit Hash'])
             msg = row['Message']
             branch = f"auto-backport-{sha[:8]}-{sheet_name}"
             try:
                 repo.git.checkout("develop")
                 repo.git.checkout("-b", branch)
                 repo.git.cherry_pick("-m1", sha)
-                repo.remotes.origin.push(refspec=f"{branch}:{branch}")
                 # Open PR on upstream
-                pr = upstream.create_pull(
-                    title=f"[{sheet_name}] Backport {sha[:8]}",
-                    body=f"Cherry-pick {sha} to {sheet_name}",
-                    head=f"{fork.owner.login}:{branch}",
-                    base="develop"
-                )
+                try:
+                    repo.remotes.origin.push(refspec=f"{branch}:{branch}")
+                    pr = upstream.create_pull(
+                        title=f"[{sheet_name}] Backport {sha[:8]}",
+                        body=f"Cherry-pick {sha} to {sheet_name}",
+                        head=f"{fork.owner.login}:{branch}",
+                        base="develop"
+                    )
+                except Exception as e:
+                    print(e)
+                    raise e
                 # Mark non-trivial so we don’t reprocess
                 ws.update_cell(idx, nontrivial_col, "TRUE")
                 print(f"Opened PR {pr.html_url} for {sha}, marked Non-trivial")
             except Exception as e:
-                ws.update_cell(idx, notes_col, f"Auto-backport error: {e}")
-                print(f"Error creating backport for {sha}: {e}")
+                # ws.update_cell(idx, notes_col, f"Auto-backport error: {e}")
+                repo.git.reset("--hard")
+                repo.git.checkout("develop")
+                repo.git.branch("-D", branch)
+                print(f"Error creating backport for {sha}")
 
     if repo.is_dirty():
         try:
