@@ -18,7 +18,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         mkdir -p .secrets/
-        echo "$SERVICE_ACCOUNT_JSON" | base64 --decode > .secrets/service_account.json
+        echo "${{ secrets.SERVICE_ACCOUNT_JSON}}" | base64 --decode > .secrets/service_account.json
     - name: Run Script
       run: |
         python main.py
