@@ -18,6 +18,7 @@ import argparse
 import json
 
 import gspread
+from gspread.exceptions import APIError, WorksheetNotFound
 from oauth2client.service_account import ServiceAccountCredentials
 from github import Github
 
@@ -210,6 +211,8 @@ def main():
         ('0.26.csv', "1508745094"),
         ('0.27.csv', "1591965303"),
         ('0.28.csv', "1290127568"),
+        ('0.29.csv', "896801947"),
+        ('0.30.csv', "1032898469"),
     ]
 
     # Skip 0.16 and 0.17 to auto-bp from
@@ -223,34 +226,34 @@ def main():
     for file, _ in files:
         with open(file) as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
-            line = 0
-            for row in reader:
-                line += 1
+            header = next(reader, [])
+            header_index = {name: idx for idx, name in enumerate(header)}
+            non_trivial_idx = header_index.get("Non-Trivial")
 
-                if row[0] == "Status":
-                    continue
+            for row in reader:
+                status = row[header_index["Status"]] if "Status" in header_index and len(row) > header_index["Status"] else ""
+                staged = row[header_index["Staged"]] if "Staged" in header_index and len(row) > header_index["Staged"] else ""
+                commit_hash = row[header_index["Commit Hash"]] if "Commit Hash" in header_index and len(row) > header_index["Commit Hash"] else ""
+                message = row[header_index["Message"]] if "Message" in header_index and len(row) > header_index["Message"] else ""
 
                 # Skip fully blank lines
-                if row[0] == "" and row[1] == "" and row[2] == "" and row[3] == "":
+                if status == "" and staged == "" and commit_hash == "" and message == "":
                     continue
 
                 obj = backport_object(StatusDone.NONE, StatusStaged.NONE, "", "", "", False, csvfile.name, False)
-                if row[0] == "DNM (Did Not Merge)":
+                if status == "DNM (Did Not Merge)":
                     obj.status_done = StatusDone.DNM
-                elif row[0] == "Done (Merged to dashpay)":
+                elif status == "Done (Merged to dashpay)":
                     obj.status_done = StatusDone.DONE
 
-                if "Staged" in row[1]:
+                if "Staged" in staged:
                     obj.status_staged = StatusStaged.STAGED
 
-                obj.commit_hash = row[2]
-                obj.message = row[3]
+                obj.commit_hash = commit_hash
+                obj.message = message
 
-                try:
-                    obj.non_trivial = row[9] == 'TRUE'
-                    assert row[9] == 'TRUE' or row[9] == 'FALSE'
-                except IndexError:
-                    obj.non_trivial = True
+                non_trivial_value = row[non_trivial_idx] if non_trivial_idx is not None and len(row) > non_trivial_idx else ""
+                obj.non_trivial = non_trivial_value == 'TRUE'
                 try:
                     obj.get_number()
                     backport_objects.append(obj)
@@ -312,7 +315,11 @@ def main():
     for file, _ in auto_files:
         sheet_name = file.replace('.csv', '')
         print(file)
-        ws = spreadsheet.worksheet(sheet_name)
+        try:
+            ws = spreadsheet.worksheet(sheet_name)
+        except (APIError, WorksheetNotFound) as e:
+            print(f"Skipping sheet '{sheet_name}': {e}")
+            continue
         rows = ws.get_all_records()
         for idx, row in enumerate(rows, start=2):
             if row['Status'] != '':
