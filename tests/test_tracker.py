@@ -10,6 +10,7 @@ import main
 import sync_version_tabs as sync
 
 
+HEADER = ['Status', 'Staged', 'Commit Hash', 'Message', 'Notes', 'Problem', 'empty']
 MERGED_ROW_2 = [{'range': 'A2', 'values': [['Done (Merged to dashpay)']]},
                 {'range': 'B2', 'values': [['']]},
                 {'range': 'G2', 'values': [['']]}]
@@ -21,6 +22,7 @@ class TrackerTests(unittest.TestCase):
         repo = MagicMock()
         repo.git.log.return_value = 'abc Backport bitcoin#123: example' if merged else 'abc Other change'
         worksheet = spreadsheet.worksheet.return_value
+        worksheet.row_values.return_value = HEADER
         worksheet.col_values.return_value = ['Commit Hash', '1234567890']
         with tempfile.TemporaryDirectory() as directory:
             files = [(str(Path(directory) / (version + '.csv')), '260703346')]
@@ -46,7 +48,7 @@ class TrackerTests(unittest.TestCase):
         repo.git.cherry_pick.assert_not_called()
         repo.git.reset.assert_not_called()
         repo.remotes.origin.pull.assert_not_called()
-        repo.remotes.upstream.fetch.assert_called_once_with('develop')
+        repo.remotes.upstream.fetch.assert_called_once_with('+refs/heads/develop:refs/remotes/upstream/develop')
         repo.git.log.assert_called_once_with('upstream/develop', '--oneline')
         if merged and '--check-only' not in flags:
             spreadsheet.worksheet.assert_called_once_with(files[0][0].replace('.csv', ''))
@@ -69,8 +71,23 @@ class TrackerTests(unittest.TestCase):
             with self.subTest(hashes=hashes):
                 spreadsheet = MagicMock()
                 worksheet = spreadsheet.worksheet.return_value
+                worksheet.row_values.return_value = HEADER
                 worksheet.col_values.return_value = hashes
                 obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, '1234567890',
+                                           'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
+                with redirect_stdout(io.StringIO()):
+                    main.update_merged_rows(spreadsheet, 'v33', [obj])
+                worksheet.batch_update.assert_not_called()
+
+    def test_blank_hash_or_unexpected_layout_writes_nothing(self):
+        cases = [('', HEADER), ('1234567890', ['Status', 'Notes', 'Commit Hash'])]
+        for commit_hash, header in cases:
+            with self.subTest(commit_hash=commit_hash, header=header):
+                spreadsheet = MagicMock()
+                worksheet = spreadsheet.worksheet.return_value
+                worksheet.row_values.return_value = header
+                worksheet.col_values.return_value = ['Commit Hash', '', '1234567890']
+                obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, commit_hash,
                                            'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
                 with redirect_stdout(io.StringIO()):
                     main.update_merged_rows(spreadsheet, 'v33', [obj])
@@ -79,6 +96,7 @@ class TrackerTests(unittest.TestCase):
     def test_protected_sheet_failure_is_contained(self):
         spreadsheet = MagicMock()
         spreadsheet.worksheet.return_value.batch_update.side_effect = main.APIError(MagicMock())
+        spreadsheet.worksheet.return_value.row_values.return_value = HEADER
         spreadsheet.worksheet.return_value.col_values.return_value = ['Commit Hash', '1234567890']
         obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, '1234567890',
                                    'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)

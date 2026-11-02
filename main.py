@@ -54,7 +54,7 @@ def download_and_write_file(file_tuple):
     gid = file_tuple[1]
     print("downloading", file)
     file_link = f"https://docs.google.com/spreadsheets/d/{document_id}/export?gid={gid}&format=csv"
-    response = requests.get(file_link)
+    response = requests.get(file_link, timeout=120)
     assert response.status_code == 200, 'Wrong status code'
 
     if os.path.exists(file):
@@ -190,10 +190,17 @@ def update_merged_rows(spreadsheet, sheet_name, objs):
     """Set Status to merged and clear Staged (B) and the staged date (G); keep Notes and the rest."""
     try:
         worksheet = spreadsheet.worksheet(sheet_name)
+        # The writes below assume this column layout.
+        header = worksheet.row_values(1)
+        if header[:3] != ['Status', 'Staged', 'Commit Hash']:
+            raise ValueError(f"unexpected header {header[:3]}")
         # Locate rows by commit hash on a fresh read, since rows may have moved since the CSV export.
         hashes = worksheet.col_values(3)
         updates = []
         for obj in objs:
+            if not obj.commit_hash:
+                print(f"Skipping '{sheet_name}' row without a commit hash: {obj.message}")
+                continue
             rows = [i for i, sha in enumerate(hashes, start=1) if sha == obj.commit_hash]
             if len(rows) != 1:
                 print(f"Skipping '{sheet_name}' {obj.commit_hash}: found in {len(rows)} rows")
@@ -241,7 +248,7 @@ def main():
             repo = git.Repo('dashpaydash')
             if args.check_only or args.update_sheet_only:
                 # Read upstream history without resetting or checking out the local repo.
-                repo.remotes.upstream.fetch('develop')
+                repo.remotes.upstream.fetch('+refs/heads/develop:refs/remotes/upstream/develop')
             else:
                 repo.git.checkout("develop")
                 repo.remotes.origin.pull('develop')
@@ -331,7 +338,8 @@ def main():
     # hundreds of rows costs one read and one write per tab instead of tripping API quotas.
     merged_by_sheet = {}
     for obj, passed in zip(backport_objects, results):
-        if not passed and obj.status_done is not StatusDone.DONE and search_for_merge_number(log, obj):
+        # A failed check on a row not marked done means its merge was found in the log.
+        if not passed and obj.status_done is not StatusDone.DONE:
             merged_by_sheet.setdefault(obj.version.replace('.csv', ''), []).append(obj)
     for sheet_name, objs in merged_by_sheet.items():
         update_merged_rows(spreadsheet, sheet_name, objs)
