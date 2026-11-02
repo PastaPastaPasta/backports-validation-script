@@ -25,6 +25,28 @@ from github import Github
 DOCUMENT_ID = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
 
 
+FILES = [
+    ('0.16.csv', "1860904166"),
+    ('0.17.csv', "119635402"),
+    ('0.18.csv', "988587662"),
+    ('0.19.csv', "259176943"),
+    ('0.20.csv', "1507625552"),
+    ('0.21.csv', "331846632"),
+    ('0.22.csv', "1796444839"),
+    ('0.23.csv', "1637681185"),
+    ('0.24.csv', "1723848108"),
+    ('0.25.csv', "1543943941"),
+    ('0.26.csv', "1508745094"),
+    ('0.27.csv', "1591965303"),
+    ('0.28.csv', "1290127568"),
+    ('0.29.csv', "896801947"),
+    ('0.30.csv', "1032898469"),
+    ('v31.csv', "82764727"),
+    ('v32.csv', "1425249267"),
+    ('v33.csv', "260703346"),
+]
+
+
 def download_and_write_file(file_tuple):
     document_id = "1DnKxat0S0H62CJOzXpKGPXTa8hgoVOjGYZzoClmGSB8"
 
@@ -32,7 +54,7 @@ def download_and_write_file(file_tuple):
     gid = file_tuple[1]
     print("downloading", file)
     file_link = f"https://docs.google.com/spreadsheets/d/{document_id}/export?gid={gid}&format=csv"
-    response = requests.get(file_link)
+    response = requests.get(file_link, timeout=120)
     assert response.status_code == 200, 'Wrong status code'
 
     if os.path.exists(file):
@@ -164,10 +186,43 @@ def check_object(log, obj):
     return True
 
 
+def update_merged_rows(spreadsheet, sheet_name, objs):
+    """Set Status to merged and clear Staged (B) and the staged date (G); keep Notes and the rest."""
+    try:
+        worksheet = spreadsheet.worksheet(sheet_name)
+        # The writes below assume this column layout.
+        header = worksheet.row_values(1)
+        if header[:3] != ['Status', 'Staged', 'Commit Hash']:
+            raise ValueError(f"unexpected header {header[:3]}")
+        # Locate rows by commit hash on a fresh read, since rows may have moved since the CSV export.
+        hashes = worksheet.col_values(3)
+        updates = []
+        for obj in objs:
+            if not obj.commit_hash:
+                print(f"Skipping '{sheet_name}' row without a commit hash: {obj.message}")
+                continue
+            rows = [i for i, sha in enumerate(hashes, start=1) if sha == obj.commit_hash]
+            if len(rows) != 1:
+                print(f"Skipping '{sheet_name}' {obj.commit_hash}: found in {len(rows)} rows")
+                continue
+            row = rows[0]
+            updates += [{'range': f'A{row}', 'values': [["Done (Merged to dashpay)"]]},
+                        {'range': f'B{row}', 'values': [[""]]},
+                        {'range': f'G{row}', 'values': [[""]]}]
+            print(f"Marking '{sheet_name}' row {row} merged: {obj.message}")
+        if updates:
+            worksheet.batch_update(updates)
+            print(f"Updated {len(updates) // 3} rows in '{sheet_name}'")
+    except Exception as e:
+        print(f"Failed to update sheet '{sheet_name}': {e}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Backports validation script")
     parser.add_argument('--count', type=int, default=0, help='Number of PRs to backport')
-    parser.add_argument('--check-only', action='store_true', help='Only run checks, do not backport any PRs')
+    parser.add_argument('--check-only', action='store_true', help='Only run checks, do not update sheets or backport')
+    parser.add_argument('--update-sheet-only', action='store_true',
+                        help='Validate and update merged status, but never backport or open PRs')
     args = parser.parse_args()
     # Initialize Google Sheets client (from ENV or fallback to file)
     scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
@@ -191,29 +246,17 @@ def main():
         print("Initializing dashpay/dash repo")
         try:
             repo = git.Repo('dashpaydash')
-            repo.git.checkout("develop")
-            repo.remotes.origin.pull('develop')
+            if args.check_only or args.update_sheet_only:
+                # Read upstream history without resetting or checking out the local repo.
+                repo.remotes.upstream.fetch('+refs/heads/develop:refs/remotes/upstream/develop')
+            else:
+                repo.git.checkout("develop")
+                repo.remotes.origin.pull('develop')
         except git.exc.GitCommandError as e:
             print(f"Error initializing repository: {e}")
             sys.exit(1)
 
-    files = [
-        ('0.16.csv', "1860904166"),
-        ('0.17.csv', "119635402"),
-        ('0.18.csv', "988587662"),
-        ('0.19.csv', "259176943"),
-        ('0.20.csv', "1507625552"),
-        ('0.21.csv', "331846632"),
-        ('0.22.csv', "1796444839"),
-        ('0.23.csv', "1637681185"),
-        ('0.24.csv', "1723848108"),
-        ('0.25.csv', "1543943941"),
-        ('0.26.csv', "1508745094"),
-        ('0.27.csv', "1591965303"),
-        ('0.28.csv', "1290127568"),
-        ('0.29.csv', "896801947"),
-        ('0.30.csv', "1032898469"),
-    ]
+    files = FILES
 
     # Skip 0.16 and 0.17 to auto-bp from
     auto_files = files[2:]
@@ -261,11 +304,12 @@ def main():
                     pass
 
 
-    commit = repo.head.reference.commit
+    log_ref = 'upstream/develop' if args.check_only or args.update_sheet_only else 'HEAD'
+    commit = repo.commit(log_ref)
 
     print("Commit hash:", commit)
 
-    log_temp = repo.git.log("--oneline").split("\n")
+    log_temp = repo.git.log(log_ref, "--oneline").split("\n")
 
     # This will filter off the commit id, and everything after first semicolon
     for v in log_temp:
@@ -287,23 +331,22 @@ def main():
         print("Errors detected!")
     else:
         print("All good, no errors detected.")
-        if args.check_only:
-            print("Check-only mode enabled; skipping backporting.")
-            sys.exit(0)
-    # Batch update any rows that were incorrectly marked NOT done but actually merged
+    if args.check_only:
+        print("Check-only mode enabled; skipping sheet updates and backporting.")
+        return
+    # Mark rows that are actually merged as done, grouped per worksheet so a backfill of
+    # hundreds of rows costs one read and one write per tab instead of tripping API quotas.
+    merged_by_sheet = {}
     for obj, passed in zip(backport_objects, results):
-        if not passed and obj.status_done is not StatusDone.DONE and search_for_merge_number(log, obj):
-            sheet_name = obj.version.replace('.csv', '')
-            try:
-                worksheet = spreadsheet.worksheet(sheet_name)
-                cell = worksheet.find(obj.message)
-                row = cell.row
-                worksheet.update_cell(row, 1, "Done (Merged to dashpay)")
-                worksheet.update_cell(row, 2, "")
-                worksheet.update_cell(row, 7, "")
-                print(f"Updated sheet '{sheet_name}' row {row} for {obj.message}")
-            except Exception as e:
-                print(f"Failed to update sheet '{sheet_name}' for {obj.message}: {e}")
+        # A failed check on a row not marked done means its merge was found in the log.
+        if not passed and obj.status_done is not StatusDone.DONE:
+            merged_by_sheet.setdefault(obj.version.replace('.csv', ''), []).append(obj)
+    for sheet_name, objs in merged_by_sheet.items():
+        update_merged_rows(spreadsheet, sheet_name, objs)
+
+    if args.update_sheet_only:
+        print("Update-sheet-only mode; skipping backporting and PR creation.")
+        return
 
     # --- Automatic backport PR creation, marking Non-trivial to prevent reprocessing ---
     gh = Github(os.environ['GITHUB_TOKEN'])

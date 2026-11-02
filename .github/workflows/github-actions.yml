@@ -1,6 +1,8 @@
 name: GitHub Actions for Checking backports
 on:
   push:
+    branches: [master]
+  pull_request:
   schedule:
     # Run cron every 60 minutes
     - cron:  '0 */12 * * *'
@@ -21,9 +23,12 @@ jobs:
         pip install -r requirements.txt
         mkdir -p .secrets/
         echo "${{ secrets.SERVICE_ACCOUNT_JSON}}" | base64 --decode > .secrets/service_account.json
+    - name: Run tests
+      run: python -m unittest discover -s tests -v
     - name: Run Script
+      if: github.event_name != 'pull_request'
       run: |
-        python main.py
+        python main.py --update-sheet-only
     - name: Report Status
       if: always()
       uses: ravsamhq/notify-slack-action@master
