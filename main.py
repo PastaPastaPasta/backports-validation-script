@@ -190,29 +190,40 @@ def update_merged_rows(spreadsheet, sheet_name, objs):
     """Set Status to merged and clear Staged (B) and the staged date (G); keep Notes and the rest."""
     try:
         worksheet = spreadsheet.worksheet(sheet_name)
+        # Fresh read, since rows may have moved since the CSV export.
+        values = [row + [''] * (7 - len(row)) for row in worksheet.get_values('A:G')]
         # The writes below assume this column layout.
-        header = worksheet.row_values(1)
-        if header[:3] != ['Status', 'Staged', 'Commit Hash']:
-            raise ValueError(f"unexpected header {header[:3]}")
-        # Locate rows by commit hash on a fresh read, since rows may have moved since the CSV export.
-        hashes = worksheet.col_values(3)
-        updates = []
+        if not values or values[0][:3] != ['Status', 'Staged', 'Commit Hash']:
+            raise ValueError(f"unexpected header {values[0][:3] if values else []}")
+        updates, date_updates = [], []
+        marked = 0
         for obj in objs:
             if not obj.commit_hash:
                 print(f"Skipping '{sheet_name}' row without a commit hash: {obj.message}")
                 continue
-            rows = [i for i, sha in enumerate(hashes, start=1) if sha == obj.commit_hash]
+            rows = [i for i, row in enumerate(values, start=1) if row[2] == obj.commit_hash]
             if len(rows) != 1:
                 print(f"Skipping '{sheet_name}' {obj.commit_hash}: found in {len(rows)} rows")
                 continue
             row = rows[0]
-            updates += [{'range': f'A{row}', 'values': [["Done (Merged to dashpay)"]]},
-                        {'range': f'B{row}', 'values': [[""]]},
-                        {'range': f'G{row}', 'values': [[""]]}]
+            updates.append({'range': f'A{row}', 'values': [["Done (Merged to dashpay)"]]})
+            # Only touch B/G when set: some tabs protect them, and clearing an empty cell is a no-op.
+            if values[row - 1][1]:
+                updates.append({'range': f'B{row}', 'values': [[""]]})
+            if values[row - 1][6]:
+                date_updates.append({'range': f'G{row}', 'values': [[""]]})
+            marked += 1
             print(f"Marking '{sheet_name}' row {row} merged: {obj.message}")
         if updates:
+            # Status and Staged go together so Stats never counts a row as both merged and staged.
             worksheet.batch_update(updates)
-            print(f"Updated {len(updates) // 3} rows in '{sheet_name}'")
+            print(f"Updated {marked} rows in '{sheet_name}'")
+        if date_updates:
+            # A leftover staged date does not affect Stats, so a protected G column is not fatal.
+            try:
+                worksheet.batch_update(date_updates)
+            except APIError as e:
+                print(f"Could not clear staged dates in '{sheet_name}': {e}")
     except Exception as e:
         print(f"Failed to update sheet '{sheet_name}': {e}")
 
