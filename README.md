@@ -45,71 +45,32 @@ syllabus very clearly stated absolutely no late work would be graded, so I figur
 
 ## Merged-status updates (no backporting)
 
-Use `python3 main.py --update-sheet-only` for the hourly updater. This mode reads
-`upstream/develop`, updates only the **Status** cell of confirmed merged backports,
-and returns before any cherry-picking or GitHub PR creation. It does not clear
-Staged, Notes, or other manual annotations. `--check-only` makes no sheet changes,
-even when mismatches are found; it takes precedence if both flags are supplied.
-The GitHub Actions invocation also uses `--update-sheet-only`.
+`python3 main.py --update-sheet-only` is what the hourly job and GitHub Actions run.
+It reads `upstream/develop` (dashpay/dash) without touching the local checkout,
+marks each row whose backport is merged as **Done (Merged to dashpay)**, clears its
+Staged marker and staged date, keeps Notes and everything else, and exits before
+any cherry-picking or PR creation. Rows are written in one batch per tab. Writes to
+protected Status cells fail for that tab only; the service account needs edit access
+to column A of every tracked tab.
 
-### Versions 29–33
+`--check-only` reports mismatches and never writes; it wins if both flags are given.
 
-The actual worksheet names and upstream PR-merge ranges are:
+To add a version, add its tab name and gid to `FILES` in `main.py`.
 
-| Tab | gid | Upstream range | PR merges audited 2026-11-02 |
-| --- | --- | --- | ---: |
-| `0.29` | `896801947` | `v28.0..v29.0` | 596 |
-| `0.30` | `1032898469` | `v29.0..v30.0` | 577 |
-| `v31` | `82764727` | `v30.0..v31.0` | 620 |
-| `v32` | `1425249267` | `v31.0..v32.0` | 722 |
-| `v33` | `260703346` | `v32.0..master` (provisional) | 216 |
+### Auditing a tab's rows against upstream
 
-The first four tabs are complete. There is no upstream `v33.0` tag at the audit
-snapshot. The provisional v33 endpoint is
-`e310efb202bd1283bcdd25d5748078df1219c8ac`, not an invented release tag.
-The existing v33 tab contains 214 PR merges, through `cd74d9650e`; two are missing:
-
-- `d54844eaeb`: Merge bitcoin/bitcoin#36091: test: Add debug output to common tested types
-- `e310efb202`: Merge bitcoin/bitcoin#36618: test: Wait for index sync in all tests
-
-An append attempt was rejected by Google Sheets protection (HTTP 400), so these
-rows are **not live**. A sheet owner must allow the service account to append or
-apply the missing rows themselves. No protections were removed and no existing
-data was rewritten. The audit follows the existing convention of PR merge
-commits, including GUI merges; subtree-only merges are not separate tracker rows.
-
-To audit or append using the existing credential flow, first fetch current tags
-and `master` into a **separate Bitcoin repository** (do not reset the live Dash
-checkout), then run:
+`sync_version_tabs.py` compares the tabs in `VERSION_RANGES` with the upstream PR
+merges in each release range (`v32.0..master` until `v33.0` is tagged). It is
+audit-only unless `--apply` is given, which appends missing rows with blank status
+and never edits or deletes existing ones. Point it at a separate, current Bitcoin
+Core clone:
 
 ```sh
-python3 sync_version_tabs.py --bitcoin-repo /path/to/bitcoin
-# Only when the audit is correct and sheet write permission is available:
-python3 sync_version_tabs.py --bitcoin-repo /path/to/bitcoin --apply
+python3 sync_version_tabs.py --bitcoin-repo /path/to/bitcoin [--apply]
 ```
-
-Both scripts default to `.secrets/service_account.json`; the audit tool accepts
-`--credentials /path/to/existing/key` when run from an isolated checkout. Do not
-commit credentials. The tool does not fetch Git refs itself, so its input repo
-must be current. It pins both endpoints for each audit and uses `v33.0` once that
-tag exists; until then, v33 is explicitly provisional and requires re-auditing as
-master advances. It checks all five existing tabs before writing, rejects duplicate
-or out-of-range commit hashes, and only appends missing rows with blank status and
-annotations. It never clears, renames, or recreates tabs. Its default is audit-only;
-it is independent of the hourly merged-status updater.
-
-### Deployment status
-
-The live local checkout and its untracked `run-validation.sh` are not changed by
-this PR. That checkout still tracks only versions through `0.28`. After review,
-an owner must approve rollout and carefully integrate the tracked changes with
-the live checkout's pre-existing modifications, retaining the wrapper's
-`--update-sheet-only` invocation. Merging this PR does not by itself deploy that
-local hourly job. Do not replace or reset its files.
 
 ### Tests
 
 ```sh
 python3 -m unittest discover -s tests -v
-python3 -m py_compile main.py sync_version_tabs.py tests/test_tracker.py
 ```

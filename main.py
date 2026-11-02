@@ -2,7 +2,6 @@
 
 import csv
 import os
-import re
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -187,6 +186,30 @@ def check_object(log, obj):
     return True
 
 
+def update_merged_rows(spreadsheet, sheet_name, objs):
+    """Set Status to merged and clear Staged (B) and the staged date (G); keep Notes and the rest."""
+    try:
+        worksheet = spreadsheet.worksheet(sheet_name)
+        # Locate rows by commit hash on a fresh read, since rows may have moved since the CSV export.
+        hashes = worksheet.col_values(3)
+        updates = []
+        for obj in objs:
+            rows = [i for i, sha in enumerate(hashes, start=1) if sha == obj.commit_hash]
+            if len(rows) != 1:
+                print(f"Skipping '{sheet_name}' {obj.commit_hash}: found in {len(rows)} rows")
+                continue
+            row = rows[0]
+            updates += [{'range': f'A{row}', 'values': [["Done (Merged to dashpay)"]]},
+                        {'range': f'B{row}', 'values': [[""]]},
+                        {'range': f'G{row}', 'values': [[""]]}]
+            print(f"Marking '{sheet_name}' row {row} merged: {obj.message}")
+        if updates:
+            worksheet.batch_update(updates)
+            print(f"Updated {len(updates) // 3} rows in '{sheet_name}'")
+    except Exception as e:
+        print(f"Failed to update sheet '{sheet_name}': {e}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Backports validation script")
     parser.add_argument('--count', type=int, default=0, help='Number of PRs to backport')
@@ -304,19 +327,14 @@ def main():
     if args.check_only:
         print("Check-only mode enabled; skipping sheet updates and backporting.")
         return
-    # Batch update any rows that were incorrectly marked NOT done but actually merged
+    # Mark rows that are actually merged as done, grouped per worksheet so a backfill of
+    # hundreds of rows costs one read and one write per tab instead of tripping API quotas.
+    merged_by_sheet = {}
     for obj, passed in zip(backport_objects, results):
         if not passed and obj.status_done is not StatusDone.DONE and search_for_merge_number(log, obj):
-            sheet_name = obj.version.replace('.csv', '')
-            try:
-                worksheet = spreadsheet.worksheet(sheet_name)
-                cell = worksheet.find(re.compile('^' + re.escape(obj.commit_hash) + '$'), in_column=3)
-                row = cell.row
-                # Only the merged status is ours to change; retain all manual annotations.
-                worksheet.update_cell(row, 1, "Done (Merged to dashpay)")
-                print(f"Updated sheet '{sheet_name}' row {row} for {obj.message}")
-            except Exception as e:
-                print(f"Failed to update sheet '{sheet_name}' for {obj.message}: {e}")
+            merged_by_sheet.setdefault(obj.version.replace('.csv', ''), []).append(obj)
+    for sheet_name, objs in merged_by_sheet.items():
+        update_merged_rows(spreadsheet, sheet_name, objs)
 
     if args.update_sheet_only:
         print("Update-sheet-only mode; skipping backporting and PR creation.")

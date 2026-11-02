@@ -10,13 +10,18 @@ import main
 import sync_version_tabs as sync
 
 
+MERGED_ROW_2 = [{'range': 'A2', 'values': [['Done (Merged to dashpay)']]},
+                {'range': 'B2', 'values': [['']]},
+                {'range': 'G2', 'values': [['']]}]
+
+
 class TrackerTests(unittest.TestCase):
     def run_mode(self, flags, merged=True, version='v33'):
         spreadsheet = MagicMock()
         repo = MagicMock()
         repo.git.log.return_value = 'abc Backport bitcoin#123: example' if merged else 'abc Other change'
         worksheet = spreadsheet.worksheet.return_value
-        worksheet.find.return_value.row = 2
+        worksheet.col_values.return_value = ['Commit Hash', '1234567890']
         with tempfile.TemporaryDirectory() as directory:
             files = [(str(Path(directory) / (version + '.csv')), '260703346')]
             with open(files[0][0], 'w') as f:
@@ -54,29 +59,51 @@ class TrackerTests(unittest.TestCase):
         })
         self.assertEqual(len(main.FILES), 18)
 
-    def test_sheet_only_updates_just_status(self):
+    def test_sheet_only_marks_merged_and_clears_staging(self):
         worksheet = self.run_mode(['--update-sheet-only'])
-        worksheet.update_cell.assert_called_once_with(2, 1, 'Done (Merged to dashpay)')
-        self.assertEqual(worksheet.find.call_args.kwargs, {'in_column': 3})
-        self.assertIsNotNone(worksheet.find.call_args.args[0].fullmatch('1234567890'))
+        worksheet.col_values.assert_called_once_with(3)
+        worksheet.batch_update.assert_called_once_with(MERGED_ROW_2)
+
+    def test_ambiguous_or_missing_hash_is_skipped(self):
+        for hashes in [['Commit Hash'], ['Commit Hash', '1234567890', '1234567890']]:
+            with self.subTest(hashes=hashes):
+                spreadsheet = MagicMock()
+                worksheet = spreadsheet.worksheet.return_value
+                worksheet.col_values.return_value = hashes
+                obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, '1234567890',
+                                           'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
+                with redirect_stdout(io.StringIO()):
+                    main.update_merged_rows(spreadsheet, 'v33', [obj])
+                worksheet.batch_update.assert_not_called()
+
+    def test_protected_sheet_failure_is_contained(self):
+        spreadsheet = MagicMock()
+        spreadsheet.worksheet.return_value.batch_update.side_effect = main.APIError(MagicMock())
+        spreadsheet.worksheet.return_value.col_values.return_value = ['Commit Hash', '1234567890']
+        obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, '1234567890',
+                                   'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
+        out = io.StringIO()
+        with redirect_stdout(out):
+            main.update_merged_rows(spreadsheet, 'v33', [obj])
+        self.assertIn("Failed to update sheet 'v33'", out.getvalue())
 
     def test_all_requested_versions_participate_in_status_updates(self):
         for version in sync.VERSION_RANGES:
             with self.subTest(version=version):
                 worksheet = self.run_mode(['--update-sheet-only'], version=version)
-                worksheet.update_cell.assert_called_once_with(2, 1, 'Done (Merged to dashpay)')
+                worksheet.batch_update.assert_called_once_with(MERGED_ROW_2)
 
     def test_check_only_does_not_write_even_on_mismatch(self):
         worksheet = self.run_mode(['--check-only'])
-        worksheet.update_cell.assert_not_called()
+        worksheet.batch_update.assert_not_called()
 
     def test_check_only_takes_precedence(self):
         worksheet = self.run_mode(['--check-only', '--update-sheet-only'])
-        worksheet.update_cell.assert_not_called()
+        worksheet.batch_update.assert_not_called()
 
     def test_sheet_only_no_mismatch(self):
         worksheet = self.run_mode(['--update-sheet-only'], merged=False)
-        worksheet.update_cell.assert_not_called()
+        worksheet.batch_update.assert_not_called()
 
 
 class PopulationTests(unittest.TestCase):
