@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, call, patch
 
 import main
 import sync_version_tabs as sync
@@ -14,6 +14,23 @@ HEADER = ['Status', 'Staged', 'Commit Hash', 'Message', 'Notes', 'Problem', 'emp
 MERGED_ROW_2 = [{'range': 'A2', 'values': [['Done (Merged to dashpay)']]},
                 {'range': 'B2', 'values': [['']]},
                 {'range': 'G2', 'values': [['']]}]
+STAGED_ROW = ['', 'K_Staged', '1234567890', 'Merge bitcoin/bitcoin#123: example', 'keep me', 'FALSE', '10/24/2025']
+
+
+def example(commit_hash='1234567890'):
+    return main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, commit_hash,
+                                'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
+
+
+def run_update(rows, objs, error=None):
+    spreadsheet = MagicMock()
+    worksheet = spreadsheet.worksheet.return_value
+    worksheet.get_values.return_value = rows
+    worksheet.batch_update.side_effect = error
+    out = io.StringIO()
+    with redirect_stdout(out):
+        main.update_merged_rows(spreadsheet, 'v33', objs)
+    return worksheet, out.getvalue()
 
 
 class TrackerTests(unittest.TestCase):
@@ -22,8 +39,7 @@ class TrackerTests(unittest.TestCase):
         repo = MagicMock()
         repo.git.log.return_value = 'abc Backport bitcoin#123: example' if merged else 'abc Other change'
         worksheet = spreadsheet.worksheet.return_value
-        worksheet.row_values.return_value = HEADER
-        worksheet.col_values.return_value = ['Commit Hash', '1234567890']
+        worksheet.get_values.return_value = [HEADER, STAGED_ROW]
         with tempfile.TemporaryDirectory() as directory:
             files = [(str(Path(directory) / (version + '.csv')), '260703346')]
             with open(files[0][0], 'w') as f:
@@ -63,53 +79,48 @@ class TrackerTests(unittest.TestCase):
 
     def test_sheet_only_marks_merged_and_clears_staging(self):
         worksheet = self.run_mode(['--update-sheet-only'])
-        worksheet.col_values.assert_called_once_with(3)
-        worksheet.batch_update.assert_called_once_with(MERGED_ROW_2)
+        worksheet.get_values.assert_called_once_with('A:G')
+        self.assertEqual(worksheet.batch_update.call_args_list,
+                         [call(MERGED_ROW_2[:2]), call(MERGED_ROW_2[2:])])
+
+    def test_empty_staging_cells_are_not_written(self):
+        # Some tabs protect B/G; untouched empty cells keep the batch writable.
+        worksheet, _ = run_update([HEADER, ['', '', '1234567890', 'm']], [example()])
+        worksheet.batch_update.assert_called_once_with(MERGED_ROW_2[:1])
+
+    def test_protected_date_column_still_marks_status(self):
+        def protected_g(data):
+            if data[0]['range'].startswith('G'):
+                raise main.APIError(MagicMock())
+        worksheet, out = run_update([HEADER, STAGED_ROW], [example()], error=protected_g)
+        worksheet.batch_update.assert_any_call(MERGED_ROW_2[:2])
+        self.assertIn("Could not clear staged dates in 'v33'", out)
+        self.assertNotIn('Failed to update sheet', out)
 
     def test_ambiguous_or_missing_hash_is_skipped(self):
-        for hashes in [['Commit Hash'], ['Commit Hash', '1234567890', '1234567890']]:
-            with self.subTest(hashes=hashes):
-                spreadsheet = MagicMock()
-                worksheet = spreadsheet.worksheet.return_value
-                worksheet.row_values.return_value = HEADER
-                worksheet.col_values.return_value = hashes
-                obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, '1234567890',
-                                           'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
-                with redirect_stdout(io.StringIO()):
-                    main.update_merged_rows(spreadsheet, 'v33', [obj])
+        for rows in [[HEADER], [HEADER, STAGED_ROW, STAGED_ROW]]:
+            with self.subTest(rows=rows):
+                worksheet, _ = run_update(rows, [example()])
                 worksheet.batch_update.assert_not_called()
 
     def test_blank_hash_or_unexpected_layout_writes_nothing(self):
-        cases = [('', HEADER), ('1234567890', ['Status', 'Notes', 'Commit Hash'])]
-        for commit_hash, header in cases:
-            with self.subTest(commit_hash=commit_hash, header=header):
-                spreadsheet = MagicMock()
-                worksheet = spreadsheet.worksheet.return_value
-                worksheet.row_values.return_value = header
-                worksheet.col_values.return_value = ['Commit Hash', '', '1234567890']
-                obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, commit_hash,
-                                           'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
-                with redirect_stdout(io.StringIO()):
-                    main.update_merged_rows(spreadsheet, 'v33', [obj])
+        cases = [('', [HEADER, ['', '', ''], STAGED_ROW]),
+                 ('1234567890', [['Status', 'Notes', 'Commit Hash'], STAGED_ROW]),
+                 ('1234567890', [])]
+        for commit_hash, rows in cases:
+            with self.subTest(commit_hash=commit_hash, rows=rows):
+                worksheet, _ = run_update(rows, [example(commit_hash)])
                 worksheet.batch_update.assert_not_called()
 
     def test_protected_sheet_failure_is_contained(self):
-        spreadsheet = MagicMock()
-        spreadsheet.worksheet.return_value.batch_update.side_effect = main.APIError(MagicMock())
-        spreadsheet.worksheet.return_value.row_values.return_value = HEADER
-        spreadsheet.worksheet.return_value.col_values.return_value = ['Commit Hash', '1234567890']
-        obj = main.backport_object(main.StatusDone.NONE, main.StatusStaged.NONE, '1234567890',
-                                   'Merge bitcoin/bitcoin#123: example', '', False, 'v33.csv', False)
-        out = io.StringIO()
-        with redirect_stdout(out):
-            main.update_merged_rows(spreadsheet, 'v33', [obj])
-        self.assertIn("Failed to update sheet 'v33'", out.getvalue())
+        _, out = run_update([HEADER, STAGED_ROW], [example()], error=main.APIError(MagicMock()))
+        self.assertIn("Failed to update sheet 'v33'", out)
 
     def test_all_requested_versions_participate_in_status_updates(self):
         for version in sync.VERSION_RANGES:
             with self.subTest(version=version):
                 worksheet = self.run_mode(['--update-sheet-only'], version=version)
-                worksheet.batch_update.assert_called_once_with(MERGED_ROW_2)
+                worksheet.batch_update.assert_any_call(MERGED_ROW_2[:2])
 
     def test_check_only_does_not_write_even_on_mismatch(self):
         worksheet = self.run_mode(['--check-only'])
